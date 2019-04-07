@@ -1,20 +1,24 @@
 package pl.zdrov.controllers;
 
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import pl.zdrov.utilies.FxmlUtilies;
 
 public class MainController {
+
     @FXML
-    public AnchorPane anchorPane;
+    public FooterController downController;
+
+    @FXML
+    private BorderPane borderPane;
 
     @FXML
     public void initialize()
     {
-
+        downController.setLabel();
     }
 
     @FXML
@@ -22,19 +26,15 @@ public class MainController {
     {
         setCenter("/fxml/ShowDoctors.fxml");
     }
-    @FXML
 
-    public void itemAddDoctor() {
-        Stage stage = new Stage();
-        stage.setScene(new Scene(FxmlUtilies.setFxml("/fxml/AddDoctor.fxml")));
-        stage.setResizable(false);
-        stage.setAlwaysOnTop(true);
-        stage.setTitle("Wprowadz dane dla nowego lekarza");
-        stage.showAndWait();
+    @FXML
+    public void itemAddDoctor()
+    {
+        setCenter("/fxml/AddDoctor.fxml");
     }
 
     public void setCenter(String fxmlPath)
     {
-        anchorPane.getChildren().addAll(FxmlUtilies.setFxml(fxmlPath));
+        borderPane.setCenter(FxmlUtilies.setFxml(fxmlPath));
     }
 }

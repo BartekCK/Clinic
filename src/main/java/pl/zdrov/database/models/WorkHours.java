@@ -19,4 +19,6 @@ public class WorkHours {
 
     @DatabaseField(columnName = "TIME")
     private String time;
+
+
 }
