@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="761.0" prefWidth="1051.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="761.0" prefWidth="1051.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.zdrov.controllers.MainController">
    <children>
       <MenuBar>
         <menus>
@@ -39,7 +38,7 @@
             </Menu>
         </menus>
       </MenuBar>
-      <AnchorPane prefHeight="640.0" prefWidth="1000.0" VBox.vgrow="ALWAYS" />
+      <AnchorPane fx:id="anchorPane" prefHeight="640.0" prefWidth="1000.0" VBox.vgrow="ALWAYS" />
       <HBox prefHeight="100.0" prefWidth="1051.0" VBox.vgrow="ALWAYS" />
    </children>
 </VBox>
