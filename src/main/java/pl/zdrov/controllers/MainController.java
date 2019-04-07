@@ -1,8 +1,6 @@
 package pl.zdrov.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import pl.zdrov.utilies.FxmlUtilies;
 
@@ -24,7 +22,6 @@ public class MainController {
     
     public void setCenter(String fxmlPath)
     {
-        Parent parent = null;
         anchorPane.getChildren().addAll(FxmlUtilies.setFxml(fxmlPath));
     }
 
