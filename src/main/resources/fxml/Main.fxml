@@ -4,13 +4,13 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="761.0" prefWidth="1051.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.zdrov.controllers.MainController">
-   <children>
-      <MenuBar>
+<BorderPane fx:id="borderPane" prefHeight="719.0" prefWidth="1017.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.zdrov.controllers.MainController">
+   <top>
+      <MenuBar prefWidth="1017.0" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Lekarz">
                <items>
@@ -38,7 +38,16 @@
             </Menu>
         </menus>
       </MenuBar>
-      <AnchorPane fx:id="anchorPane" prefHeight="640.0" prefWidth="1000.0" VBox.vgrow="ALWAYS" />
-      <HBox prefHeight="100.0" prefWidth="1051.0" VBox.vgrow="ALWAYS" />
-   </children>
-</VBox>
+   </top>
+   <bottom>
+      <VBox>
+         <children>
+            <HBox alignment="TOP_RIGHT">
+               <children>
+                  <fx:include fx:id="down" source="Footer.fxml" VBox.vgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>

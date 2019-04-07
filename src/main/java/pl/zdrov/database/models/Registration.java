@@ -3,11 +3,12 @@ package pl.zdrov.database.models;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import pl.zdrov.database.models.exception.BaseModel;
 
 import java.util.Date;
 
 @DatabaseTable(tableName = "REGISTRATION")
-public class Registration {
+public class Registration implements BaseModel {
 
     @DatabaseField(generatedId = true)
     private int id;
