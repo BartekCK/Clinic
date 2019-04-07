@@ -15,7 +15,7 @@
           <Menu mnemonicParsing="false" text="Lekarz">
                <items>
                   <MenuItem mnemonicParsing="false" text="Dodaj lekarza" />
-                  <MenuItem mnemonicParsing="false" text="Wyswietl lekarzy" />
+                  <MenuItem mnemonicParsing="false" onAction="#itemShowDoctors" text="Wyswietl lekarzy" />
                </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Pacjent">

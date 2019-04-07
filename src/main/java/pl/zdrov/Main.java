@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import pl.zdrov.utilies.FxmlUtilies;
+
 import java.io.IOException;
 
 public class Main extends Application {
@@ -15,13 +17,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
-            primaryStage.setScene(new Scene(root));
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        primaryStage.setScene(new Scene(FxmlUtilies.setFxml("/fxml/Main.fxml")));
+        primaryStage.show();
+
     }
 }
