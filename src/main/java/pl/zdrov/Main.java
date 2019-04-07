@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import pl.zdrov.database.DbConnector;
 import pl.zdrov.utilies.FxmlUtilies;
 
 import java.io.IOException;
@@ -20,6 +21,7 @@ public class Main extends Application {
 
         primaryStage.setScene(new Scene(FxmlUtilies.setFxml("/fxml/Main.fxml")));
         primaryStage.show();
+        DbConnector.initDatabase();
 
     }
 }
