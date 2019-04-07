@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="400.0" maxWidth="650.0" minHeight="400.0" minWidth="650.0" prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.zdrov.controllers.AddDoctorController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Imie">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="nameTextField" />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets right="25.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Nazwisko">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="surnameTextField" />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets right="25.0" />
+               </padding>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Pesel">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="peselTextField" />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets right="25.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="PWZ">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="pwzTextField" />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets right="25.0" />
+               </padding>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Mail">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="mailTextField" />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets right="25.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Numer telefonu">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="phoneTextField" />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets right="25.0" />
+               </padding>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Specializacja">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="specializationTextField" />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets right="25.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#commitDoctor" text="Zapisz" />
+               </children>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

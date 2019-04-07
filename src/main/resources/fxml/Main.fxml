@@ -14,7 +14,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="Lekarz">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Dodaj lekarza" />
+                  <MenuItem mnemonicParsing="false" onAction="#itemAddDoctor" text="Dodaj lekarza" />
                   <MenuItem mnemonicParsing="false" onAction="#itemShowDoctors" text="Wyswietl lekarzy" />
                </items>
           </Menu>
