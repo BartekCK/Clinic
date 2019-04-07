@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="761.0" prefWidth="1051.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Lekarz">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Dodaj lekarza" />
+                  <MenuItem mnemonicParsing="false" text="Wyswietl lekarzy" />
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Pacjent">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Dodaj pacjenta" />
+                  <MenuItem mnemonicParsing="false" text="Wyswietl pacjentow" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Rejestracja">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Sprawdz terminy" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Pomoc">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Informacje o projekcie" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Zamknij" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane prefHeight="640.0" prefWidth="1000.0" VBox.vgrow="ALWAYS" />
+      <HBox prefHeight="100.0" prefWidth="1051.0" VBox.vgrow="ALWAYS" />
+   </children>
+</VBox>
