@@ -1,4 +1,7 @@
 package pl.zdrov.database.dao;
 
-public class DoctorDao {
+public class DoctorDao extends MainDao{
+    public DoctorDao() {
+        super();
+    }
 }
