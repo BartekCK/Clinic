@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="761.0" prefWidth="1051.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.zdrov.controllers.MainController">
@@ -55,7 +56,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-              <AnchorPane fx:id="anchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="719.0" prefWidth="718.0" HBox.hgrow="NEVER" />
+            <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
             <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="SOMETIMES">
                <children>
                   <ImageView fitHeight="232.0" fitWidth="219.0" layoutY="244.0" nodeOrientation="INHERIT" opacity="0.52" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0777740478515625">
