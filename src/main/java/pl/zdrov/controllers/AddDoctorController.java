@@ -6,12 +6,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import pl.zdrov.Main;
+import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Specialization;
+import pl.zdrov.database.modelsFX.DoctorModel;
 import pl.zdrov.database.modelsFX.SpecializationFx;
 
 public class AddDoctorController {
 
-    MainController mainController;
+    private MainController mainController;
+
+    private Doctor doctor;
+    private DoctorModel doctorModel;
 
     @FXML
     private Button saveButton;
@@ -41,12 +46,15 @@ public class AddDoctorController {
     private void initialize()
     {
         hoverButtonToCommit();
+        doctorModel = new DoctorModel();
         setMainController(MainController.getMainController());
         specializationComboBox.setItems(SpecializationFx.returnAllSpecialization());
     }
 
     @FXML
     private void commitDoctor() {
+        doctor = new Doctor(nameTextField.getText(),surnameTextField.getText(),peselTextField.getText(),mailTextField.getText(),phoneTextField.getText(),Integer.parseInt(pwzTextField.getText()),"Proba");
+        doctorModel.saveDoctorInDataBase(doctor);
         mainController.setCenter("/fxml/AddWorkHours.fxml");
     }
 
