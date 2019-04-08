@@ -21,6 +21,4 @@ public class Registration implements BaseModel {
 
     @DatabaseField(columnName = "VISIT_DATE",dataType = DataType.DATE_STRING,format = "dd-mm-yyy-HH-MM")
     private Date addedDate;
-
-
 }

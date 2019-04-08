@@ -38,6 +38,4 @@ public class Doctor implements BaseModel {
 
     @ForeignCollectionField
     private ForeignCollection<Registration> registrations;
-
-
 }

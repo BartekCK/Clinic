@@ -5,10 +5,8 @@ import com.j256.ormlite.logger.Logger;
 import com.j256.ormlite.logger.LoggerFactory;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import pl.zdrov.database.models.Doctor;
-import pl.zdrov.database.models.Patient;
-import pl.zdrov.database.models.Registration;
-import pl.zdrov.database.models.WorkHours;
+import pl.zdrov.database.models.*;
+import pl.zdrov.database.modelsFX.SpecializationFx;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -26,6 +24,7 @@ public class DbConnector {
         createConnectionSource();
         dropTable();
         createTable();
+        loadData();
         closeConnectionSource();
     }
 
@@ -58,19 +57,26 @@ public class DbConnector {
             TableUtils.createTableIfNotExists(connectionSource, Patient.class);
             TableUtils.createTableIfNotExists(connectionSource, WorkHours.class);
             TableUtils.createTableIfNotExists(connectionSource, Registration.class);
+            TableUtils.createTableIfNotExists(connectionSource, Specialization.class);
         } catch (SQLException e) {
             LOGGER.warn(e.getMessage());
         }
     }
 
-    private  static  void  dropTable(){
+    private static void dropTable(){
         try {
             TableUtils.dropTable(connectionSource, Doctor.class,true);
             TableUtils.dropTable(connectionSource, Patient.class,true);
             TableUtils.dropTable(connectionSource, WorkHours.class,true);
             TableUtils.dropTable(connectionSource, Registration.class,true);
+            TableUtils.dropTable(connectionSource, Specialization.class,true);
         } catch (SQLException e) {
             LOGGER.warn(e.getMessage());
         }
+    }
+
+    public static void loadData()
+    {
+        SpecializationFx.setSpecialization();
     }
 }

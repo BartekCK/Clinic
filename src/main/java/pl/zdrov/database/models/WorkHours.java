@@ -20,6 +20,4 @@ public class WorkHours implements BaseModel {
 
     @DatabaseField(columnName = "TIME")
     private String time;
-
-
 }
