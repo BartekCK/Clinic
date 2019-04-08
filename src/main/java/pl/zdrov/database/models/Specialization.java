@@ -19,4 +19,9 @@ public class Specialization implements BaseModel {
     public Specialization(String title) {
         this.title = title;
     }
+
+    @Override
+    public String toString() {
+        return id+") "+title;
+    }
 }
