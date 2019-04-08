@@ -3,8 +3,9 @@ package pl.zdrov.controllers;
 
 import javafx.fxml.FXML;
 
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
+
 import pl.zdrov.utilies.FxmlUtilies;
 
 public class MainController {
@@ -13,7 +14,7 @@ public class MainController {
     public FooterController downController;
 
     @FXML
-    private BorderPane borderPane;
+    private AnchorPane anchorPane;
 
     @FXML
     public void initialize()
@@ -35,6 +36,7 @@ public class MainController {
 
     public void setCenter(String fxmlPath)
     {
-        borderPane.setCenter(FxmlUtilies.setFxml(fxmlPath));
+        anchorPane.getChildren().clear();
+        anchorPane.getChildren().add(FxmlUtilies.setFxml(fxmlPath));
     }
 }
