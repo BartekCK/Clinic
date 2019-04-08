@@ -15,6 +15,8 @@ public class Specialization implements BaseModel {
     @DatabaseField(columnName = "TITLE", canBeNull = false)
     protected String title;
 
+    @ForeignCollectionField(eager = true)
+    private ForeignCollection<Doctor> doctors;
 
     public Specialization() {
     }

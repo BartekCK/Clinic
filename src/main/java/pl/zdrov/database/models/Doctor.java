@@ -30,8 +30,8 @@ public class Doctor implements BaseModel {
     @DatabaseField(columnName = "PWZ",canBeNull = false, width = 7,unique = true)
     private int pwz;
 
-    @DatabaseField(columnName = "SPECIALIZATION")
-    private String specialization;
+    @DatabaseField(columnName = "SPECIALIZATION", foreign = true, foreignAutoRefresh = true, foreignAutoCreate = true, canBeNull = false)
+    private Specialization specialization;
 
     @ForeignCollectionField(eager = true)
     private ForeignCollection<WorkHours> workHours;
@@ -42,7 +42,7 @@ public class Doctor implements BaseModel {
     public Doctor() {
     }
 
-    public Doctor(String name, String surName, String pesel, String mail, String phone, int pwz, String specialization) {
+    public Doctor(String name, String surName, String pesel, String mail, String phone, int pwz, Specialization specialization) {
         this.name = name;
         this.surName = surName;
         this.pesel = pesel;

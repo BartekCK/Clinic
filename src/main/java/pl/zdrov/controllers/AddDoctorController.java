@@ -53,7 +53,8 @@ public class AddDoctorController {
 
     @FXML
     private void commitDoctor() {
-        doctor = new Doctor(nameTextField.getText(),surnameTextField.getText(),peselTextField.getText(),mailTextField.getText(),phoneTextField.getText(),Integer.parseInt(pwzTextField.getText()),"Proba");
+        doctor = new Doctor(nameTextField.getText(),surnameTextField.getText(),peselTextField.getText(),mailTextField.getText(),phoneTextField.getText(),
+                Integer.parseInt(pwzTextField.getText()),specializationComboBox.getValue());
         doctorModel.saveDoctorInDataBase(doctor);
         mainController.setCenter("/fxml/AddWorkHours.fxml");
     }
