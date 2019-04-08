@@ -40,7 +40,7 @@ public class AddDoctorController {
     @FXML
     private void initialize()
     {
-        saveButton.disableProperty().bind(nameTextField.textProperty().isEmpty());
+        hoverButtonToCommit();
         setMainController(MainController.getMainController());
         specializationComboBox.setItems(SpecializationFx.returnAllSpecialization());
     }
@@ -48,6 +48,11 @@ public class AddDoctorController {
     @FXML
     private void commitDoctor() {
         mainController.setCenter("/fxml/AddWorkHours.fxml");
+    }
+
+    private void hoverButtonToCommit() {
+        saveButton.disableProperty().bind(nameTextField.textProperty().isEmpty().or(surnameTextField.textProperty().isEmpty()).or(peselTextField.textProperty().isEmpty())
+                .or(pwzTextField.textProperty().isEmpty()).or(mailTextField.textProperty().isEmpty()).or(phoneTextField.textProperty().isEmpty()));
     }
 
     public void setMainController(MainController mainController) {

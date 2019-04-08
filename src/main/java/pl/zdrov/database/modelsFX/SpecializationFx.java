@@ -7,7 +7,6 @@ import pl.zdrov.database.dao.SpecializationDao;
 import pl.zdrov.database.models.Specialization;
 import pl.zdrov.utilies.exceptions.ApplicationException;
 
-import java.util.List;
 
 public class SpecializationFx {
     private static Specialization specialization;
@@ -16,7 +15,6 @@ public class SpecializationFx {
     };
 
     public static void setSpecialization() {
-
         try {
             SpecializationDao specializationDao = new SpecializationDao();
             for (String s : spec) {

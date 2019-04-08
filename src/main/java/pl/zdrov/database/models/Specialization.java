@@ -1,6 +1,8 @@
 package pl.zdrov.database.models;
 
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 import pl.zdrov.database.models.exception.BaseModel;
 
@@ -12,6 +14,9 @@ public class Specialization implements BaseModel {
 
     @DatabaseField(columnName = "TITLE", canBeNull = false)
     protected String title;
+
+    @ForeignCollectionField(eager = true)
+    private ForeignCollection<Doctor> doctors;
 
     public Specialization() {
     }
