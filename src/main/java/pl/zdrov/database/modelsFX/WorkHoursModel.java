@@ -11,6 +11,8 @@ public class WorkHoursModel {
 
     private ObservableList<WorkHoursFx> workHoursFxList = FXCollections.observableArrayList();
 
+    private WorkHoursFx workHoursFx;
+
     public WorkHoursModel() {
 
     }
@@ -28,5 +30,14 @@ public class WorkHoursModel {
 
     public void addTimeList(WorkHoursFx workHoursFx) {
         workHoursFxList.add(workHoursFx);
+    }
+
+    public void setWorkHours(WorkHoursFx workHoursFx) {
+        this.workHoursFx = workHoursFx;
+    }
+
+    public void deleteItemTimeList()
+    {
+        workHoursFxList.remove(workHoursFx);
     }
 }
