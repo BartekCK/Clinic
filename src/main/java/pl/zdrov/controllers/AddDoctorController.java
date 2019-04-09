@@ -18,6 +18,7 @@ public class AddDoctorController {
     private MainController mainController;
 
     private Doctor doctor;
+
     private DoctorModel doctorModel;
 
     @FXML
@@ -58,16 +59,13 @@ public class AddDoctorController {
         try {
             doctor = new Doctor(nameTextField.getText(),surnameTextField.getText(),peselTextField.getText(),mailTextField.getText(),phoneTextField.getText(),
                     pwzTextField.getText(),specializationComboBox.getValue());
-            CorrectDataCommit.checkDoctor(doctor);
+            //CorrectDataCommit.checkDoctor(doctor);
             doctorModel.saveDoctorInDataBase(doctor);
             mainController.setCenter("/fxml/AddWorkHours.fxml");
         }catch (Exception e)
         {
             DialogCatch.errorCommitDoctor(e.getMessage());
         }
-
-
-
     }
 
     private void hoverButtonToCommit() {
