@@ -19,18 +19,18 @@
                 <Menu mnemonicParsing="false" text="Lekarz">
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#itemAddDoctor" text="Dodaj lekarza" />
-                        <MenuItem mnemonicParsing="false" onAction="#itemShowDoctors" text="Wyswietl lekarzy" />
+                        <MenuItem mnemonicParsing="false" onAction="#itemShowDoctors" text="Wyświetl lekarzy" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Pacjent">
                     <items>
                         <MenuItem mnemonicParsing="false" text="Dodaj pacjenta" />
-                        <MenuItem mnemonicParsing="false" text="Wyswietl pacjentow" />
+                        <MenuItem mnemonicParsing="false" text="Wyświetl pacjentów" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Rejestracja">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Sprawdz terminy" />
+                        <MenuItem mnemonicParsing="false" text="Sprawdź terminy" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Pomoc">
