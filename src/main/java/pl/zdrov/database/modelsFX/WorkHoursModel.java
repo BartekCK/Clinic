@@ -4,7 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import pl.zdrov.database.DbConnector;
 import pl.zdrov.database.dao.WorkHoursDao;
+import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.WorkHours;
+import pl.zdrov.utilies.FxmlUtilies;
+import pl.zdrov.utilies.converters.ConverterWorkHours;
 import pl.zdrov.utilies.exceptions.ApplicationException;
 
 public class WorkHoursModel {
@@ -13,14 +16,25 @@ public class WorkHoursModel {
 
     private WorkHoursFx workHoursFx;
 
-    public WorkHoursModel() {
+    private Doctor doctor;
 
+    public WorkHoursModel() {
+        doctor = FxmlUtilies.getDoctor();//SPRAWDZIC
     }
 
-    public void saveDoctorInDataBase(WorkHours workHours) throws ApplicationException {
-        WorkHoursDao workHoursDao = new WorkHoursDao();
+    public void saveWorkHoursInDataBase() throws ApplicationException {
 
-        workHoursDao.creatOrUpdate(workHours);
+        WorkHoursDao workHoursDao = new WorkHoursDao();
+        workHoursFxList.forEach(e->{
+            WorkHours workHours = ConverterWorkHours.convertToWorkHours(e);
+            workHours.setDoctor(doctor);
+            try {
+                workHoursDao.creatOrUpdate(workHours);
+            } catch (ApplicationException ex) {
+                ex.printStackTrace();
+            }
+
+        });
         DbConnector.closeConnectionSource();
     }
 

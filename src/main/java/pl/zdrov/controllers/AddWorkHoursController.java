@@ -15,17 +15,16 @@ import pl.zdrov.database.modelsFX.WorkHoursFx;
 import pl.zdrov.database.modelsFX.WorkHoursModel;
 import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.FxmlUtilies;
+import pl.zdrov.utilies.exceptions.ApplicationException;
 
 
 public class AddWorkHoursController {
-    
+
     private WorkHoursModel workHoursModel;
 
     private WorkHours workHours;
 
     private WorkHoursFx workHoursFx;
-
-    private Doctor doctor;
 
     private ObservableList<String> dayString = FXCollections.observableArrayList("Poniedziałek","Wtorek","Środa","Czwartek","Piątek");
 
@@ -59,7 +58,6 @@ public class AddWorkHoursController {
         fromComboBox.setItems(hourString);
 
         workHoursModel = new WorkHoursModel();
-        doctor = FxmlUtilies.getDoctor();//SPRAWDZIC
 
         tableViewWorkHours.setItems(workHoursModel.getWorkHoursFxList());
         dayTableView.setCellValueFactory(cellData-> cellData.getValue().dayProperty());
@@ -94,5 +92,10 @@ public class AddWorkHoursController {
 
     @FXML
     public void commitWorkHours() {
+        try {
+            workHoursModel.saveWorkHoursInDataBase();
+        } catch (ApplicationException e) {
+            DialogCatch.errorCommitDoctor(e.getMessage());
+        }
     }
 }
