@@ -4,8 +4,6 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import pl.zdrov.database.models.exception.BaseModel;
 
-import java.time.LocalTime;
-
 @DatabaseTable(tableName = "WORK_HOURS")
 public class WorkHours implements BaseModel {
 

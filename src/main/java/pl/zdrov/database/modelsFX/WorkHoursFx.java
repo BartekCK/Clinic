@@ -1,21 +1,17 @@
 package pl.zdrov.database.modelsFX;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 
 public class WorkHoursFx {
 
-    private StringProperty day;
+    private StringProperty day = new SimpleStringProperty();
 
-    private StringProperty timeFrom ;
+    private StringProperty timeFrom = new SimpleStringProperty();
 
-    private StringProperty timeTo;
+    private StringProperty timeTo = new SimpleStringProperty();
 
-    public WorkHoursFx(StringProperty day, StringProperty timeFrom, StringProperty timeTo) {
-        this.day = day;
-        this.timeFrom = timeFrom;
-        this.timeTo = timeTo;
-    }
 
     public WorkHoursFx() {
     }

@@ -12,7 +12,7 @@ import pl.zdrov.database.modelsFX.SpecializationFx;
 import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.FxmlUtilies;
 
-public class AddDoctorController {
+public class AddDoctorController extends BackgroundController{
 
     private MainController mainController;
 
@@ -59,9 +59,13 @@ public class AddDoctorController {
             doctor = new Doctor(nameTextField.getText(),surnameTextField.getText(),peselTextField.getText(),mailTextField.getText(),phoneTextField.getText(),
                     pwzTextField.getText(),specializationComboBox.getValue());
             //CorrectDataCommit.checkDoctor(doctor);
-            doctorModel.saveDoctorInDataBase(doctor);
-            FxmlUtilies.setDoctor(doctor);
-            mainController.setCenter("/fxml/AddWorkHours.fxml");
+            if(DialogCatch.infoCommitWorkHours())
+            {
+                doctorModel.saveDoctorInDataBase(doctor);
+                FxmlUtilies.setDoctor(doctor);
+                mainController.setCenter("/fxml/AddWorkHours.fxml");
+            }
+
         }catch (Exception e)
         {
             DialogCatch.errorCommitDoctor(e.getMessage());

@@ -11,7 +11,7 @@ public class MainController {
     private FooterController downController;
 
     @FXML
-    public StackPane stackPane;
+    private StackPane stackPane;
 
     private static MainController mainController;
 
@@ -39,5 +39,10 @@ public class MainController {
 
     public static MainController getMainController() {
         return mainController;
+    }
+
+    public void cleanWindow()
+    {
+        stackPane.getChildren().clear();
     }
 }

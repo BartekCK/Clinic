@@ -13,11 +13,11 @@ public class ConverterWorkHours {
         return workHours;
     }
 
-    public static WorkHoursFx convertToWorkHoursFx(WorkHours WorkHours){
+    public static WorkHoursFx convertToWorkHoursFx(WorkHours workHours){
         WorkHoursFx workHoursFx = new WorkHoursFx();
-        workHoursFx.setDay(WorkHours.getDay());
-        workHoursFx.setTimeFrom(WorkHours.getTimeFrom());
-        workHoursFx.setTimeTo(WorkHours.getTimeTo());
+        workHoursFx.setDay(workHours.getDay());
+        workHoursFx.setTimeFrom(workHours.getTimeFrom());
+        workHoursFx.setTimeTo(workHours.getTimeTo());
         return workHoursFx;
     }
 
