@@ -2,13 +2,10 @@ package pl.zdrov.utilies.exceptions;
 
 import pl.zdrov.database.models.Doctor;
 
-import java.io.IOException;
+public class CorrectDataCommit
+{
 
-public class CorrectDataCommit extends Exception{
-
-    private String errorMessage = "Błąd wprowadzenia danych";
-
-    public static void checkDoctor(Doctor doctor) throws IOException {
+    public static void checkDoctor(Doctor doctor) throws ApplicationException {
 
         if(doctor.getPesel().length() == 11 && doctor.getPwz().length() == 7 && Character.isUpperCase(doctor.getName().charAt(0))
                 && Character.isUpperCase(doctor.getSurName().charAt(0)))
@@ -16,9 +13,8 @@ public class CorrectDataCommit extends Exception{
             System.out.println("Prawidlowo wprowadzone dane");
         }else
         {
-            throw new IOException();
+            throw new ApplicationException("Wprowadzone dane są błędne");
         }
-
 
     }
 
