@@ -1,17 +1,16 @@
 package pl.zdrov.controllers;
 
-import javafx.beans.binding.When;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import pl.zdrov.Main;
 import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Specialization;
 import pl.zdrov.database.modelsFX.DoctorModel;
 import pl.zdrov.database.modelsFX.SpecializationFx;
 import pl.zdrov.utilies.DialogCatch;
-import pl.zdrov.utilies.exceptions.CorrectDataCommit;
+import pl.zdrov.utilies.FxmlUtilies;
 
 public class AddDoctorController {
 
@@ -61,6 +60,7 @@ public class AddDoctorController {
                     pwzTextField.getText(),specializationComboBox.getValue());
             //CorrectDataCommit.checkDoctor(doctor);
             doctorModel.saveDoctorInDataBase(doctor);
+            FxmlUtilies.setDoctor(doctor);
             mainController.setCenter("/fxml/AddWorkHours.fxml");
         }catch (Exception e)
         {
@@ -76,4 +76,6 @@ public class AddDoctorController {
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
+
+
 }

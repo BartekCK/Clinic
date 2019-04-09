@@ -15,9 +15,62 @@ public class WorkHours implements BaseModel {
     @DatabaseField(columnName = "DOCTOR_ID", foreign = true, foreignAutoRefresh = true, foreignAutoCreate = true, canBeNull = false)
     private Doctor doctor;
 
-    @DatabaseField(columnName = "DAY")
+    @DatabaseField(columnName = "DAY", canBeNull = false)
     private String day;
 
-    @DatabaseField(columnName = "TIME")
-    private String time;
+    @DatabaseField(columnName = "TIME_TO",canBeNull = false)
+    private String timeFrom;
+
+    @DatabaseField(columnName = "TIME_FROM", canBeNull = false)
+    private String timeTo;
+
+    public WorkHours() {
+    }
+
+    public WorkHours(Doctor doctor, String day, String timeFrom, String timeTo) {
+        this.doctor = doctor;
+        this.day = day;
+        this.timeFrom = timeFrom;
+        this.timeTo = timeTo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public String getTimeFrom() {
+        return timeFrom;
+    }
+
+    public void setTimeFrom(String timeFrom) {
+        this.timeFrom = timeFrom;
+    }
+
+    public String getTimeTo() {
+        return timeTo;
+    }
+
+    public void setTimeTo(String timeTo) {
+        this.timeTo = timeTo;
+    }
 }
