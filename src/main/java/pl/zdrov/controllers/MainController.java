@@ -3,17 +3,19 @@ package pl.zdrov.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import pl.zdrov.utilies.FxmlUtilies;
 
 public class MainController {
+
+    @FXML
+    private BackgroundController backController;
 
     @FXML
     private FooterController downController;
 
     @FXML
     private StackPane stackPane;
-
-    private static MainController mainController;
 
     @FXML
     public void itemShowDoctors()
@@ -27,18 +29,16 @@ public class MainController {
         setCenter("/fxml/AddDoctor.fxml");
     }
 
-    public MainController() {
-        mainController=this;
+    @FXML
+    public void initialize()
+    {
+        backController.setMainController(this);
     }
 
     public void setCenter(String fxmlPath)
     {
         stackPane.getChildren().clear();
         stackPane.getChildren().add(FxmlUtilies.setFxml(fxmlPath));
-    }
-
-    public static MainController getMainController() {
-        return mainController;
     }
 
     public void cleanWindow()

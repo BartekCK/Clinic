@@ -14,7 +14,6 @@ import pl.zdrov.utilies.FxmlUtilies;
 
 public class AddDoctorController extends BackgroundController{
 
-    private MainController mainController;
 
     private Doctor doctor;
 
@@ -49,7 +48,7 @@ public class AddDoctorController extends BackgroundController{
     {
         hoverButtonToCommit();
         doctorModel = new DoctorModel();
-        setMainController(MainController.getMainController());
+        //setMainController(MainController.getMainController());
         specializationComboBox.setItems(SpecializationFx.returnAllSpecialization());
     }
 
@@ -58,12 +57,11 @@ public class AddDoctorController extends BackgroundController{
         try {
             doctor = new Doctor(nameTextField.getText(),surnameTextField.getText(),peselTextField.getText(),mailTextField.getText(),phoneTextField.getText(),
                     pwzTextField.getText(),specializationComboBox.getValue());
-            //CorrectDataCommit.checkDoctor(doctor);
             if(DialogCatch.infoCommitWorkHours())
             {
                 doctorModel.saveDoctorInDataBase(doctor);
                 FxmlUtilies.setDoctor(doctor);
-                mainController.setCenter("/fxml/AddWorkHours.fxml");
+                getMainController().setCenter("/fxml/AddWorkHours.fxml");//WAZNE
             }
 
         }catch (Exception e)
@@ -76,10 +74,5 @@ public class AddDoctorController extends BackgroundController{
         saveButton.disableProperty().bind(nameTextField.textProperty().isEmpty().or(surnameTextField.textProperty().isEmpty()).or(peselTextField.textProperty().isEmpty())
                 .or(pwzTextField.textProperty().isEmpty()).or(mailTextField.textProperty().isEmpty()).or(phoneTextField.textProperty().isEmpty()));
     }
-
-    public void setMainController(MainController mainController) {
-        this.mainController = mainController;
-    }
-
 
 }

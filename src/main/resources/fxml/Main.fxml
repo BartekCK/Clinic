@@ -56,7 +56,10 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <fx:include fx:id="back" source="Backgroung.fxml" />
+               </children></StackPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="SOMETIMES">
                <children>
                   <ImageView fitHeight="232.0" fitWidth="219.0" layoutY="244.0" nodeOrientation="INHERIT" opacity="0.52" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0777740478515625">

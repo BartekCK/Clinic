@@ -66,9 +66,7 @@ public class AddWorkHoursController extends BackgroundController{
     @FXML
     public void saveToLocalData() {
         try {
-
             WorkHours workHours = new WorkHours(dayComboBox.getValue(),fromComboBox.getValue(),toComboBox.getValue());
-            System.out.println(workHours.getDay()+workHours.getTimeFrom()+workHours.getTimeTo());
             WorkHoursFx workHoursFx = ConverterWorkHours.convertToWorkHoursFx(workHours);
             System.out.println(workHoursFx.getDay()+workHoursFx.getTimeFrom()+workHoursFx.getTimeTo());
             workHoursModel.addTimeList(workHoursFx);
