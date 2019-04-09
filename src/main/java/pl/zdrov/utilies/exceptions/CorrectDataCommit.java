@@ -1,5 +1,6 @@
 package pl.zdrov.utilies.exceptions;
 
+import javafx.scene.control.ComboBox;
 import pl.zdrov.database.models.Doctor;
 
 public class CorrectDataCommit
@@ -12,6 +13,15 @@ public class CorrectDataCommit
         {
             System.out.println("Prawidlowo wprowadzone dane");
         }else
+        {
+            throw new ApplicationException("Wprowadzone dane są błędne");
+        }
+
+    }
+
+
+    public static void checkWorkHours(ComboBox comboBox1,ComboBox comboBox2, ComboBox comboBox3) throws ApplicationException {
+        if(comboBox1.getSelectionModel().isEmpty() || comboBox2.getSelectionModel().isEmpty() || comboBox3.getSelectionModel().isEmpty())
         {
             throw new ApplicationException("Wprowadzone dane są błędne");
         }

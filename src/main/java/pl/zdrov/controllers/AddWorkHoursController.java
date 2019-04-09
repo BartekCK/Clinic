@@ -14,6 +14,7 @@ import pl.zdrov.database.modelsFX.WorkHoursModel;
 import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.converters.ConverterWorkHours;
 import pl.zdrov.utilies.exceptions.ApplicationException;
+import pl.zdrov.utilies.exceptions.CorrectDataCommit;
 
 
 public class AddWorkHoursController extends BackgroundController{
@@ -66,9 +67,9 @@ public class AddWorkHoursController extends BackgroundController{
     @FXML
     public void saveToLocalData() {
         try {
+            CorrectDataCommit.checkWorkHours(dayComboBox,fromComboBox,toComboBox);
             WorkHours workHours = new WorkHours(dayComboBox.getValue(),fromComboBox.getValue(),toComboBox.getValue());
             WorkHoursFx workHoursFx = ConverterWorkHours.convertToWorkHoursFx(workHours);
-            System.out.println(workHoursFx.getDay()+workHoursFx.getTimeFrom()+workHoursFx.getTimeTo());
             workHoursModel.addTimeList(workHoursFx);
 
         }catch (Exception e)
@@ -88,12 +89,11 @@ public class AddWorkHoursController extends BackgroundController{
         {
             try {
                 workHoursModel.saveWorkHoursInDataBase();
-
+                getMainController().cleanWindow();
             } catch (ApplicationException e) {
                 DialogCatch.errorCommitDoctor(e.getMessage());
             }
         }
     }
-
-
+    
 }
