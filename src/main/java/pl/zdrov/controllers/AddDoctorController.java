@@ -10,6 +10,8 @@ import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Specialization;
 import pl.zdrov.database.modelsFX.DoctorModel;
 import pl.zdrov.database.modelsFX.SpecializationFx;
+import pl.zdrov.utilies.DialogCatch;
+import pl.zdrov.utilies.exceptions.CorrectDataCommit;
 
 public class AddDoctorController {
 
@@ -53,10 +55,19 @@ public class AddDoctorController {
 
     @FXML
     private void commitDoctor() {
-        doctor = new Doctor(nameTextField.getText(),surnameTextField.getText(),peselTextField.getText(),mailTextField.getText(),phoneTextField.getText(),
-                Integer.parseInt(pwzTextField.getText()),specializationComboBox.getValue());
-        doctorModel.saveDoctorInDataBase(doctor);
-        mainController.setCenter("/fxml/AddWorkHours.fxml");
+        try {
+            doctor = new Doctor(nameTextField.getText(),surnameTextField.getText(),peselTextField.getText(),mailTextField.getText(),phoneTextField.getText(),
+                    pwzTextField.getText(),specializationComboBox.getValue());
+            CorrectDataCommit.checkDoctor(doctor);
+            doctorModel.saveDoctorInDataBase(doctor);
+            mainController.setCenter("/fxml/AddWorkHours.fxml");
+        }catch (Exception e)
+        {
+            DialogCatch.errorCommitDoctor(e.getMessage());
+        }
+
+
+
     }
 
     private void hoverButtonToCommit() {
