@@ -15,6 +15,7 @@ import pl.zdrov.database.modelsFX.WorkHoursFx;
 import pl.zdrov.database.modelsFX.WorkHoursModel;
 import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.FxmlUtilies;
+import pl.zdrov.utilies.converters.ConverterWorkHours;
 import pl.zdrov.utilies.exceptions.ApplicationException;
 
 
@@ -72,11 +73,9 @@ public class AddWorkHoursController {
     @FXML
     public void saveToLocalData() {
         try {
-            StringProperty d = new SimpleStringProperty(dayComboBox.getValue());
-            StringProperty from = new SimpleStringProperty(fromComboBox.getValue());
-            StringProperty to = new SimpleStringProperty(toComboBox.getValue());
 
-            workHoursFx = new WorkHoursFx(d,from,to);
+            WorkHours workHours = new WorkHours(dayComboBox.getValue(),fromComboBox.getValue(),toComboBox.getValue());
+            workHoursFx = ConverterWorkHours.convertToWorkHoursFx(workHours);
             workHoursModel.addTimeList(workHoursFx);
 
         }catch (Exception e)

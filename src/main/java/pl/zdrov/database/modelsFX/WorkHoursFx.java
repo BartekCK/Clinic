@@ -17,6 +17,9 @@ public class WorkHoursFx {
         this.timeTo = timeTo;
     }
 
+    public WorkHoursFx() {
+    }
+
     public String getDay() {
         return day.get();
     }

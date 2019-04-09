@@ -27,8 +27,8 @@ public class WorkHours implements BaseModel {
     public WorkHours() {
     }
 
-    public WorkHours(Doctor doctor, String day, String timeFrom, String timeTo) {
-        this.doctor = doctor;
+    public WorkHours(String day, String timeFrom, String timeTo) {
+
         this.day = day;
         this.timeFrom = timeFrom;
         this.timeTo = timeTo;

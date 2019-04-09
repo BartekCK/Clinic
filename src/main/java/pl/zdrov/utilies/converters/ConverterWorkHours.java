@@ -13,4 +13,14 @@ public class ConverterWorkHours {
         return workHours;
     }
 
+    public static WorkHoursFx convertToWorkHoursFx(WorkHours WorkHours){
+        WorkHoursFx workHoursFx = new WorkHoursFx();
+        workHoursFx.setDay(WorkHours.getDay());
+        workHoursFx.setTimeFrom(WorkHours.getTimeFrom());
+        workHoursFx.setTimeTo(WorkHours.getTimeTo());
+        return workHoursFx;
+    }
+
+
+
 }
