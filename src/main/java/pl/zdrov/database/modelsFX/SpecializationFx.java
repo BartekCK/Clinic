@@ -41,9 +41,6 @@ public class SpecializationFx {
 
     @Override
     public String toString() {
-        return "SpecializationFx{" +
-                "id=" + id +
-                ", title=" + title +
-                '}';
+        return id+") "+title;
     }
 }

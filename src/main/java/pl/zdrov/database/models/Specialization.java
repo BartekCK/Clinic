@@ -53,4 +53,6 @@ public class Specialization implements BaseModel {
     public void setTitle(String title) {
         this.title = title;
     }
+
+
 }

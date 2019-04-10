@@ -16,6 +16,7 @@ public class ConverterDoctor {
     public static DoctorFx convertToDoctorFx(Doctor doctor)
     {
         DoctorFx doctorFx = new DoctorFx();
+
         doctorFx.setId(doctor.getId());
         doctorFx.setName(doctor.getName());
         doctorFx.setSurName(doctor.getSurName());
@@ -23,7 +24,7 @@ public class ConverterDoctor {
         doctorFx.setMail(doctor.getMail());
         doctorFx.setPhone(doctor.getPhone());
         doctorFx.setPwz(doctor.getPwz());
-        //BRAKUJE SPECIALIZACJI
+        doctorFx.setSpecializationFx(ConvertSpecialization.convertToSpecializationFx(doctor.getSpecialization()));
 
         return doctorFx;
     }
