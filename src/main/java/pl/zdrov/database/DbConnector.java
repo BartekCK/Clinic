@@ -22,9 +22,9 @@ public class DbConnector {
 
     public static void initDatabase(){
         createConnectionSource();
-        //dropTable();
+        dropTable();
         createTable();
-        //loadData();
+        loadData();
         closeConnectionSource();
     }
 

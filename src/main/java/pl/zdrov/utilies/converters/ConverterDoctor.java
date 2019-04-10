@@ -8,8 +8,15 @@ public class ConverterDoctor {
 
     public static Doctor convertToDoctor(DoctorFx doctorFx)
     {
-
         Doctor doctor = new Doctor();
+        doctor.setId(doctorFx.getId());
+        doctor.setName(doctorFx.getName());
+        doctor.setSurName(doctorFx.getSurName());
+        doctor.setPesel(doctorFx.getPesel());
+        doctor.setMail(doctorFx.getMail());
+        doctor.setPhone(doctorFx.getPhone());
+        doctor.setPwz(doctorFx.getPwz());
+        doctor.setSpecialization(ConvertSpecialization.convertToSpecialization(doctorFx.getSpecializationFx()));
         return doctor;
     }
 

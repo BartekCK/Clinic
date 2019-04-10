@@ -1,7 +1,6 @@
 package pl.zdrov.controllers;
 
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import pl.zdrov.database.models.Specialization;
@@ -25,19 +24,7 @@ public class ShowDoctorController {
     @FXML
     private TableColumn<DoctorFx, Number> idTableView;
     @FXML
-    private TableColumn<DoctorFx,String> nameTableView;
-    @FXML
-    private TableColumn<DoctorFx,String> surnameTableView;
-    @FXML
-    private TableColumn<DoctorFx,String> mailTableView;
-    @FXML
-    private TableColumn<DoctorFx,String> peselTableView;
-    @FXML
-    private TableColumn<DoctorFx,String> phoneTableView;
-    @FXML
-    private TableColumn<DoctorFx,String> pwzTableView;
-    @FXML
-    private TableColumn<DoctorFx,String> specializationTableView;
+    private TableColumn<DoctorFx,String> nameTableView,surnameTableView,mailTableView, peselTableView, phoneTableView,pwzTableView,specializationTableView;
 
     @FXML
     public void initialize()
@@ -59,7 +46,7 @@ public class ShowDoctorController {
         specializationTableView.setCellValueFactory(cellData->  cellData.getValue().getSpecializationFx().titleProperty());
 
         tableView.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
-
+            doctorModel.setDoctorFx(newValue);
         }));
 
         nameTextField.textProperty().addListener(((observable, oldValue, newValue) -> {
@@ -74,7 +61,6 @@ public class ShowDoctorController {
             tableView.setItems(doctorModel.specializationSearch(newValue));
             setMainObservableList(newValue.getTitle());
         });
-
 
     }
 
@@ -95,7 +81,7 @@ public class ShowDoctorController {
 
 
     public void registerPatient() {
-
+        //Object for late
     }
 
     public void checkWorkHourWork() {
@@ -105,5 +91,6 @@ public class ShowDoctorController {
     }
 
     public void deleteDoctor() {
+        doctorModel.deleteDoctorInDataBase();
     }
 }

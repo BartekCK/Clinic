@@ -12,6 +12,7 @@ import pl.zdrov.database.modelsFX.SpecializationFx;
 import pl.zdrov.database.modelsFX.SpecializationModel;
 import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.FxmlUtilies;
+import pl.zdrov.utilies.exceptions.CorrectDataCommit;
 
 public class AddDoctorController extends BackgroundController{
 
@@ -57,6 +58,7 @@ public class AddDoctorController extends BackgroundController{
         try {
             doctor = new Doctor(nameTextField.getText(),surnameTextField.getText(),peselTextField.getText(),mailTextField.getText(),phoneTextField.getText(),
                     pwzTextField.getText(),specializationComboBox.getValue());
+            //CorrectDataCommit.checkDoctor(doctor);
             if(DialogCatch.infoCommitWorkHours())
             {
                 doctorModel.saveDoctorInDataBase(doctor);

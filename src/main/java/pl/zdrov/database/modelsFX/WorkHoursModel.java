@@ -54,4 +54,9 @@ public class WorkHoursModel {
     {
         workHoursFxList.remove(workHoursFx);
     }
+
+    public static void deleteWorkHoursInDataBase(WorkHours workHours)
+    {
+
+    }
 }
