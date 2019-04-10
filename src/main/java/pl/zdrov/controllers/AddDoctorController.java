@@ -9,6 +9,7 @@ import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Specialization;
 import pl.zdrov.database.modelsFX.DoctorModel;
 import pl.zdrov.database.modelsFX.SpecializationFx;
+import pl.zdrov.database.modelsFX.SpecializationModel;
 import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.FxmlUtilies;
 
@@ -48,8 +49,7 @@ public class AddDoctorController extends BackgroundController{
     {
         hoverButtonToCommit();
         doctorModel = new DoctorModel();
-        //setMainController(MainController.getMainController());
-        specializationComboBox.setItems(SpecializationFx.returnAllSpecialization());
+        specializationComboBox.setItems(SpecializationModel.returnAllSpecialization());
     }
 
     @FXML
@@ -61,7 +61,7 @@ public class AddDoctorController extends BackgroundController{
             {
                 doctorModel.saveDoctorInDataBase(doctor);
                 FxmlUtilies.setDoctor(doctor);
-                getMainController().setCenter("/fxml/AddWorkHours.fxml");//WAZNE
+                getMainController().setCenter("/fxml/AddWorkHours.fxml");
             }
 
         }catch (Exception e)
@@ -74,5 +74,6 @@ public class AddDoctorController extends BackgroundController{
         saveButton.disableProperty().bind(nameTextField.textProperty().isEmpty().or(surnameTextField.textProperty().isEmpty()).or(peselTextField.textProperty().isEmpty())
                 .or(pwzTextField.textProperty().isEmpty()).or(mailTextField.textProperty().isEmpty()).or(phoneTextField.textProperty().isEmpty()));
     }
+
 
 }

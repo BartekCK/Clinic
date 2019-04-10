@@ -6,7 +6,7 @@ import com.j256.ormlite.logger.LoggerFactory;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import pl.zdrov.database.models.*;
-import pl.zdrov.database.modelsFX.SpecializationFx;
+import pl.zdrov.database.modelsFX.SpecializationModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -77,6 +77,6 @@ public class DbConnector {
 
     public static void loadData()
     {
-        SpecializationFx.setSpecialization();
+        SpecializationModel.setSpecialization();
     }
 }

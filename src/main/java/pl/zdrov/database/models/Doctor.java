@@ -131,4 +131,18 @@ public class Doctor implements BaseModel {
     public void setRegistrations(ForeignCollection<Registration> registrations) {
         this.registrations = registrations;
     }
+
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surName='" + surName + '\'' +
+                ", pesel='" + pesel + '\'' +
+                ", mail='" + mail + '\'' +
+                ", phone='" + phone + '\'' +
+                ", pwz='" + pwz + '\'' +
+                ", specialization=" + specialization +
+                '}';
+    }
 }

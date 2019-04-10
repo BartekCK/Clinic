@@ -5,24 +5,32 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+
 public class DoctorFx {
 
     private IntegerProperty id = new SimpleIntegerProperty();
 
     private StringProperty name = new SimpleStringProperty();
 
-    private StringProperty surName= new SimpleStringProperty();
+    private StringProperty surName = new SimpleStringProperty();
 
-    private StringProperty pesel= new SimpleStringProperty();
+    private StringProperty pesel = new SimpleStringProperty();
 
-    private StringProperty mail= new SimpleStringProperty();
+    private StringProperty mail = new SimpleStringProperty();
 
-    private StringProperty phone= new SimpleStringProperty();
+    private StringProperty phone = new SimpleStringProperty();
 
-    private IntegerProperty pwz= new SimpleIntegerProperty();
+    private StringProperty pwz = new SimpleStringProperty();
 
-    private StringProperty specialization=new SimpleStringProperty();
+    private SpecializationFx specializationFx;
 
+    public SpecializationFx getSpecializationFx() {
+        return specializationFx;
+    }
+
+    public void setSpecializationFx(SpecializationFx specializationFx) {
+        this.specializationFx = specializationFx;
+    }
 
     public int getId() {
         return id.get();
@@ -96,27 +104,33 @@ public class DoctorFx {
         this.phone.set(phone);
     }
 
-    public int getPwz() {
+    public String getPwz() {
         return pwz.get();
     }
 
-    public IntegerProperty pwzProperty() {
+    public StringProperty pwzProperty() {
         return pwz;
     }
 
-    public void setPwz(int pwz) {
+    public void setPwz(String pwz) {
         this.pwz.set(pwz);
     }
 
-    public String getSpecialization() {
-        return specialization.get();
+    public DoctorFx() {
     }
 
-    public StringProperty specializationProperty() {
-        return specialization;
-    }
-
-    public void setSpecialization(String specialization) {
-        this.specialization.set(specialization);
+    @Override
+    public String toString() {
+        return "DoctorFx{" +
+                "id=" + id +
+                ", name=" + name +
+                ", surName=" + surName +
+                ", pesel=" + pesel +
+                ", mail=" + mail +
+                ", phone=" + phone +
+                ", pwz=" + pwz +
+                '}';
     }
 }
+
+
