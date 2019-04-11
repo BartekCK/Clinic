@@ -8,11 +8,8 @@ import javafx.scene.control.TextField;
 import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Specialization;
 import pl.zdrov.database.modelsFX.DoctorModel;
-import pl.zdrov.database.modelsFX.SpecializationFx;
 import pl.zdrov.database.modelsFX.SpecializationModel;
 import pl.zdrov.utilies.DialogCatch;
-import pl.zdrov.utilies.FxmlUtilies;
-import pl.zdrov.utilies.exceptions.CorrectDataCommit;
 
 public class AddDoctorController extends BackgroundController{
 

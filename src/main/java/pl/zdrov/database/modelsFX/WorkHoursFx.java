@@ -1,10 +1,16 @@
 package pl.zdrov.database.modelsFX;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 
 public class WorkHoursFx {
+
+    private IntegerProperty id = new SimpleIntegerProperty();
+
+    private DoctorFx doctorFx;
 
     private StringProperty day = new SimpleStringProperty();
 
@@ -12,10 +18,36 @@ public class WorkHoursFx {
 
     private StringProperty timeTo = new SimpleStringProperty();
 
-    private DoctorFx doctorFx;
+
 
 
     public WorkHoursFx() {
+    }
+
+    public WorkHoursFx(String day, String timeFrom, String timeTo) {
+        this.day.set(day);
+        this.timeFrom.set(timeFrom);
+        this.timeTo.set(timeTo);
+    }
+
+    public int getId() {
+        return id.get();
+    }
+
+    public IntegerProperty idProperty() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id.set(id);
+    }
+
+    public DoctorFx getDoctorFx() {
+        return doctorFx;
+    }
+
+    public void setDoctorFx(DoctorFx doctorFx) {
+        this.doctorFx = doctorFx;
     }
 
     public String getDay() {
@@ -52,13 +84,5 @@ public class WorkHoursFx {
 
     public void setTimeTo(String timeTo) {
         this.timeTo.set(timeTo);
-    }
-
-    public DoctorFx getDoctorFx() {
-        return doctorFx;
-    }
-
-    public void setDoctorFx(DoctorFx doctorFx) {
-        this.doctorFx = doctorFx;
     }
 }

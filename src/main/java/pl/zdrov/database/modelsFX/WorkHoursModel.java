@@ -33,14 +33,16 @@ public class WorkHoursModel {
 
         WorkHoursDao workHoursDao = new WorkHoursDao();
         workHoursFxList.forEach(e->{
-            WorkHours workHours = ConverterWorkHours.convertToWorkHours(e);
+            WorkHours workHours = new WorkHours();
+            workHours.setDay(e.getDay());
+            workHours.setTimeFrom(e.getTimeFrom());
+            workHours.setTimeTo(e.getTimeTo());
             workHours.setDoctor(doctor);
             try {
                 workHoursDao.creatOrUpdate(workHours);
             } catch (ApplicationException er) {
                 DialogCatch.errorCommitDoctor(er.getMessage());
             }
-
         });
         DbConnector.closeConnectionSource();
     }
@@ -49,7 +51,7 @@ public class WorkHoursModel {
         return workHoursFxList;
     }
 
-    public void addTimeList(WorkHoursFx workHoursFx) {
+    public void addWorkHoursFxList(WorkHoursFx workHoursFx) {
         this.workHoursFxList.add(workHoursFx);
     }
 
