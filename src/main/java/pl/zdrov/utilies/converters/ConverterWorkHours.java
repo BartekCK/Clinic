@@ -10,6 +10,7 @@ public class ConverterWorkHours {
         workHours.setDay(workHoursFx.getDay());
         workHours.setTimeFrom(workHoursFx.getTimeFrom());
         workHours.setTimeTo(workHoursFx.getTimeTo());
+        //workHours.setDoctor(ConverterDoctor.convertToDoctor(workHoursFx.getDoctorFx()));
         return workHours;
     }
 
@@ -18,6 +19,7 @@ public class ConverterWorkHours {
         workHoursFx.setDay(workHours.getDay());
         workHoursFx.setTimeFrom(workHours.getTimeFrom());
         workHoursFx.setTimeTo(workHours.getTimeTo());
+        //workHoursFx.setDoctorFx(ConverterDoctor.convertToDoctorFx(workHours.getDoctor()));
         return workHoursFx;
     }
 

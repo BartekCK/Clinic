@@ -2,11 +2,17 @@ package pl.zdrov.controllers;
 
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import pl.zdrov.Main;
 import pl.zdrov.database.models.Specialization;
 import pl.zdrov.database.modelsFX.DoctorFx;
 import pl.zdrov.database.modelsFX.DoctorModel;
 import pl.zdrov.database.modelsFX.SpecializationModel;
+import pl.zdrov.utilies.converters.ConverterDoctor;
+
+import java.io.IOException;
+
 
 public class ShowDoctorController {
 
@@ -72,6 +78,33 @@ public class ShowDoctorController {
 
     }
 
+    @FXML
+    public void registerPatient() {
+        //Object for late
+    }
+    @FXML
+    public void checkWorkHourWork(){
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        try {
+            Main.newWindow(fxmlLoader.load(getClass().getResource("/fxml/AddWorkHours.fxml").openStream()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        AddWorkHoursController addWorkHoursController = fxmlLoader.getController();
+        addWorkHoursController.setVisibleHbox();
+        addWorkHoursController.showWorkHours(ConverterDoctor.convertToDoctor(doctorModel.getDoctorFx()));
+
+
+    }
+    @FXML
+    public void editDoctor() {
+    }
+    @FXML
+    public void deleteDoctor() {
+        doctorModel.deleteDoctorInDataBase();
+    }
+
     private void setMainObservableList(String newValue) {
         if(newValue.isEmpty())
         {
@@ -79,18 +112,4 @@ public class ShowDoctorController {
         }
     }
 
-
-    public void registerPatient() {
-        //Object for late
-    }
-
-    public void checkWorkHourWork() {
-    }
-
-    public void editDoctor() {
-    }
-
-    public void deleteDoctor() {
-        doctorModel.deleteDoctorInDataBase();
-    }
 }

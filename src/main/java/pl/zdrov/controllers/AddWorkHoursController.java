@@ -4,20 +4,20 @@ package pl.zdrov.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
+import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.WorkHours;
 import pl.zdrov.database.modelsFX.WorkHoursFx;
 import pl.zdrov.database.modelsFX.WorkHoursModel;
 import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.converters.ConverterWorkHours;
-import pl.zdrov.utilies.exceptions.ApplicationException;
 import pl.zdrov.utilies.exceptions.CorrectDataCommit;
 
 
 public class AddWorkHoursController extends BackgroundController{
+
+
 
     private WorkHoursModel workHoursModel;
 
@@ -27,23 +27,34 @@ public class AddWorkHoursController extends BackgroundController{
             "12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00");
 
     @FXML
-    public ComboBox<String> dayComboBox;
+    private ComboBox<String> dayComboBox;
 
     @FXML
-    public ComboBox<String> fromComboBox;
+    private ComboBox<String> fromComboBox;
 
     @FXML
-    public ComboBox<String> toComboBox;
+    private ComboBox<String> toComboBox;
 
     @FXML
-    public TableView<WorkHoursFx> tableViewWorkHours;
+    private TableView<WorkHoursFx> tableViewWorkHours;
 
     @FXML
-    public TableColumn<WorkHoursFx,String> dayTableView, hoursFromTableView,hoursToTableView;
+    private TableColumn<WorkHoursFx,String> dayTableView, hoursFromTableView,hoursToTableView;
 
     @FXML
-    public MenuItem delteItem;
+    private HBox hbox;
 
+
+    public void setVisibleHbox()
+    {
+        hbox.setVisible(false);
+    }
+
+    public void showWorkHours(Doctor doctor)
+    {
+        workHoursModel.init(doctor);
+
+    }
 
     @FXML public void initialize()
     {
@@ -65,7 +76,7 @@ public class AddWorkHoursController extends BackgroundController{
     }
 
     @FXML
-    public void saveToLocalData() {
+    private void saveToLocalData() {
         try {
             CorrectDataCommit.checkWorkHours(dayComboBox,fromComboBox,toComboBox);
             WorkHours workHours = new WorkHours(dayComboBox.getValue(),fromComboBox.getValue(),toComboBox.getValue());
@@ -79,20 +90,17 @@ public class AddWorkHoursController extends BackgroundController{
     }
 
     @FXML
-    public void deleteFromLocalData() {
+    private void deleteFromLocalData() {
         workHoursModel.deleteItemTimeList();
     }
 
     @FXML
-    public void commitWorkHours() {
+    private void commitWorkHours() {
         if(DialogCatch.infoCommitWorkHours())
         {
-            try {
-                workHoursModel.saveWorkHoursInDataBase();
-                getMainController().cleanWindow();
-            } catch (ApplicationException e) {
-                DialogCatch.errorCommitDoctor(e.getMessage());
-            }
+            workHoursModel.saveWorkHoursInDataBase();
+            getMainController().cleanWindow();
+
         }
     }
     

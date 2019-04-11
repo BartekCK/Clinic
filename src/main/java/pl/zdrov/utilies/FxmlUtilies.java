@@ -6,13 +6,12 @@ import pl.zdrov.database.models.Doctor;
 
 public class FxmlUtilies {
 
-    static private Doctor doctor;
 
-    static public Parent setFxml(String fxmlPath)
+
+    static public Parent setFxmlParent(String fxmlPath)
     {
         try {
-            Parent root = FXMLLoader.load(FxmlUtilies.class.getResource(fxmlPath));
-            return root;
+            return FXMLLoader.load(FxmlUtilies.class.getResource(fxmlPath));
         }catch (Exception e)
         {
             e.getMessage();
@@ -20,11 +19,6 @@ public class FxmlUtilies {
         return null;
     }
 
-    public static Doctor getDoctor() {
-        return doctor;
-    }
 
-    public static void setDoctor(Doctor doctor) {
-        FxmlUtilies.doctor = doctor;
-    }
+
 }

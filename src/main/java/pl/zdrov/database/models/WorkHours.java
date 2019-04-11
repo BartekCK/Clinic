@@ -32,6 +32,7 @@ public class WorkHours implements BaseModel {
         this.timeTo = timeTo;
     }
 
+
     public int getId() {
         return id;
     }
@@ -70,5 +71,16 @@ public class WorkHours implements BaseModel {
 
     public void setTimeTo(String timeTo) {
         this.timeTo = timeTo;
+    }
+
+    @Override
+    public String toString() {
+        return "WorkHours{" +
+                "id=" + id +
+                ", doctor=" + doctor +
+                ", day='" + day + '\'' +
+                ", timeFrom='" + timeFrom + '\'' +
+                ", timeTo='" + timeTo + '\'' +
+                '}';
     }
 }

@@ -12,6 +12,8 @@ public class WorkHoursFx {
 
     private StringProperty timeTo = new SimpleStringProperty();
 
+    private DoctorFx doctorFx;
+
 
     public WorkHoursFx() {
     }
@@ -50,5 +52,13 @@ public class WorkHoursFx {
 
     public void setTimeTo(String timeTo) {
         this.timeTo.set(timeTo);
+    }
+
+    public DoctorFx getDoctorFx() {
+        return doctorFx;
+    }
+
+    public void setDoctorFx(DoctorFx doctorFx) {
+        this.doctorFx = doctorFx;
     }
 }

@@ -12,7 +12,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.zdrov.controllers.AddWorkHoursController">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="870.0" VBox.vgrow="ALWAYS">
+      <HBox fx:id="hbox" alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="870.0" VBox.vgrow="ALWAYS">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
@@ -52,7 +52,7 @@
          <contextMenu>
             <ContextMenu>
               <items>
-                <MenuItem fx:id="delteItem" mnemonicParsing="false" onAction="#deleteFromLocalData" text="Usuń" />
+                <MenuItem mnemonicParsing="false" onAction="#deleteFromLocalData" text="Usuń" />
               </items>
             </ContextMenu>
          </contextMenu>

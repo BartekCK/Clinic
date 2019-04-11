@@ -62,7 +62,7 @@ public class AddDoctorController extends BackgroundController{
             if(DialogCatch.infoCommitWorkHours())
             {
                 doctorModel.saveDoctorInDataBase(doctor);
-                FxmlUtilies.setDoctor(doctor);
+                setDoctor(doctor);
                 getMainController().setCenter("/fxml/AddWorkHours.fxml");
             }
 

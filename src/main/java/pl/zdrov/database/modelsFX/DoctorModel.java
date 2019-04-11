@@ -111,7 +111,6 @@ public class DoctorModel {
             this.doctor = ConverterDoctor.convertToDoctor(this.doctorFx);
             workHoursDao.deleteByColumnName("DOCTOR_ID",this.doctor.getId());
             doctorDao.delete(doctor);
-
             DbConnector.closeConnectionSource();
             init();
         } catch (ApplicationException e) {

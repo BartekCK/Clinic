@@ -38,7 +38,7 @@ public class MainController {
     public void setCenter(String fxmlPath)
     {
         stackPane.getChildren().clear();
-        stackPane.getChildren().add(FxmlUtilies.setFxml(fxmlPath));
+        stackPane.getChildren().add(FxmlUtilies.setFxmlParent(fxmlPath));
     }
 
     public void cleanWindow()
