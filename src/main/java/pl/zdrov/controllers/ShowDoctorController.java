@@ -5,16 +5,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import pl.zdrov.Main;
+import pl.zdrov.Path;
 import pl.zdrov.database.models.Specialization;
 import pl.zdrov.database.modelsFX.DoctorFx;
 import pl.zdrov.database.modelsFX.DoctorModel;
 import pl.zdrov.database.modelsFX.SpecializationModel;
+import pl.zdrov.utilies.FxmlUtilies;
 import pl.zdrov.utilies.converters.ConverterDoctor;
 
 import java.io.IOException;
 
 
-public class ShowDoctorController {
+public class ShowDoctorController{
 
     private DoctorModel doctorModel;
 
@@ -87,7 +89,7 @@ public class ShowDoctorController {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            Main.newWindow(fxmlLoader.load(getClass().getResource("/fxml/AddWorkHours.fxml").openStream()));
+            Main.newWindow(fxmlLoader.load(getClass().getResource(Path.ADD_WORK_HOURS_PATH).openStream()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -99,6 +101,16 @@ public class ShowDoctorController {
     }
     @FXML
     public void editDoctor() {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        try {
+            BackgroundController.getMainController().setCenterParent(fxmlLoader.load(getClass().getResource(Path.ADD_DOCTOR_PATH).openStream()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        AddDoctorController addDoctorController = fxmlLoader.getController();
+        addDoctorController.setTextFields(ConverterDoctor.convertToDoctor(doctorModel.getDoctorFx()));
+
     }
     @FXML
     public void deleteDoctor() {

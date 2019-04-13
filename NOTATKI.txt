@@ -1,5 +1,0 @@
-FXMLLoader fxmlLoader = new FXMLLoader();
-        Main.newWindow(fxmlLoader.load(getClass().getResource("/fxml/AddWorkHours.fxml").openStream()));
-        AddWorkHoursController addWorkHoursController = fxmlLoader.getController();
-
-        addWorkHoursController.button.setText("AAAA");

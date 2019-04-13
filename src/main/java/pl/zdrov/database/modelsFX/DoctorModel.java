@@ -127,11 +127,6 @@ public class DoctorModel {
 
 
 
-
-
-
-
-
     public DoctorFx getDoctorFx() {
         return doctorFx;
     }
