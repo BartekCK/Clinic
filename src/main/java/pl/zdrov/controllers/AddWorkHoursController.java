@@ -13,7 +13,7 @@ import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.exceptions.CorrectDataCommit;
 
 
-public class AddWorkHoursController extends BackgroundController{
+public class AddWorkHoursController {
 
 
     private WorkHoursModel workHoursModel;
@@ -86,7 +86,7 @@ public class AddWorkHoursController extends BackgroundController{
         if(DialogCatch.infoCommitWorkHours())
         {
             workHoursModel.saveWorkHoursInDataBase();
-            getMainController().cleanWindow();
+            BackgroundController.getMainController().cleanWindow();
 
         }
     }

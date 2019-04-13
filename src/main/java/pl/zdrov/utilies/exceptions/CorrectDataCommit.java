@@ -1,7 +1,9 @@
 package pl.zdrov.utilies.exceptions;
 
+import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import pl.zdrov.database.models.Doctor;
+import pl.zdrov.database.models.Patient;
 
 public class CorrectDataCommit
 {
@@ -27,5 +29,20 @@ public class CorrectDataCommit
         }
 
     }
+
+    public static void checkPatient(Patient patient) throws ApplicationException {
+
+        if(patient.getPesel().length() == 11 && Character.isUpperCase(patient.getName().charAt(0))
+                && Character.isUpperCase(patient.getSurName().charAt(0)))
+        {
+            System.out.println("Prawidlowo wprowadzone dane");
+        }else
+        {
+            throw new ApplicationException("Wprowadzone dane są błędne");
+        }
+
+    }
+
+
 
 }

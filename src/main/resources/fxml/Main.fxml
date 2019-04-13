@@ -24,8 +24,8 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Pacjent">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Dodaj pacjenta" />
-                        <MenuItem mnemonicParsing="false" text="Wyświetl pacjentów" />
+                        <MenuItem mnemonicParsing="false" onAction="#itemAddPatient" text="Dodaj pacjenta" />
+                        <MenuItem mnemonicParsing="false" onAction="#itemShowPatient" text="Wyświetl pacjentów" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Rejestracja">
