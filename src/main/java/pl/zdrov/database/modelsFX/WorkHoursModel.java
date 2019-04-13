@@ -32,6 +32,14 @@ public class WorkHoursModel {
     public void saveWorkHoursInDataBase() {
 
         WorkHoursDao workHoursDao = new WorkHoursDao();
+        try {
+            workHoursDao.deleteByColumnName("DOCTOR_ID",doctor.getId());
+        } catch (ApplicationException e) {
+            DialogCatch.errorCommitDoctor(e.getMessage());
+        } catch (SQLException e) {
+            DialogCatch.errorCommitDoctor(e.getMessage());
+        }
+
         workHoursFxList.forEach(e->{
             WorkHours workHours = new WorkHours();
             workHours.setDay(e.getDay());

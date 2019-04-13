@@ -42,16 +42,6 @@ public class AddWorkHoursController extends BackgroundController{
     private HBox hbox;
 
 
-    public void setVisibleHbox()
-    {
-        hbox.setVisible(false);
-    }
-
-    public void showWorkHours(Doctor doctor)
-    {
-        workHoursModel.init(doctor);
-
-    }
 
     @FXML public void initialize()
     {
@@ -61,6 +51,7 @@ public class AddWorkHoursController extends BackgroundController{
         fromComboBox.setItems(hourString);
 
         workHoursModel = new WorkHoursModel();
+        workHoursModel.init(BackgroundController.getDoctor());
 
         tableViewWorkHours.setItems(workHoursModel.getWorkHoursFxList());
         dayTableView.setCellValueFactory(cellData-> cellData.getValue().dayProperty());
@@ -98,6 +89,17 @@ public class AddWorkHoursController extends BackgroundController{
             getMainController().cleanWindow();
 
         }
+    }
+
+    public void setVisibleHbox()
+    {
+        hbox.setVisible(false);
+    }
+
+    public void showWorkHours(Doctor doctor)
+    {
+        workHoursModel.init(doctor);
+
     }
     
 }
