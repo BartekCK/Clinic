@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.zdrov.controllers.ShowPatientController">
+   <children>
+      <HBox alignment="BASELINE_CENTER" prefHeight="190.0" prefWidth="852.0" VBox.vgrow="NEVER">
+         <children>
+            <ImageView blendMode="SRC_ATOP" fitHeight="200.0" fitWidth="600.0" opacity="0.88" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/patientBackground.png" />
+               </image>
+            </ImageView>
+         </children>
+         <padding>
+            <Insets bottom="70.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="48.0" prefWidth="852.0" spacing="5.0" VBox.vgrow="SOMETIMES">
+         <children>
+            <Label text="Imię" />
+            <TextField fx:id="nameTextField" />
+            <Label text="Nazwisko">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="surnameTextField" />
+            <Label text="Pesel">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="peselTextField" />
+         </children>
+      </HBox>
+      <TableView fx:id="patientTableView" prefHeight="241.0" prefWidth="945.0" VBox.vgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="idTableView" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="nameTableView" prefWidth="75.0" text="Imię" />
+            <TableColumn fx:id="surnameTableView" prefWidth="75.0" text="Nazwisko" />
+            <TableColumn fx:id="peselTableView" prefWidth="75.0" text="Pesel" />
+            <TableColumn fx:id="mailTableView" prefWidth="75.0" text="Mail" />
+            <TableColumn fx:id="phoneTableView" prefWidth="75.0" text="Telefon" />
+            <TableColumn fx:id="cityTableView" prefWidth="75.0" text="Miasto" />
+            <TableColumn fx:id="nfzTableView" prefWidth="75.0" text="Oddział NFZ" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#registerPatient" text="Zarejestruj pacjenta" />
+                  <MenuItem mnemonicParsing="false" onAction="#showPatient" text="Wyświetl pacjenta" />
+                  <MenuItem mnemonicParsing="false" onAction="#editPatient" text="Edytuj pacjenta" />
+                  <MenuItem mnemonicParsing="false" onAction="#deletePatient" text="Usuń pacjenta" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+   </children>
+</VBox>

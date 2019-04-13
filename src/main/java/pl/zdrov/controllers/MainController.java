@@ -65,5 +65,6 @@ public class MainController {
 
     @FXML
     public void itemShowPatient(ActionEvent actionEvent) {
+        setCenter(Path.SHOW_PATIENT_PATH);
     }
 }

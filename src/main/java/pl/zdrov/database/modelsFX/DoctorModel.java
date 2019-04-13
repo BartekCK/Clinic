@@ -51,7 +51,6 @@ public class DoctorModel {
         doctorFxShowObservableListSearch.clear();
         doctorList.forEach(doctor -> {
             DoctorFx doctorFx = ConverterDoctor.convertToDoctorFx(doctor);
-            System.out.println(doctorFx);
             doctorFxShowObservableList.add(doctorFx);
         });
 
