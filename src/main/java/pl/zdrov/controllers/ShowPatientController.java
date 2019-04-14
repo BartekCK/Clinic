@@ -54,6 +54,25 @@ public class ShowPatientController {
         cityTableView.setCellValueFactory(cellData-> cellData.getValue().cityProperty());
         nfzTableView.setCellValueFactory(cellData-> cellData.getValue().branchNfzProperty());
 
+
+
+        patientTableView.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
+            patientModel.setPatientFx(newValue);
+        }));
+
+        nameTextField.textProperty().addListener(((observable, oldValue, newValue) -> {
+            patientTableView.setItems(patientModel.nameSearch(newValue));
+            setMainObservableList(newValue);
+        }));
+        surnameTextField.textProperty().addListener(((observable, oldValue, newValue) -> {
+            patientTableView.setItems(patientModel.surnameSearch(newValue));
+            setMainObservableList(newValue);
+        }));
+        peselTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            patientTableView.setItems(patientModel.peselSearch(newValue));
+            setMainObservableList(newValue);
+        });
+
     }
 
     @FXML
@@ -67,5 +86,14 @@ public class ShowPatientController {
     }
     @FXML
     private void deletePatient() {
+        patientModel.deletePatientInDataBase();
+    }
+
+
+    private void setMainObservableList(String newValue) {
+        if(newValue.isEmpty())
+        {
+            patientTableView.setItems(patientModel.getPatientFxShowObservableList());
+        }
     }
 }

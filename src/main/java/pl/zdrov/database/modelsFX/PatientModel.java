@@ -9,6 +9,7 @@ import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.converters.ConverterPatient;
 import pl.zdrov.utilies.exceptions.ApplicationException;
 
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,6 +18,8 @@ public class PatientModel {
     private ObservableList<PatientFx> patientFxShowObservableList = FXCollections.observableArrayList();
     private ObservableList<PatientFx> patientFxShowObservableListSearch = FXCollections.observableArrayList();
     private List<Patient> patientList = new LinkedList<>();
+    private PatientFx patientFx;
+    private Patient patient;
 
     public void savePatientInDataBase(Patient patient) throws ApplicationException {
         PatientDao patientDao = new PatientDao();
@@ -48,6 +51,65 @@ public class PatientModel {
 
     }
 
+
+    public  ObservableList<PatientFx> nameSearch(String compare)
+    {
+        patientFxShowObservableListSearch.clear();
+        patientFxShowObservableList.forEach(patientFx -> {
+            if (compare.equals(patientFx.getName()))
+            {
+                patientFxShowObservableListSearch.add(patientFx);
+            }
+        });
+
+        return patientFxShowObservableListSearch;
+    }
+
+    public  ObservableList<PatientFx> surnameSearch(String compare)
+    {
+        patientFxShowObservableListSearch.clear();
+        patientFxShowObservableList.forEach(patientFx -> {
+            if (compare.equals(patientFx.getSurName()))
+            {
+                patientFxShowObservableListSearch.add(patientFx);
+            }
+        });
+
+        return patientFxShowObservableListSearch;
+    }
+
+    public  ObservableList<PatientFx> peselSearch(String compare)
+    {
+        patientFxShowObservableListSearch.clear();
+        patientFxShowObservableList.forEach(patientFx -> {
+            if (compare.equals(patientFx.getPesel()))
+            {
+                patientFxShowObservableListSearch.add(patientFx);
+            }
+        });
+
+        return patientFxShowObservableListSearch;
+    }
+
+
+
+    public void deletePatientInDataBase()
+    {
+
+        try {
+            PatientDao patientDao = new PatientDao();
+            this.patient = ConverterPatient.convertToPatient(this.patientFx);
+            patientDao.delete(this.patient);
+            DbConnector.closeConnectionSource();
+            init();
+        } catch (ApplicationException e) {
+            DialogCatch.errorCommitDoctor(e.getMessage());
+        }
+    }
+
+
+
+
     public ObservableList<PatientFx> getPatientFxShowObservableList() {
         return patientFxShowObservableList;
     }
@@ -62,5 +124,13 @@ public class PatientModel {
 
     public void setPatientFxShowObservableListSearch(ObservableList<PatientFx> patientFxShowObservableListSearch) {
         this.patientFxShowObservableListSearch = patientFxShowObservableListSearch;
+    }
+
+    public PatientFx getPatientFx() {
+        return patientFx;
+    }
+
+    public void setPatientFx(PatientFx patientFx) {
+        this.patientFx = patientFx;
     }
 }
