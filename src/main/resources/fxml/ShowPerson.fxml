@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.zdrov.controllers.ShowPersonController">
+   <children>
+      <VBox prefHeight="592.0" prefWidth="665.0" HBox.hgrow="SOMETIMES">
+         <children>
+            <HBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" spacing="5.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Imię" />
+                        <TextField fx:id="nameTextField" editable="false" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Nazwisko" />
+                        <TextField fx:id="surnameTextField" editable="false" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" spacing="5.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Pesel" />
+                        <TextField fx:id="peselTextField" editable="false" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Telefon" />
+                        <TextField fx:id="phoneTextField" editable="false" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" spacing="5.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Mail" />
+                        <TextField fx:id="mailTextField" editable="false" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="doctorHBox" alignment="CENTER" prefHeight="400.0" prefWidth="400.0" spacing="5.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="PWZ" />
+                        <TextField fx:id="pwzTextField" editable="false" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Specializacja" />
+                        <TextField fx:id="specializationTextField" editable="false" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="patientHBox1" alignment="CENTER" prefHeight="400.0" prefWidth="400.0" spacing="5.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Ulica" />
+                        <TextField fx:id="adressTextField" editable="false" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Kod pocztowy" />
+                        <TextField fx:id="zipTextField" editable="false" prefHeight="26.0" prefWidth="86.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="patientHBox2" alignment="CENTER" prefHeight="400.0" prefWidth="400.0" spacing="5.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Miasto" />
+                        <TextField fx:id="cityTextField" editable="false" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="NFZ" />
+                        <TextField fx:id="nfzTextField" editable="false" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="patientHBox3" alignment="CENTER" prefHeight="400.0" prefWidth="400.0" spacing="5.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Waga" />
+                        <TextField fx:id="weightTextField" editable="false" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Wysokość" />
+                        <TextField fx:id="heightTextField" editable="false" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <ImageView fx:id="image" fitHeight="550.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+         <HBox.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </HBox.margin></ImageView>
+   </children>
+</HBox>

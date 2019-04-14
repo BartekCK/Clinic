@@ -85,6 +85,21 @@ public class ShowDoctorController{
         //Object for late
     }
     @FXML
+    private void showDoctor() {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        try {
+            Main.newWindow(fxmlLoader.load(getClass().getResource(Path.SHOW_PERSON_PATH).openStream()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ShowPersonController showPersonController = fxmlLoader.getController();
+        showPersonController.setImage(ConverterDoctor.convertToDoctor(doctorModel.getDoctorFx()));
+
+    }
+
+
+    @FXML
     public void checkWorkHourWork(){
 
         FXMLLoader fxmlLoader = new FXMLLoader();

@@ -59,6 +59,7 @@
             <ContextMenu>
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#registerPatient" text="Zarejestruj pacjenta" />
+                  <MenuItem mnemonicParsing="false" onAction="#showDoctor" text="Wyświetl lekarza" />
                   <MenuItem mnemonicParsing="false" onAction="#checkWorkHourWork" text="Sprawdź godziny pracy" />
                   <MenuItem mnemonicParsing="false" onAction="#editDoctor" text="Edytuj lekarza" />
                   <MenuItem mnemonicParsing="false" onAction="#deleteDoctor" text="Usuń lekarza" />

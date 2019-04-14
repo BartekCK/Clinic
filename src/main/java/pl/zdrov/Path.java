@@ -8,6 +8,7 @@ public class Path {
     public static final String MAIN_PATH = "/fxml/Main.fxml";
     public static final String SHOW_DOCTOR_PATH = "/fxml/ShowDoctors.fxml";
     public static final String SHOW_PATIENT_PATH = "/fxml/ShowPatient.fxml";
+    public static final String SHOW_PERSON_PATH = "/fxml/ShowPerson.fxml";
     public static final String ADD_PATIENT_PATH = "/fxml/AddPatient.fxml";
 
 }

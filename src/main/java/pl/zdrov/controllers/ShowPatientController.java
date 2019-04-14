@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import pl.zdrov.Main;
 import pl.zdrov.Path;
 import pl.zdrov.database.models.Patient;
 import pl.zdrov.database.modelsFX.PatientFx;
@@ -85,6 +86,16 @@ public class ShowPatientController {
     }
     @FXML
     private void showPatient() {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        try {
+            Main.newWindow(fxmlLoader.load(getClass().getResource(Path.SHOW_PERSON_PATH).openStream()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ShowPersonController showPersonController = fxmlLoader.getController();
+        showPersonController.setImage(ConverterPatient.convertToPatient(patientModel.getPatientFx()));
+
     }
     @FXML
     private void editPatient() {
