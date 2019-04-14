@@ -17,7 +17,7 @@ public class ConverterPatient {
         patient.setCity(patientFx.getCity());
         patient.setZipCode(patientFx.getZipCode());
         patient.setWeight(patientFx.getWeight());
-        patient.setHeight(patientFx.getWeight());
+        patient.setHeight(patientFx.getHeight());
         patient.setBranchNfz(patientFx.getBranchNfz());
 
 
@@ -38,7 +38,7 @@ public class ConverterPatient {
         patientFx.setCity(patient.getCity());
         patientFx.setZipCode(patient.getZipCode());
         patientFx.setWeight(patient.getWeight());
-        patientFx.setHeight(patient.getWeight());
+        patientFx.setHeight(patient.getHeight());
         patientFx.setBranchNfz(patient.getBranchNfz());
 
 

@@ -116,4 +116,22 @@ public class AddPatientController {
         return zipCode1TextField.getText()+"-"+zipCode2TextField.getText();
     }
 
+    public void setTextFields(Patient patient) {
+
+        nameTextField.setText(patient.getName());
+        surnameTextField.setText(patient.getSurName());
+        peselTextField.setText(patient.getPesel());
+        mailTextField.setText(patient.getMail());
+        phoneTextField.setText(patient.getPhone());
+        nfzComboBox.setValue(patient.getBranchNfz());
+        cityTextField.setText(patient.getCity());
+        adressTextField.setText(patient.getAddress());
+        zipCode1TextField.setText(patient.getZipCode().substring(0,2));
+        zipCode2TextField.setText(patient.getZipCode().substring(3));
+        weightTextField.setText(Double.toString(patient.getWeight()));
+        heightTextField.setText(Double.toString(patient.getHeight()));
+        this.patient = patient;
+        this.isNewPatient = false;
+
+    }
 }

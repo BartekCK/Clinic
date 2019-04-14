@@ -2,12 +2,17 @@ package pl.zdrov.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import pl.zdrov.Path;
 import pl.zdrov.database.models.Patient;
 import pl.zdrov.database.modelsFX.PatientFx;
 import pl.zdrov.database.modelsFX.PatientModel;
+import pl.zdrov.utilies.converters.ConverterPatient;
+
+import java.io.IOException;
 
 public class ShowPatientController {
 
@@ -83,6 +88,14 @@ public class ShowPatientController {
     }
     @FXML
     private void editPatient() {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        try {
+            BackgroundController.getMainController().setCenterParent(fxmlLoader.load(getClass().getResource(Path.ADD_PATIENT_PATH).openStream()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        AddPatientController addPatientController = fxmlLoader.getController();
+        addPatientController.setTextFields(ConverterPatient.convertToPatient(patientModel.getPatientFx()));
     }
     @FXML
     private void deletePatient() {
