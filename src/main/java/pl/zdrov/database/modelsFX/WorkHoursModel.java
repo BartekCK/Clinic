@@ -24,16 +24,13 @@ public class WorkHoursModel {
 
     private Doctor doctor;
 
-    public WorkHoursModel() {
 
-        this.doctor = BackgroundController.getDoctor();
-    }
 
     public void saveWorkHoursInDataBase() {
 
         WorkHoursDao workHoursDao = new WorkHoursDao();
         try {
-            workHoursDao.deleteByColumnName("DOCTOR_ID",doctor.getId());
+            workHoursDao.deleteByColumnName("DOCTOR_ID",this.doctor.getId());
         } catch (ApplicationException e) {
             DialogCatch.errorCommitDoctor(e.getMessage());
         } catch (SQLException e) {
@@ -45,7 +42,7 @@ public class WorkHoursModel {
             workHours.setDay(e.getDay());
             workHours.setTimeFrom(e.getTimeFrom());
             workHours.setTimeTo(e.getTimeTo());
-            workHours.setDoctor(doctor);
+            workHours.setDoctor(this.doctor);
             try {
                 workHoursDao.creatOrUpdate(workHours);
             } catch (ApplicationException er) {
@@ -88,6 +85,7 @@ public class WorkHoursModel {
     }
     public void init(Doctor doctor)
     {
+        this.doctor = doctor;
         pullWorkHoursFromDataBase(doctor);
         this.workHoursList.forEach(workHours -> {
             WorkHoursFx workHoursFx = ConverterWorkHours.convertToWorkHoursFx(workHours);

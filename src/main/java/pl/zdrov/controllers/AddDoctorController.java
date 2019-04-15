@@ -72,7 +72,7 @@ public class AddDoctorController  {
             if(DialogCatch.infoCommitWorkHours())
             {
                 doctorModel.saveDoctorInDataBase(doctor);
-                BackgroundController.setDoctor(doctor);
+                BackgroundController.setDoctor(doctor);//BLEDY
                 BackgroundController.getMainController().setCenter(Path.ADD_WORK_HOURS_PATH);
             }
         }catch (Exception e)

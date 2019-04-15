@@ -43,7 +43,8 @@ public class AddWorkHoursController {
 
 
 
-    @FXML public void initialize()
+    @FXML
+    public void initialize()
     {
 
         dayComboBox.setItems(dayString);
@@ -51,7 +52,8 @@ public class AddWorkHoursController {
         fromComboBox.setItems(hourString);
 
         workHoursModel = new WorkHoursModel();
-        workHoursModel.init(BackgroundController.getDoctor());
+        if(BackgroundController.getDoctor() != null)
+            workHoursModel.init(BackgroundController.getDoctor());//BLEDY
 
         tableViewWorkHours.setItems(workHoursModel.getWorkHoursFxList());
         dayTableView.setCellValueFactory(cellData-> cellData.getValue().dayProperty());
@@ -101,5 +103,5 @@ public class AddWorkHoursController {
         workHoursModel.init(doctor);
 
     }
-    
+
 }

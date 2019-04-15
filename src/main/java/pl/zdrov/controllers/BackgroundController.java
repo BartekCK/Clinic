@@ -1,20 +1,22 @@
 package pl.zdrov.controllers;
 
+
 import pl.zdrov.database.models.Doctor;
 
 
 public class BackgroundController {
 
     private static MainController mainController;
-    static private Doctor doctor;
+    private static Doctor doctor;
 
     public static MainController getMainController() {
         return mainController;
     }
 
     public void setMainController(MainController mainController) {
-        BackgroundController.mainController = mainController;
+        this.mainController = mainController;
     }
+
     public static Doctor getDoctor() {
         return doctor;
     }

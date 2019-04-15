@@ -10,6 +10,7 @@ import pl.zdrov.database.models.Specialization;
 import pl.zdrov.database.modelsFX.DoctorFx;
 import pl.zdrov.database.modelsFX.DoctorModel;
 import pl.zdrov.database.modelsFX.SpecializationModel;
+import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.FxmlUtilies;
 import pl.zdrov.utilies.converters.ConverterDoctor;
 
@@ -61,6 +62,7 @@ public class ShowDoctorController{
             tableView.setItems(doctorModel.nameSearch(newValue));
             setMainObservableList(newValue);
         }));
+
         surnameTextField.textProperty().addListener(((observable, oldValue, newValue) -> {
             tableView.setItems(doctorModel.surnameSearch(newValue));
             setMainObservableList(newValue);
@@ -106,7 +108,7 @@ public class ShowDoctorController{
         try {
             Main.newWindow(fxmlLoader.load(getClass().getResource(Path.ADD_WORK_HOURS_PATH).openStream()));
         } catch (IOException e) {
-            e.printStackTrace();
+            DialogCatch.errorCommitDoctor(e.getMessage());
         }
         AddWorkHoursController addWorkHoursController = fxmlLoader.getController();
         addWorkHoursController.setVisibleHbox();

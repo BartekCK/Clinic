@@ -1,24 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox alignment="CENTER_RIGHT" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.zdrov.controllers.FooterController">
+<AnchorPane cache="true" depthTest="DISABLE" prefHeight="25.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.zdrov.controllers.FooterController">
    <children>
-      <Label text="Ilość lekarzy: " />
-      <Label fx:id="countDoctorLabel" text="Label" />
-      <Label text="Ilość pacjentów">
-         <HBox.margin>
-            <Insets left="40.0" />
-         </HBox.margin>
-      </Label>
-      <Label fx:id="countPatientLabel" text="Label">
-         <HBox.margin>
-            <Insets right="50.0" />
-         </HBox.margin>
-      </Label>
-      <Label fx:id="dateLabel" text="Data" />
-      <Label fx:id="hoursLabel" text="Godzina" />
+      <HBox AnchorPane.leftAnchor="0.0">
+         <children>
+            <Button centerShape="false" focusTraversable="false" mnemonicParsing="false" onAction="#showBackGround" scaleShape="false" text="Powrót">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons/undo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="386.0" layoutY="4.0" spacing="5.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label text="Ilość lekarzy: " />
+            <Label fx:id="countDoctorLabel" text="Label" />
+            <Label text="Ilość pacjentów">
+               <HBox.margin>
+                  <Insets left="40.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="countPatientLabel" text="Label">
+               <HBox.margin>
+                  <Insets right="50.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="dateLabel" text="Data" />
+            <Label fx:id="hoursLabel" text="Godzina" />
+         </children>
+      </HBox>
    </children>
-</HBox>
+</AnchorPane>

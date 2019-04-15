@@ -1,8 +1,12 @@
 package pl.zdrov.controllers;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import pl.zdrov.Path;
 import pl.zdrov.utilies.DialogCatch;
@@ -24,7 +28,9 @@ public class MainController {
     @FXML
     public void initialize()
     {
+
         backController.setMainController(this);
+
     }
 
     public void setCenter(String fxmlPath)
@@ -42,6 +48,8 @@ public class MainController {
     public void cleanWindow()
     {
         stackPane.getChildren().clear();
+        ImageView iv = new ImageView(new Image("/images/background.png"));
+        stackPane.getChildren().add(iv);
     }
 
     @FXML
@@ -73,4 +81,5 @@ public class MainController {
     public void projectClose() {
         System.exit(0);
     }
+
 }
