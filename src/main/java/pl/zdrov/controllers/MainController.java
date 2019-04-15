@@ -1,13 +1,11 @@
 package pl.zdrov.controllers;
 
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import pl.zdrov.Path;
+import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.FxmlUtilies;
 
 public class MainController {
@@ -64,7 +62,15 @@ public class MainController {
     }
 
     @FXML
-    public void itemShowPatient(ActionEvent actionEvent) {
+    public void itemShowPatient() {
         setCenter(Path.SHOW_PATIENT_PATH);
+    }
+
+    public void projectInformation() {
+        DialogCatch.projectInf();
+    }
+
+    public void projectClose() {
+        System.exit(0);
     }
 }

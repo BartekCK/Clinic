@@ -35,9 +35,9 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Pomoc">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Informacje o projekcie" />
+                        <MenuItem mnemonicParsing="false" onAction="#projectInformation" text="Informacje o projekcie" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Zamknij" />
+                        <MenuItem mnemonicParsing="false" onAction="#projectClose" text="Zamknij" />
                     </items>
                 </Menu>
             </menus>
