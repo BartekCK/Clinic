@@ -35,8 +35,6 @@ public class ShowPatientController {
     @FXML
     private TableColumn<PatientFx, String> surnameTableView;
     @FXML
-    private TableColumn<PatientFx, String> peselTableView;
-    @FXML
     private TableColumn<PatientFx, String> mailTableView;
     @FXML
     private TableColumn<PatientFx, String> phoneTableView;
@@ -54,7 +52,6 @@ public class ShowPatientController {
         idTableView.setCellValueFactory(cellData-> cellData.getValue().idProperty());
         nameTableView.setCellValueFactory(cellData-> cellData.getValue().nameProperty());
         surnameTableView.setCellValueFactory(cellData-> cellData.getValue().surNameProperty());
-        peselTableView.setCellValueFactory(cellData-> cellData.getValue().peselProperty());
         mailTableView.setCellValueFactory(cellData-> cellData.getValue().mailProperty());
         phoneTableView.setCellValueFactory(cellData-> cellData.getValue().phoneProperty());
         cityTableView.setCellValueFactory(cellData-> cellData.getValue().cityProperty());

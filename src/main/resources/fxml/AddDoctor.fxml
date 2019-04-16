@@ -10,7 +10,7 @@
 
 <VBox alignment="BASELINE_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="217.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.zdrov.controllers.AddDoctorController">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
@@ -49,7 +49,7 @@
             <Insets />
          </VBox.margin>
       </HBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
@@ -88,7 +88,7 @@
             <Insets />
          </VBox.margin>
       </HBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
@@ -127,7 +127,7 @@
             <Insets />
          </VBox.margin>
       </HBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>

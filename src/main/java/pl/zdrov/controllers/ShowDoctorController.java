@@ -33,7 +33,7 @@ public class ShowDoctorController{
     @FXML
     private TableColumn<DoctorFx, Number> idTableView;
     @FXML
-    private TableColumn<DoctorFx,String> nameTableView,surnameTableView,mailTableView, peselTableView, phoneTableView,pwzTableView,specializationTableView;
+    private TableColumn<DoctorFx,String> nameTableView,surnameTableView,mailTableView, phoneTableView,specializationTableView;
 
     @FXML
     public void initialize()
@@ -49,9 +49,7 @@ public class ShowDoctorController{
         nameTableView.setCellValueFactory(cellData-> cellData.getValue().nameProperty());
         surnameTableView.setCellValueFactory(cellData-> cellData.getValue().surNameProperty());
         mailTableView.setCellValueFactory(cellData-> cellData.getValue().mailProperty());
-        peselTableView.setCellValueFactory(cellData-> cellData.getValue().peselProperty());
         phoneTableView.setCellValueFactory(cellData-> cellData.getValue().phoneProperty());
-        pwzTableView.setCellValueFactory(cellData-> cellData.getValue().pwzProperty());
         specializationTableView.setCellValueFactory(cellData->  cellData.getValue().getSpecializationFx().titleProperty());
 
         tableView.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {

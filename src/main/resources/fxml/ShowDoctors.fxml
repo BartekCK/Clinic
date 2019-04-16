@@ -9,12 +9,14 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="631.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.zdrov.controllers.ShowDoctorController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1000.0" spacing="5.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.zdrov.controllers.ShowDoctorController">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+      <AnchorPane prefHeight="300.0" />
+      <HBox alignment="CENTER" spacing="5.0">
          <children>
             <Label text="Imię" />
             <TextField fx:id="nameTextField" />
@@ -41,15 +43,13 @@
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <TableView fx:id="tableView" prefHeight="600.0" VBox.vgrow="ALWAYS">
         <columns>
           <TableColumn fx:id="idTableView" prefWidth="72.0" text="Id" />
           <TableColumn fx:id="nameTableView" prefWidth="158.0" text="Imię" />
             <TableColumn fx:id="surnameTableView" prefWidth="75.0" text="Nazwisko" />
-            <TableColumn fx:id="peselTableView" prefWidth="75.0" text="Pesel" />
             <TableColumn fx:id="mailTableView" prefWidth="75.0" text="Mail" />
             <TableColumn fx:id="phoneTableView" prefWidth="75.0" text="Telefon" />
-            <TableColumn fx:id="pwzTableView" prefWidth="75.0" text="PWZ" />
             <TableColumn fx:id="specializationTableView" prefWidth="75.0" text="Specializacja" />
         </columns>
          <columnResizePolicy>

@@ -26,6 +26,7 @@ public class Main extends Application {
 
 
         primaryStage.setScene(new Scene(FxmlUtilies.setFxmlParent("/fxml/Main.fxml")));
+        primaryStage.setMaximized(true);
         primaryStage.show();
         DbConnector.initDatabase();
     }
