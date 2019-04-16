@@ -11,6 +11,8 @@ import pl.zdrov.Path;
 import pl.zdrov.database.models.Patient;
 import pl.zdrov.database.modelsFX.PatientFx;
 import pl.zdrov.database.modelsFX.PatientModel;
+import pl.zdrov.utilies.FxmlUtilies;
+import pl.zdrov.utilies.converters.ConverterDoctor;
 import pl.zdrov.utilies.converters.ConverterPatient;
 
 import java.io.IOException;
@@ -80,29 +82,26 @@ public class ShowPatientController {
 
     @FXML
     private void registerPatient() {
+        RegistrationController registrationController;
+        if(BackgroundController.getRegistrationController() == null)
+        {
+            registrationController = FxmlUtilies.getControllerNewWindow(Path.REGISTRATION_PATH,"Okno rejestracji").getController();
+            BackgroundController.setRegistrationController(registrationController);
+        }else {
+            registrationController = BackgroundController.getRegistrationController();
+        }
+        registrationController.setPatient(ConverterPatient.convertToPatient(patientModel.getPatientFx()));
     }
     @FXML
     private void showPatient() {
 
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        try {
-            Main.newWindow(fxmlLoader.load(getClass().getResource(Path.SHOW_PERSON_PATH).openStream()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        ShowPersonController showPersonController = fxmlLoader.getController();
+        ShowPersonController showPersonController = FxmlUtilies.getControllerNewWindow(Path.SHOW_PERSON_PATH,"").getController();
         showPersonController.setImage(ConverterPatient.convertToPatient(patientModel.getPatientFx()));
-
     }
     @FXML
     private void editPatient() {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        try {
-            BackgroundController.getMainController().setCenterParent(fxmlLoader.load(getClass().getResource(Path.ADD_PATIENT_PATH).openStream()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        AddPatientController addPatientController = fxmlLoader.getController();
+
+        AddPatientController addPatientController = FxmlUtilies.getControllerMainWindow(Path.ADD_PATIENT_PATH).getController();
         addPatientController.setTextFields(ConverterPatient.convertToPatient(patientModel.getPatientFx()));
     }
     @FXML

@@ -82,18 +82,22 @@ public class ShowDoctorController{
 
     @FXML
     public void registerPatient() {
-        //Object for late
+        RegistrationController registrationController;
+        if(BackgroundController.getRegistrationController() ==null)
+        {
+            registrationController = FxmlUtilies.getControllerNewWindow(Path.REGISTRATION_PATH,"Okno rejestracji").getController();
+            BackgroundController.setRegistrationController(registrationController);
+        }else {
+            registrationController = BackgroundController.getRegistrationController();
+        }
+        registrationController.setDoctor(ConverterDoctor.convertToDoctor(doctorModel.getDoctorFx()));
+
+
     }
     @FXML
     private void showDoctor() {
 
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        try {
-            Main.newWindow(fxmlLoader.load(getClass().getResource(Path.SHOW_PERSON_PATH).openStream()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        ShowPersonController showPersonController = fxmlLoader.getController();
+        ShowPersonController showPersonController = FxmlUtilies.getControllerNewWindow(Path.SHOW_PERSON_PATH,"").getController();
         showPersonController.setImage(ConverterDoctor.convertToDoctor(doctorModel.getDoctorFx()));
 
     }
@@ -102,13 +106,7 @@ public class ShowDoctorController{
     @FXML
     public void checkWorkHourWork(){
 
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        try {
-            Main.newWindow(fxmlLoader.load(getClass().getResource(Path.ADD_WORK_HOURS_PATH).openStream()));
-        } catch (IOException e) {
-            DialogCatch.errorCommitDoctor(e.getMessage());
-        }
-        AddWorkHoursController addWorkHoursController = fxmlLoader.getController();
+        AddWorkHoursController addWorkHoursController = FxmlUtilies.getControllerNewWindow(Path.ADD_WORK_HOURS_PATH,"Godziny pracy lekarza").getController();
         addWorkHoursController.setVisibleHbox();
         addWorkHoursController.showWorkHours(ConverterDoctor.convertToDoctor(doctorModel.getDoctorFx()));
 
@@ -117,13 +115,7 @@ public class ShowDoctorController{
     @FXML
     public void editDoctor() {
 
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        try {
-            BackgroundController.getMainController().setCenterParent(fxmlLoader.load(getClass().getResource(Path.ADD_DOCTOR_PATH).openStream()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        AddDoctorController addDoctorController = fxmlLoader.getController();
+        AddDoctorController addDoctorController = FxmlUtilies.getControllerMainWindow(Path.ADD_DOCTOR_PATH).getController();
         addDoctorController.setTextFields(ConverterDoctor.convertToDoctor(doctorModel.getDoctorFx()));
 
     }

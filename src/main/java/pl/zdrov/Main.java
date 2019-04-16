@@ -5,8 +5,11 @@ import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+import pl.zdrov.controllers.BackgroundController;
 import pl.zdrov.database.DbConnector;
 import pl.zdrov.utilies.FxmlUtilies;
+import pl.zdrov.utilies.Utils;
 
 public class Main extends Application {
 
@@ -14,10 +17,18 @@ public class Main extends Application {
         launch(args);
     }
 
-    public static  void newWindow(Parent parent)
+    public static  void newWindow(Parent parent,String title)
     {
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
+        stage.setTitle(title);
+        stage.setAlwaysOnTop(true);
+        if(stage.getTitle().equals("Okno rejestracji"))
+        {
+            stage.setOnCloseRequest((WindowEvent event1) -> {
+                BackgroundController.setRegistrationController(null);
+            });
+        }
         stage.show();
     }
 
