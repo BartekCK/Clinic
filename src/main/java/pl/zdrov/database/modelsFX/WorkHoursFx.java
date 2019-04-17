@@ -85,4 +85,18 @@ public class WorkHoursFx {
     public void setTimeTo(String timeTo) {
         this.timeTo.set(timeTo);
     }
+
+    @Override
+    public String toString() {
+        return "WorkHoursFx{" +
+                "id=" + id +
+                ", doctorFx=" + doctorFx +
+                ", day=" + day +
+                ", timeFrom=" + timeFrom +
+                ", timeTo=" + timeTo +
+                '}';
+    }
+
+
+
 }

@@ -1,17 +1,18 @@
 package pl.zdrov.controllers;
 
-import com.sun.glass.ui.Application;
-import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Patient;
-import pl.zdrov.database.modelsFX.RegistrationFx;
+import pl.zdrov.database.models.WorkHours;
 import pl.zdrov.database.modelsFX.RegistrationModel;
 import pl.zdrov.database.modelsFX.WorkHoursFx;
+import pl.zdrov.utilies.FxmlUtilies;
 
-import java.awt.event.ActionEvent;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class RegistrationController {
 
@@ -56,16 +57,16 @@ public class RegistrationController {
     private TextField chooseDayTextField;
 
     @FXML
-    private TableView<String> registrationtableView;
+    private TableView<WorkHoursFx> registrationtableView;
 
     @FXML
-    private TableColumn<String, String> idTableColumn;
+    private TableColumn<WorkHoursFx, String> idTableColumn;
 
     @FXML
-    private TableColumn<String, String> fromTableColumn;
+    private TableColumn<WorkHoursFx, String> fromTableColumn;
 
     @FXML
-    private TableColumn<String, String> toTableColumn;
+    private TableColumn<WorkHoursFx, String> toTableColumn;
 
     @FXML
     public void initialize()
@@ -77,6 +78,11 @@ public class RegistrationController {
         fromWorkTableView.setCellValueFactory(cellData-> cellData.getValue().timeFromProperty());
         toWorkTableView.setCellValueFactory(cellData-> cellData.getValue().timeToProperty());
 
+
+        datePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+            chooseDayTextField.setText(newValue.toString());
+            checkFreeDates(newValue);
+        });
 
 
 
@@ -96,11 +102,22 @@ public class RegistrationController {
 
     }
 
-
     public void setPatient(Patient patient) {
         registrationModel.setPatient(patient);
         patientNameTextField.setText(registrationModel.getPatient().getName());
         patientSurnameTextField.setText(registrationModel.getPatient().getSurName());
         patientPeselTextField.setText(registrationModel.getPatient().getPesel());
     }
+
+    public void checkFreeDates(LocalDate localDate)
+    {
+
+        registrationtableView.setItems(registrationModel.checkFreeRegistration(localDate));
+        idTableColumn.setCellValueFactory(cellData-> cellData.getValue().dayProperty());
+        fromTableColumn.setCellValueFactory(cellData-> cellData.getValue().timeFromProperty());
+        toTableColumn.setCellValueFactory(cellData-> cellData.getValue().timeToProperty());
+
+    }
+
+
 }

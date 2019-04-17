@@ -79,4 +79,16 @@ public class Registration implements BaseModel {
     public void setTimeTo(String timeTo) {
         this.timeTo = timeTo;
     }
+
+    @Override
+    public String toString() {
+        return "Registration{" +
+                "id=" + id +
+                ", doctor=" + doctor +
+                ", patient=" + patient +
+                ", addedDate=" + addedDate +
+                ", timeFrom='" + timeFrom + '\'' +
+                ", timeTo='" + timeTo + '\'' +
+                '}';
+    }
 }
