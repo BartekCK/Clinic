@@ -9,7 +9,9 @@ import pl.zdrov.database.models.Patient;
 import pl.zdrov.database.models.WorkHours;
 import pl.zdrov.database.modelsFX.RegistrationModel;
 import pl.zdrov.database.modelsFX.WorkHoursFx;
+import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.FxmlUtilies;
+import pl.zdrov.utilies.exceptions.ApplicationException;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -111,11 +113,22 @@ public class RegistrationController {
 
     public void checkFreeDates(LocalDate localDate)
     {
+        try
+        {
+            if(localDate.getDayOfWeek().getValue() == 6 || localDate.getDayOfWeek().getValue() == 7)
+                throw new ApplicationException("Przychodnia nie pracuje w weekendy");
+            if(localDate.isBefore(LocalDate.now()))
+                throw new ApplicationException("Błąd wyboru daty");
 
-        registrationtableView.setItems(registrationModel.checkFreeRegistration(localDate));
-        idTableColumn.setCellValueFactory(cellData-> cellData.getValue().dayProperty());
-        fromTableColumn.setCellValueFactory(cellData-> cellData.getValue().timeFromProperty());
-        toTableColumn.setCellValueFactory(cellData-> cellData.getValue().timeToProperty());
+            registrationtableView.setItems(registrationModel.checkFreeRegistration(localDate));
+            idTableColumn.setCellValueFactory(cellData-> cellData.getValue().dayProperty());
+            fromTableColumn.setCellValueFactory(cellData-> cellData.getValue().timeFromProperty());
+            toTableColumn.setCellValueFactory(cellData-> cellData.getValue().timeToProperty());
+        } catch (ApplicationException e) {
+            DialogCatch.errorCommitDoctor(e.getMessage());
+            datePicker.setValue(LocalDate.now());
+        }
+
 
     }
 

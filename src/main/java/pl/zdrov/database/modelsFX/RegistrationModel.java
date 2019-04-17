@@ -11,6 +11,7 @@ import pl.zdrov.utilies.Utils;
 import pl.zdrov.utilies.exceptions.ApplicationException;
 
 import java.sql.SQLException;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -32,12 +33,13 @@ public class RegistrationModel {
         workHoursModel = new WorkHoursModel();
     }
 
-    private void selectPolishDay(LocalDate selectedDate) throws ApplicationException {
+    private void selectPolishDay(LocalDate selectedDate)   {
         choosenDayWorkHoursFx.clear();
         divisionHoursOfDayWorkHoursFx.clear();
         this.polishDay = polishDays(selectedDate.getDayOfWeek().toString());
-        if(this.polishDay ==null)
-            throw new ApplicationException("Przychodnia nie pracuje w weekendy");
+
+
+
         workHoursModel.getWorkHoursFxList().forEach(workHoursFx -> {
             if(polishDay.equals(workHoursFx.getDay()))
             {
@@ -46,7 +48,7 @@ public class RegistrationModel {
         });
     }
 
-    public void makeSectionWorkHoursSelectedDay(LocalDate selectedDate) throws ApplicationException {
+    public void makeSectionWorkHoursSelectedDay(LocalDate selectedDate)  {
         selectPolishDay(selectedDate);
         choosenDayWorkHoursFx.forEach(workHoursFx -> {
             LocalTime fromLocalTime = LocalTime.parse(workHoursFx.getTimeFrom());
@@ -81,32 +83,24 @@ public class RegistrationModel {
 
     public ObservableList <WorkHoursFx> checkFreeRegistration(LocalDate selectedDate)
     {
+        makeSectionWorkHoursSelectedDay(selectedDate);
+        pullRegistrationFromDataBase(selectedDate);
 
-        try {
-            makeSectionWorkHoursSelectedDay(selectedDate);
-            pullRegistrationFromDataBase(selectedDate);
-
-            if(this.listOccupiedHoursSelectedDay.isEmpty())
-            {
-                return this.divisionHoursOfDayWorkHoursFx;
-            }
-            ObservableList<WorkHoursFx> temp = FXCollections.observableArrayList();
-            divisionHoursOfDayWorkHoursFx.forEach(workHoursFx -> {
-                listOccupiedHoursSelectedDay.forEach(registration -> {
-                    if (workHoursFx.getTimeTo().equals(registration.getTimeTo())){
-                        temp.add(workHoursFx);
-                    }
-                });
-            });
-
-            divisionHoursOfDayWorkHoursFx.removeAll(temp);
-            return divisionHoursOfDayWorkHoursFx;
-        } catch (ApplicationException e) {
-            DialogCatch.errorCommitDoctor(e.getMessage());
+        if(this.listOccupiedHoursSelectedDay.isEmpty())
+        {
+            return this.divisionHoursOfDayWorkHoursFx;
         }
-        return null;
+        ObservableList<WorkHoursFx> temp = FXCollections.observableArrayList();
+        divisionHoursOfDayWorkHoursFx.forEach(workHoursFx -> {
+            listOccupiedHoursSelectedDay.forEach(registration -> {
+                if (workHoursFx.getTimeTo().equals(registration.getTimeTo())){
+                    temp.add(workHoursFx);
+                }
+            });
+        });
 
-
+        divisionHoursOfDayWorkHoursFx.removeAll(temp);
+        return divisionHoursOfDayWorkHoursFx;
     }
 
 

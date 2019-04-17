@@ -11,6 +11,8 @@ import pl.zdrov.database.DbConnector;
 import pl.zdrov.utilies.FxmlUtilies;
 import pl.zdrov.utilies.Utils;
 
+import java.time.LocalDate;
+
 public class Main extends Application {
 
     public static void main(String[] args) {
@@ -22,7 +24,6 @@ public class Main extends Application {
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         stage.setTitle(title);
-        stage.setAlwaysOnTop(true);
         if(stage.getTitle().equals("Okno rejestracji"))
         {
             stage.setOnCloseRequest((WindowEvent event1) -> {
@@ -39,6 +40,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(FxmlUtilies.setFxmlParent("/fxml/Main.fxml")));
         primaryStage.setMaximized(true);
         primaryStage.show();
+
         DbConnector.initDatabase();
     }
 }
