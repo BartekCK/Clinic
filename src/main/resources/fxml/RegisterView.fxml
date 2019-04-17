@@ -91,7 +91,7 @@
                         </VBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="237.0" prefWidth="209.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                  <VBox prefHeight="473.0" prefWidth="270.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
                         <HBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="253.0" VBox.vgrow="ALWAYS">
                            <children>
@@ -99,10 +99,10 @@
                               <TextField fx:id="chooseDayTextField" editable="false" prefHeight="25.0" prefWidth="145.0" />
                            </children>
                         </HBox>
-                        <TableView fx:id="registrationtableView" prefHeight="342.0" prefWidth="260.0" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="registrationTableView" prefHeight="340.0" prefWidth="278.0" VBox.vgrow="ALWAYS">
                           <columns>
-                              <TableColumn fx:id="idTableColumn" prefWidth="75.0" text="Id" />
-                            <TableColumn fx:id="fromTableColumn" prefWidth="75.0" text="Od" />
+                              <TableColumn fx:id="idTableColumn" prefWidth="94.0" text="Dzień tygodnia" />
+                            <TableColumn fx:id="fromTableColumn" prefWidth="82.0" text="Od" />
                             <TableColumn fx:id="toTableColumn" prefWidth="75.0" text="Do" />
                           </columns>
                            <columnResizePolicy>

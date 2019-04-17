@@ -93,6 +93,7 @@ public class ShowDoctorController{
         registrationController.setDoctor(ConverterDoctor.convertToDoctor(doctorModel.getDoctorFx()));
 
 
+
     }
     @FXML
     private void showDoctor() {

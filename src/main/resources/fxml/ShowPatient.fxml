@@ -48,7 +48,7 @@
          <contextMenu>
             <ContextMenu>
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#registerPatient" text="Zarejestruj pacjenta" />
+                <MenuItem mnemonicParsing="false" onAction="#registerPatient" text="Rejestracja" />
                   <MenuItem mnemonicParsing="false" onAction="#showPatient" text="Wyświetl pacjenta" />
                   <MenuItem mnemonicParsing="false" onAction="#editPatient" text="Edytuj pacjenta" />
                   <MenuItem mnemonicParsing="false" onAction="#deletePatient" text="Usuń pacjenta" />

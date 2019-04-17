@@ -2,6 +2,7 @@ package pl.zdrov.database.modelsFX;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import pl.zdrov.database.DbConnector;
 import pl.zdrov.database.dao.RegistrationDao;
 import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Patient;
@@ -31,6 +32,12 @@ public class RegistrationModel {
 
     public RegistrationModel() {
         workHoursModel = new WorkHoursModel();
+    }
+
+    public void saveRegistrationInDataBase(Registration registration) throws ApplicationException {
+        RegistrationDao registrationDao = new RegistrationDao();
+        registrationDao.creatOrUpdate(registration);
+        DbConnector.closeConnectionSource();
     }
 
     private void selectPolishDay(LocalDate selectedDate)   {
@@ -77,6 +84,7 @@ public class RegistrationModel {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        DbConnector.closeConnectionSource();
 
     }
 

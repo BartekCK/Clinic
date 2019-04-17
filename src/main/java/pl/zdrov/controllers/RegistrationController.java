@@ -1,26 +1,27 @@
 package pl.zdrov.controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Patient;
-import pl.zdrov.database.models.WorkHours;
+import pl.zdrov.database.models.Registration;
 import pl.zdrov.database.modelsFX.RegistrationModel;
 import pl.zdrov.database.modelsFX.WorkHoursFx;
 import pl.zdrov.utilies.DialogCatch;
-import pl.zdrov.utilies.FxmlUtilies;
+import pl.zdrov.utilies.Utils;
 import pl.zdrov.utilies.exceptions.ApplicationException;
-
 import java.time.LocalDate;
-import java.time.LocalTime;
+
 
 public class RegistrationController {
 
-
-    private Patient patient;
     private RegistrationModel registrationModel;
+
+    private WorkHoursFx workHoursFx;
 
     @FXML
     private TextField doctorNameTextField;
@@ -59,7 +60,7 @@ public class RegistrationController {
     private TextField chooseDayTextField;
 
     @FXML
-    private TableView<WorkHoursFx> registrationtableView;
+    private TableView<WorkHoursFx> registrationTableView;
 
     @FXML
     private TableColumn<WorkHoursFx, String> idTableColumn;
@@ -80,10 +81,18 @@ public class RegistrationController {
         fromWorkTableView.setCellValueFactory(cellData-> cellData.getValue().timeFromProperty());
         toWorkTableView.setCellValueFactory(cellData-> cellData.getValue().timeToProperty());
 
+        datePicker.disableProperty().bind(doctorNameTextField.textProperty().isEmpty());
+        doctorNameTextField.textProperty().addListener(observable -> {
+            datePicker.setValue(LocalDate.now());
+        });
 
         datePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
             chooseDayTextField.setText(newValue.toString());
             checkFreeDates(newValue);
+        });
+
+        registrationTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            this.workHoursFx = newValue;
         });
 
 
@@ -91,7 +100,26 @@ public class RegistrationController {
     }
 
     @FXML
-    void commitRegistration() {
+    void commitRegistration(ActionEvent actionEvent) {
+
+        try {
+            if (registrationModel.getDoctor() == null || registrationModel.getPatient() == null)
+                throw new ApplicationException("Lekarz/Pacjent nie został wybrany");
+            if(this.workHoursFx == null)
+                throw new ApplicationException("Dzień wizyty nie został wybrany");
+
+            Registration registration = new Registration(registrationModel.getDoctor(),registrationModel.getPatient(),
+                    Utils.convertToDate(datePicker.getValue()),this.workHoursFx.getTimeFrom(),this.workHoursFx.getTimeTo());
+            if(DialogCatch.infoCommitWorkHours())
+            {
+                registrationModel.saveRegistrationInDataBase(registration);
+                datePicker.setValue(LocalDate.now());
+            }
+
+
+        } catch (ApplicationException e) {
+            DialogCatch.errorCommitDoctor(e.getMessage());
+        }
 
     }
 
@@ -120,7 +148,7 @@ public class RegistrationController {
             if(localDate.isBefore(LocalDate.now()))
                 throw new ApplicationException("Błąd wyboru daty");
 
-            registrationtableView.setItems(registrationModel.checkFreeRegistration(localDate));
+            registrationTableView.setItems(registrationModel.checkFreeRegistration(localDate));
             idTableColumn.setCellValueFactory(cellData-> cellData.getValue().dayProperty());
             fromTableColumn.setCellValueFactory(cellData-> cellData.getValue().timeFromProperty());
             toTableColumn.setCellValueFactory(cellData-> cellData.getValue().timeToProperty());
@@ -129,8 +157,6 @@ public class RegistrationController {
             datePicker.setValue(LocalDate.now());
         }
 
-
     }
-
 
 }

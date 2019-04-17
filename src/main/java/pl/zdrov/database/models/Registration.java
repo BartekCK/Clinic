@@ -29,7 +29,18 @@ public class Registration implements BaseModel {
     @DatabaseField(columnName = "TIME_FROM", canBeNull = false)
     private String timeTo;
 
+
+
+
     public Registration() {
+    }
+
+    public Registration(Doctor doctor, Patient patient, Date addedDate, String timeFrom, String timeTo) {
+        this.doctor = doctor;
+        this.patient = patient;
+        this.addedDate = addedDate;
+        this.timeFrom = timeFrom;
+        this.timeTo = timeTo;
     }
 
     public int getId() {
