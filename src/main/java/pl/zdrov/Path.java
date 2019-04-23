@@ -9,7 +9,8 @@ public class Path {
     public static final String SHOW_DOCTOR_PATH = "/fxml/ShowDoctors.fxml";
     public static final String SHOW_PATIENT_PATH = "/fxml/ShowPatient.fxml";
     public static final String SHOW_PERSON_PATH = "/fxml/ShowPerson.fxml";
+    public static final String SHOW_REGISTRATION_PATH = "/fxml/ShowRegistration.fxml";
     public static final String ADD_PATIENT_PATH = "/fxml/AddPatient.fxml";
-    public static final String REGISTRATION_PATH = "/fxml/RegisterView.fxml";
+    public static final String REGISTRATION_PATH = "/fxml/AddRegistration.fxml";
 
 }

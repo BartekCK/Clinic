@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -13,6 +14,7 @@ import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.FxmlUtilies;
 
 public class MainController {
+
 
     @FXML
     private BackgroundController backController;
@@ -52,6 +54,8 @@ public class MainController {
         stackPane.getChildren().add(iv);
     }
 
+
+
     @FXML
     public void itemShowDoctors()
     {
@@ -73,6 +77,10 @@ public class MainController {
     public void itemShowPatient() {
         setCenter(Path.SHOW_PATIENT_PATH);
     }
+    @FXML
+    public void itemShowRegistration() {
+        setCenter(Path.SHOW_REGISTRATION_PATH);
+    }
 
     public void projectInformation() {
         DialogCatch.projectInf();
@@ -81,5 +89,6 @@ public class MainController {
     public void projectClose() {
         System.exit(0);
     }
+
 
 }

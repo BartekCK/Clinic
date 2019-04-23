@@ -45,7 +45,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Rejestracja">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Sprawdź terminy" />
+                        <MenuItem mnemonicParsing="false" onAction="#itemShowRegistration" text="Sprawdź terminy" />
                     </items>
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -78,7 +78,7 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="SOMETIMES">
                <children>
-                  <ImageView fitHeight="232.0" fitWidth="219.0" layoutX="4.0" layoutY="244.0" nodeOrientation="INHERIT" opacity="0.52" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="4.0">
+                  <ImageView fitHeight="220.0" fitWidth="220.0" layoutX="4.0" layoutY="244.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="4.0">
                      <image>
                         <Image url="@../images/left.png" />
                      </image>
@@ -94,7 +94,7 @@
                </children></StackPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="SOMETIMES">
                <children>
-                  <ImageView fitHeight="232.0" fitWidth="219.0" layoutY="244.0" nodeOrientation="INHERIT" opacity="0.52" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0777740478515625">
+                  <ImageView fitHeight="220.0" fitWidth="220.0" layoutY="244.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0777740478515625">
                      <image>
                         <Image url="@../images/right.png" />
                      </image>
