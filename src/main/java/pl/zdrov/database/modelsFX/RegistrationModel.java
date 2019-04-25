@@ -3,12 +3,14 @@ package pl.zdrov.database.modelsFX;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import pl.zdrov.database.DbConnector;
+import pl.zdrov.database.dao.PatientDao;
 import pl.zdrov.database.dao.RegistrationDao;
 import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Patient;
 import pl.zdrov.database.models.Registration;
 import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.Utils;
+import pl.zdrov.utilies.converters.ConvertRegistration;
 import pl.zdrov.utilies.exceptions.ApplicationException;
 
 import java.sql.SQLException;
@@ -26,13 +28,57 @@ public class RegistrationModel {
     private WorkHoursModel workHoursModel;
     private String polishDay;
 
+    private Registration registration;
+    private RegistrationFx registrationFx;
+
     private ObservableList<WorkHoursFx> choosenDayWorkHoursFx = FXCollections.observableArrayList();
     private ObservableList<WorkHoursFx> divisionHoursOfDayWorkHoursFx = FXCollections.observableArrayList();
     private List<Registration> listOccupiedHoursSelectedDay = new ArrayList<>();
 
+    private ObservableList<RegistrationFx> allRegistrationListFx = FXCollections.observableArrayList();
+    private List<Registration> allRegistrationList = new ArrayList<>();
+
     public RegistrationModel() {
         workHoursModel = new WorkHoursModel();
     }
+
+    private void pullRegistrationFromDataBase()
+    {
+        try {
+            RegistrationDao registrationDao = new RegistrationDao();
+            allRegistrationList.clear();
+            allRegistrationList = registrationDao.queryForAll(Registration.class);
+        } catch (ApplicationException e) {
+            DialogCatch.errorCommitDoctor(e.getMessage());
+        }
+        DbConnector.closeConnectionSource();
+    }
+
+    public void init()
+    {
+        pullRegistrationFromDataBase();
+        allRegistrationListFx.clear();
+        allRegistrationList.forEach(registration -> {
+            RegistrationFx registrationFx = ConvertRegistration.convertToRegistrationFx(registration);
+            allRegistrationListFx.add(registrationFx);
+        });
+
+    }
+
+    public void deleteRegistrationInDataBase()
+    {
+
+        try {
+            RegistrationDao registrationDao = new RegistrationDao();
+            this.registration = ConvertRegistration.convertToRegistration(this.registrationFx);
+            registrationDao.delete(registration);
+            DbConnector.closeConnectionSource();
+            init();
+        } catch (ApplicationException e) {
+            DialogCatch.errorCommitDoctor(e.getMessage());
+        }
+    }
+
 
     public void saveRegistrationInDataBase(Registration registration) throws ApplicationException {
         RegistrationDao registrationDao = new RegistrationDao();
@@ -55,7 +101,7 @@ public class RegistrationModel {
         });
     }
 
-    public void makeSectionWorkHoursSelectedDay(LocalDate selectedDate)  {
+    private void makeSectionWorkHoursSelectedDay(LocalDate selectedDate)  {
         selectPolishDay(selectedDate);
         choosenDayWorkHoursFx.forEach(workHoursFx -> {
             LocalTime fromLocalTime = LocalTime.parse(workHoursFx.getTimeFrom());
@@ -72,7 +118,7 @@ public class RegistrationModel {
         });
     }
 
-    public void pullRegistrationFromDataBase(LocalDate selectedDate)
+    private void pullRegistrationFromDataBase(LocalDate selectedDate)
     {
         this.listOccupiedHoursSelectedDay.clear();
         RegistrationDao registrationDao = new RegistrationDao();
@@ -155,5 +201,14 @@ public class RegistrationModel {
 
     public void setPatient(Patient patient) {
         this.patient = patient;
+    }
+
+    public ObservableList<RegistrationFx> getAllRegistrationListFx() {
+        return allRegistrationListFx;
+    }
+
+
+    public void setRegistrationFx(RegistrationFx registrationFx) {
+        this.registrationFx = registrationFx;
     }
 }
