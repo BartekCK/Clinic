@@ -19,7 +19,7 @@ public class ShowRegistrationController {
 
     private RegistrationModel registrationModel;
 
-    private ObservableList<String> hourString = FXCollections.observableArrayList("08:00","08:30","09:00","09:30","10:00","10:30","11:00","11:30","12:00",
+    private final ObservableList<String> hourString = FXCollections.observableArrayList("08:00","08:30","09:00","09:30","10:00","10:30","11:00","11:30","12:00",
             "12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00");
     @FXML
     private TextField nameDoctorTextField;
@@ -135,6 +135,7 @@ public class ShowRegistrationController {
         surnameDoctorTextField.clear();
         specializationConboBox.setItems(SpecializationModel.returnAllSpecialization());
 
+        hourComboBox.setValue(null);
         hourComboBox.setItems(hourString);
 
         datePicker.setValue(null);
@@ -142,6 +143,7 @@ public class ShowRegistrationController {
         namePatientTextField.clear();
 
         surnamePatientTextField.clear();
+        registrationModel.clearRegistrationFxShowObservableListSearch();
         tableView.setItems(registrationModel.getRegistrationFxShowObservableList());
     }
 

@@ -75,6 +75,8 @@ public class ShowDoctorController{
 
     @FXML
     public void clearSearch() {
+        nameTextField.clear();
+        surnameTextField.clear();
         specializationComboBox.setItems(SpecializationModel.returnAllSpecialization());
         tableView.setItems(doctorModel.getDoctorFxShowObservableList());
 

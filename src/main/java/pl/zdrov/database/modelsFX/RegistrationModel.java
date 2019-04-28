@@ -307,7 +307,10 @@ public class RegistrationModel {
         this.registrationFx = registrationFx;
     }
 
-
+    public void clearRegistrationFxShowObservableListSearch()
+    {
+        this.registrationFxShowObservableListSearch.clear();
+    }
 
 
 
