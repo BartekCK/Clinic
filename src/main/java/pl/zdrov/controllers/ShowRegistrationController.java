@@ -1,6 +1,5 @@
 package pl.zdrov.controllers;
 
-import javafx.beans.property.ObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,9 +8,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import pl.zdrov.database.models.Registration;
 import pl.zdrov.database.models.Specialization;
-import pl.zdrov.database.modelsFX.DoctorFx;
 import pl.zdrov.database.modelsFX.RegistrationFx;
 import pl.zdrov.database.modelsFX.RegistrationModel;
 import pl.zdrov.database.modelsFX.SpecializationModel;
@@ -22,6 +19,8 @@ public class ShowRegistrationController {
 
     private RegistrationModel registrationModel;
 
+    private ObservableList<String> hourString = FXCollections.observableArrayList("08:00","08:30","09:00","09:30","10:00","10:30","11:00","11:30","12:00",
+            "12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00");
     @FXML
     private TextField nameDoctorTextField;
 
@@ -72,12 +71,11 @@ public class ShowRegistrationController {
     {
         registrationModel = new RegistrationModel();
         registrationModel.init();
-        ObservableList<String> hourString = FXCollections.observableArrayList("08:00","08:30","09:00","09:30","10:00","10:30","11:00","11:30","12:00",
-                "12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00");
+
         hourComboBox.setItems(hourString);
         specializationConboBox.setItems(SpecializationModel.returnAllSpecialization());
 
-        tableView.setItems(registrationModel.getAllRegistrationListFx());
+        tableView.setItems(registrationModel.getRegistrationFxShowObservableList());
         nameDoctorTableColumn.setCellValueFactory(cellData -> cellData.getValue().getDoctorFx().nameProperty());
         surnameDoctorTableColumn.setCellValueFactory(cellData -> cellData.getValue().getDoctorFx().surNameProperty());
         specializationTableColumn.setCellValueFactory(cellData -> cellData.getValue().getDoctorFx().getSpecializationFx().titleProperty());
@@ -90,10 +88,61 @@ public class ShowRegistrationController {
             registrationModel.setRegistrationFx(newValue);
         });
 
+
+
+        namePatientTextField.textProperty().addListener(((observable, oldValue, newValue) -> {
+            tableView.setItems(registrationModel.nameSearch(newValue,1));
+            setMainObservableList(newValue);
+        }));
+
+        surnamePatientTextField.textProperty().addListener(((observable, oldValue, newValue) -> {
+            tableView.setItems(registrationModel.surnameSearch(newValue,1));
+            setMainObservableList(newValue);
+        }));
+
+        hourComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            tableView.setItems(registrationModel.comboboxSearch(newValue,1));
+            setMainObservableList(newValue);
+        });
+
+
+
+        nameDoctorTextField.textProperty().addListener(((observable, oldValue, newValue) -> {
+            tableView.setItems(registrationModel.nameSearch(newValue,0));
+            setMainObservableList(newValue);
+        }));
+
+        surnameDoctorTextField.textProperty().addListener(((observable, oldValue, newValue) -> {
+            tableView.setItems(registrationModel.surnameSearch(newValue,0));
+            setMainObservableList(newValue);
+        }));
+        specializationConboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            tableView.setItems(registrationModel.comboboxSearch(newValue.getTitle(),0));
+            setMainObservableList(newValue.getTitle());
+        });
+
+        datePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+            tableView.setItems(registrationModel.dateSearch(newValue.toString()));
+            setMainObservableList(newValue.toString());
+        });
+
+
     }
 
     @FXML
     void clearSearch(){
+        nameDoctorTextField.clear();
+        surnameDoctorTextField.clear();
+        specializationConboBox.setItems(SpecializationModel.returnAllSpecialization());
+
+        hourComboBox.setItems(hourString);
+
+        datePicker.setValue(null);
+
+        namePatientTextField.clear();
+
+        surnamePatientTextField.clear();
+        tableView.setItems(registrationModel.getRegistrationFxShowObservableList());
     }
 
     @FXML
@@ -109,6 +158,13 @@ public class ShowRegistrationController {
     @FXML
     void showPatient() {
 
+    }
+
+    private void setMainObservableList(String newValue) {
+        if(newValue.isEmpty())
+        {
+            tableView.setItems(registrationModel.getRegistrationFxShowObservableList());
+        }
     }
 
 }

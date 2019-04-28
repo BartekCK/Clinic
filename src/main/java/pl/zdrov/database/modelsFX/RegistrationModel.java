@@ -3,23 +3,21 @@ package pl.zdrov.database.modelsFX;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import pl.zdrov.database.DbConnector;
-import pl.zdrov.database.dao.PatientDao;
 import pl.zdrov.database.dao.RegistrationDao;
 import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Patient;
 import pl.zdrov.database.models.Registration;
+import pl.zdrov.database.models.Specialization;
 import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.Utils;
 import pl.zdrov.utilies.converters.ConvertRegistration;
 import pl.zdrov.utilies.exceptions.ApplicationException;
 
 import java.sql.SQLException;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RegistrationModel {
 
@@ -35,7 +33,8 @@ public class RegistrationModel {
     private ObservableList<WorkHoursFx> divisionHoursOfDayWorkHoursFx = FXCollections.observableArrayList();
     private List<Registration> listOccupiedHoursSelectedDay = new ArrayList<>();
 
-    private ObservableList<RegistrationFx> allRegistrationListFx = FXCollections.observableArrayList();
+    private ObservableList<RegistrationFx> registrationFxShowObservableList = FXCollections.observableArrayList();
+    private ObservableList<RegistrationFx> registrationFxShowObservableListSearch = FXCollections.observableArrayList();
     private List<Registration> allRegistrationList = new ArrayList<>();
 
     public RegistrationModel() {
@@ -57,10 +56,11 @@ public class RegistrationModel {
     public void init()
     {
         pullRegistrationFromDataBase();
-        allRegistrationListFx.clear();
+        registrationFxShowObservableList.clear();
+        registrationFxShowObservableListSearch.clear();
         allRegistrationList.forEach(registration -> {
             RegistrationFx registrationFx = ConvertRegistration.convertToRegistrationFx(registration);
-            allRegistrationListFx.add(registrationFx);
+            registrationFxShowObservableList.add(registrationFx);
         });
 
     }
@@ -180,6 +180,102 @@ public class RegistrationModel {
 
 
 
+    public  ObservableList<RegistrationFx> nameSearch(String compare,int check)
+    {
+        registrationFxShowObservableListSearch.clear();
+        if(check ==0)
+        {
+            registrationFxShowObservableList.forEach(registrationFx -> {
+                if (compare.equals(registrationFx.getDoctorFx().getName()))
+                {
+                    registrationFxShowObservableListSearch.add(registrationFx);
+                }
+            });
+        }
+        else
+        {
+            registrationFxShowObservableList.forEach(registrationFx -> {
+                if (compare.equals(registrationFx.getPatientFx().getName()))
+                {
+                    registrationFxShowObservableListSearch.add(registrationFx);
+                }
+            });
+        }
+
+
+        return registrationFxShowObservableListSearch;
+    }
+
+    public  ObservableList<RegistrationFx> surnameSearch(String compare,int check)
+    {
+        registrationFxShowObservableListSearch.clear();
+        if(check ==0)
+        {
+            registrationFxShowObservableList.forEach(registrationFx -> {
+                if (compare.equals(registrationFx.getDoctorFx().getSurName()))
+                {
+                    registrationFxShowObservableListSearch.add(registrationFx);
+                }
+            });
+        }
+        else
+        {
+            registrationFxShowObservableList.forEach(registrationFx -> {
+                if (compare.equals(registrationFx.getPatientFx().getSurName()))
+                {
+                    registrationFxShowObservableListSearch.add(registrationFx);
+                }
+            });
+        }
+
+
+        return registrationFxShowObservableListSearch;
+    }
+
+
+
+    public  ObservableList<RegistrationFx> comboboxSearch(String compare,int check)
+    {
+        registrationFxShowObservableListSearch.clear();
+        if(check ==0)
+        {
+            registrationFxShowObservableList.forEach(registrationFx -> {
+                if (compare.equals(registrationFx.getDoctorFx().getSpecializationFx().getTitle()))
+                {
+                    registrationFxShowObservableListSearch.add(registrationFx);
+                }
+            });
+        }
+        else
+        {
+            registrationFxShowObservableList.forEach(registrationFx -> {
+                if (compare.equals(registrationFx.getTimeFrom()))
+                {
+                    registrationFxShowObservableListSearch.add(registrationFx);
+                }
+            });
+        }
+
+
+        return registrationFxShowObservableListSearch;
+    }
+
+
+    public  ObservableList<RegistrationFx> dateSearch(String compare)
+    {
+        registrationFxShowObservableListSearch.clear();
+
+        registrationFxShowObservableList.forEach(registrationFx -> {
+            if (compare.equals(registrationFx.getAddedDate().toString()))
+            {
+                registrationFxShowObservableListSearch.add(registrationFx);
+            }
+        });
+
+
+
+        return registrationFxShowObservableListSearch;
+    }
 
 
     public Doctor getDoctor() {
@@ -203,12 +299,17 @@ public class RegistrationModel {
         this.patient = patient;
     }
 
-    public ObservableList<RegistrationFx> getAllRegistrationListFx() {
-        return allRegistrationListFx;
+    public ObservableList<RegistrationFx> getRegistrationFxShowObservableList() {
+        return registrationFxShowObservableList;
     }
-
 
     public void setRegistrationFx(RegistrationFx registrationFx) {
         this.registrationFx = registrationFx;
     }
+
+
+
+
+
+
 }
