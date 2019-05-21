@@ -24,7 +24,7 @@ public class DbConnector {
         createConnectionSource();
         //dropTable();
         createTable();
-        //loadData();
+        loadData();
         closeConnectionSource();
     }
 
@@ -75,8 +75,9 @@ public class DbConnector {
         }
     }
 
-    public static void loadData()
+    private static void loadData()
     {
-        SpecializationModel.setSpecialization();
+        if(SpecializationModel.isDataBaseSpecializationEmpty())
+            SpecializationModel.setSpecialization();
     }
 }

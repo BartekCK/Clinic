@@ -8,6 +8,7 @@ import pl.zdrov.database.models.Specialization;
 import pl.zdrov.utilies.converters.ConvertSpecialization;
 import pl.zdrov.utilies.exceptions.ApplicationException;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class SpecializationModel {
@@ -39,6 +40,19 @@ public class SpecializationModel {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static boolean isDataBaseSpecializationEmpty()
+    {
+        SpecializationDao specializationDao = new SpecializationDao();
+        try {
+            return specializationDao.isEmptySpecializationDataBase();
+        } catch (ApplicationException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
 
