@@ -7,7 +7,7 @@ import pl.zdrov.database.dao.RegistrationDao;
 import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Patient;
 import pl.zdrov.database.models.Registration;
-import pl.zdrov.database.models.Specialization;
+import pl.zdrov.database.models.exception.BaseModel;
 import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.Utils;
 import pl.zdrov.utilies.converters.ConvertRegistration;
@@ -312,6 +312,19 @@ public class RegistrationModel {
         this.registrationFxShowObservableListSearch.clear();
     }
 
+
+    public static boolean isDoctorInRegistration(String columnName,BaseModel baseModel)
+    {
+        RegistrationDao registrationDao = new RegistrationDao();
+        try {
+            return registrationDao.isObjectInRegistrationCheck(columnName, baseModel);
+        } catch (ApplicationException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
 
 
 

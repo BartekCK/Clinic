@@ -11,9 +11,12 @@ import pl.zdrov.Path;
 import pl.zdrov.database.models.Patient;
 import pl.zdrov.database.modelsFX.PatientFx;
 import pl.zdrov.database.modelsFX.PatientModel;
+import pl.zdrov.database.modelsFX.RegistrationModel;
+import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.FxmlUtilies;
 import pl.zdrov.utilies.converters.ConverterDoctor;
 import pl.zdrov.utilies.converters.ConverterPatient;
+import pl.zdrov.utilies.exceptions.ApplicationException;
 
 import java.io.IOException;
 
@@ -106,7 +109,17 @@ public class ShowPatientController {
     }
     @FXML
     private void deletePatient() {
-        patientModel.deletePatientInDataBase();
+
+
+        try
+        {
+            if(RegistrationModel.isDoctorInRegistration("PATIENT_ID",ConverterPatient.convertToPatient(patientModel.getPatientFx())))
+                throw new ApplicationException("Nie można usunąć pacjenta, ktory ma zaplanowane wizyty");
+            patientModel.deletePatientInDataBase();
+        }catch (ApplicationException e)
+        {
+            DialogCatch.errorCommitDoctor(e.getMessage());
+        }
     }
 
 

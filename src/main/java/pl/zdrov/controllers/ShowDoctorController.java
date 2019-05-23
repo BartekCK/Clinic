@@ -9,10 +9,12 @@ import pl.zdrov.Path;
 import pl.zdrov.database.models.Specialization;
 import pl.zdrov.database.modelsFX.DoctorFx;
 import pl.zdrov.database.modelsFX.DoctorModel;
+import pl.zdrov.database.modelsFX.RegistrationModel;
 import pl.zdrov.database.modelsFX.SpecializationModel;
 import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.FxmlUtilies;
 import pl.zdrov.utilies.converters.ConverterDoctor;
+import pl.zdrov.utilies.exceptions.ApplicationException;
 
 import java.io.IOException;
 
@@ -124,7 +126,16 @@ public class ShowDoctorController{
     }
     @FXML
     public void deleteDoctor() {
-        doctorModel.deleteDoctorInDataBase();
+        try
+        {
+            if(RegistrationModel.isDoctorInRegistration("DOCTOR_ID",ConverterDoctor.convertToDoctor(doctorModel.getDoctorFx())))
+                throw new ApplicationException("Nie można usunąć lekarza, ktory ma zaplanowane wizyty");
+            doctorModel.deleteDoctorInDataBase();
+        }catch (ApplicationException e)
+        {
+            DialogCatch.errorCommitDoctor(e.getMessage());
+        }
+
     }
 
     private void setMainObservableList(String newValue) {
