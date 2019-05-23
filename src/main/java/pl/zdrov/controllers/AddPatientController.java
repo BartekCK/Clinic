@@ -92,7 +92,7 @@ public class AddPatientController {
             patient.setWeight(Double.parseDouble(weightTextField.getText()));
             patient.setHeight(Double.parseDouble(heightTextField.getText()));
             patient.setBranchNfz(nfzComboBox.getValue());
-            //CorrectDataCommit.checkPatient(patient);
+            CorrectDataCommit.checkPatient(patient);
             if(DialogCatch.infoCommitWorkHours())
             {
                 patientModel.savePatientInDataBase(patient);

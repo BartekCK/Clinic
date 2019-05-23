@@ -22,6 +22,8 @@ public abstract class MainDao {
     }
 
     public <T extends BaseModel, I> void creatOrUpdate(BaseModel baseModel) throws ApplicationException {
+        if(baseModel == null)
+            throw new ApplicationException("Obiekt jest nullem");
         Dao<T, I> dao = getDao((Class<T>) baseModel.getClass());
         try {
             dao.createOrUpdate((T) baseModel);

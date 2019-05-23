@@ -152,16 +152,6 @@ public class ShowRegistrationController {
         registrationModel.deleteRegistrationInDataBase();
     }
 
-    @FXML
-    void showDoctor() {
-
-    }
-
-    @FXML
-    void showPatient() {
-
-    }
-
     private void setMainObservableList(String newValue) {
         if(newValue.isEmpty())
         {

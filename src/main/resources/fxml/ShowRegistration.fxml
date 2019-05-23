@@ -105,8 +105,6 @@
          <contextMenu>
             <ContextMenu>
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#showDoctor" text="Wyswietl lekarza" />
-                  <MenuItem mnemonicParsing="false" onAction="#showPatient" text="Wyswielt Pacjenta" />
                   <MenuItem mnemonicParsing="false" onAction="#deleteRegistration" text="Usun wizyte" />
               </items>
             </ContextMenu>

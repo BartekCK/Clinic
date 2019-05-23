@@ -10,6 +10,7 @@ import pl.zdrov.database.models.Specialization;
 import pl.zdrov.database.modelsFX.DoctorModel;
 import pl.zdrov.database.modelsFX.SpecializationModel;
 import pl.zdrov.utilies.DialogCatch;
+import pl.zdrov.utilies.exceptions.CorrectDataCommit;
 
 public class AddDoctorController  {
 
@@ -68,7 +69,7 @@ public class AddDoctorController  {
             doctor.setPhone(phoneTextField.getText());
             doctor.setSpecialization(specializationComboBox.getValue());
 
-            //CorrectDataCommit.checkDoctor(doctor);
+            CorrectDataCommit.checkDoctor(doctor);
             if(DialogCatch.infoCommitWorkHours())
             {
                 doctorModel.saveDoctorInDataBase(doctor);
