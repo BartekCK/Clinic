@@ -22,7 +22,9 @@ public class Main extends Application {
     public static  void newWindow(Parent parent,String title)
     {
         Stage stage = new Stage();
-        stage.setScene(new Scene(parent));
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().addAll(FxmlUtilies.class.getResource(Path.CSS_PATH).toExternalForm());
+        stage.setScene(scene);
         stage.setTitle(title);
         if(stage.getTitle().equals("Okno rejestracji"))
         {

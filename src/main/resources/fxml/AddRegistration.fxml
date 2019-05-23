@@ -17,22 +17,22 @@
          <children>
             <VBox layoutX="14.0" layoutY="14.0" spacing="5.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
                <children>
-                  <Label text="Dane lekarza:" VBox.vgrow="ALWAYS" />
+                  <Label styleClass="h2" text="Dane lekarza:" VBox.vgrow="ALWAYS" />
                   <HBox alignment="CENTER_RIGHT" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label text="Imię" />
+                        <Label styleClass="h3" text="Imię" />
                         <TextField fx:id="doctorNameTextField" editable="false" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label text="Nazwisko" />
+                        <Label styleClass="h3" text="Nazwisko" />
                         <TextField fx:id="doctorSurnameTextField" editable="false" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label text="Specializacja" />
+                        <Label styleClass="h3" text="Specializacja" />
                         <TextField fx:id="doctorSpecializationTextField" editable="false" />
                      </children>
                   </HBox>
@@ -40,7 +40,7 @@
             </VBox>
             <VBox layoutX="14.0" layoutY="281.0" prefHeight="200.0" prefWidth="264.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0">
                <children>
-                  <Label text="Dni pracy lekarza:" />
+                  <Label styleClass="h2" text="Dni pracy lekarza:" />
                   <TableView fx:id="workTableView" prefHeight="200.0" prefWidth="200.0">
                     <columns>
                       <TableColumn fx:id="dayWorkTableView" prefWidth="75.0" text="Dzień" />
@@ -62,28 +62,28 @@
                      <children>
                         <HBox prefHeight="328.0" prefWidth="287.0" spacing="5.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label text="Wybierz datę:" HBox.hgrow="ALWAYS" />
-                              <DatePicker fx:id="datePicker" HBox.hgrow="ALWAYS" />
+                              <Label styleClass="h3" text="Wybierz datę:" HBox.hgrow="ALWAYS" />
+                              <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="155.0" HBox.hgrow="ALWAYS" />
                            </children>
                         </HBox>
                         <VBox prefHeight="144.0" prefWidth="287.0" spacing="5.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label text="Dane pacjenta:" VBox.vgrow="NEVER" />
+                              <Label styleClass="h2" text="Dane pacjenta:" VBox.vgrow="NEVER" />
                               <HBox alignment="CENTER_RIGHT" spacing="5.0" VBox.vgrow="NEVER">
                                  <children>
-                                    <Label text="Imię" />
+                                    <Label styleClass="h3" text="Imię" />
                                     <TextField fx:id="patientNameTextField" editable="false" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" spacing="5.0" VBox.vgrow="NEVER">
                                  <children>
-                                    <Label text="Nazwisko" />
+                                    <Label styleClass="h3" text="Nazwisko" />
                                     <TextField fx:id="patientSurnameTextField" editable="false" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" spacing="5.0" VBox.vgrow="NEVER">
                                  <children>
-                                    <Label text="Pesel" />
+                                    <Label styleClass="h3" text="Pesel" />
                                     <TextField fx:id="patientPeselTextField" editable="false" />
                                  </children>
                               </HBox>
@@ -95,8 +95,8 @@
                      <children>
                         <HBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="253.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="117.0" text="Wolne terminy dnia:" />
-                              <TextField fx:id="chooseDayTextField" editable="false" prefHeight="25.0" prefWidth="145.0" />
+                              <Label prefHeight="19.0" prefWidth="155.0" styleClass="h3" text="Wolne terminy dnia:" />
+                              <TextField fx:id="chooseDayTextField" editable="false" prefHeight="25.0" prefWidth="104.0" />
                            </children>
                         </HBox>
                         <TableView fx:id="registrationTableView" prefHeight="340.0" prefWidth="278.0" VBox.vgrow="ALWAYS">

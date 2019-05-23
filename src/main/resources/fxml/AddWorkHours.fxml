@@ -16,26 +16,26 @@
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Wybierz dzień:" />
+                  <Label styleClass="h2" text="Wybierz dzień:" />
                   <ComboBox fx:id="dayComboBox" prefWidth="150.0" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Od:" />
+                  <Label styleClass="h2" text="Od:" />
                   <ComboBox fx:id="fromComboBox" prefWidth="150.0" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Do:" />
+                  <Label styleClass="h2" text="Do:" />
                   <ComboBox fx:id="toComboBox" prefWidth="150.0" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" onAction="#saveToLocalData" prefHeight="26.0" prefWidth="50.0" text="Dodaj" />
-                  <Button mnemonicParsing="false" onAction="#commitWorkHours" prefHeight="25.0" prefWidth="50.0" text="Zapisz" />
+                  <Button mnemonicParsing="false" onAction="#saveToLocalData" prefHeight="40.0" prefWidth="88.0" text="Dodaj" />
+                  <Button mnemonicParsing="false" onAction="#commitWorkHours" prefHeight="40.0" prefWidth="132.0" text="Zapisz" />
                </children>
             </VBox>
          </children>

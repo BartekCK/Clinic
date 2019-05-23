@@ -16,7 +16,9 @@ public class FxmlUtilies {
     static public Parent setFxmlParent(String fxmlPath)
     {
         try {
-            return FXMLLoader.load(FxmlUtilies.class.getResource(fxmlPath));
+            Parent root = FXMLLoader.load(FxmlUtilies.class.getResource(fxmlPath));
+            root.getStylesheets().addAll(FxmlUtilies.class.getResource(Path.CSS_PATH).toExternalForm());
+            return root;
         }catch (Exception e)
         {
             e.getMessage();
@@ -32,6 +34,7 @@ public class FxmlUtilies {
         } catch (IOException e) {
             DialogCatch.errorCommitDoctor(e.getMessage());
         }
+
         return fxmlLoader;
     }
 

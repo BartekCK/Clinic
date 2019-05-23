@@ -20,19 +20,19 @@
                <children>
                   <HBox alignment="CENTER" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label text="Imie" />
+                        <Label styleClass="h3" text="Imię" />
                         <TextField fx:id="nameDoctorTextField" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label text="Nazwisko" />
+                        <Label styleClass="h3" text="Nazwisko" />
                         <TextField fx:id="surnameDoctorTextField" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label text="Specializacja" />
+                        <Label styleClass="h3" text="Specializacja" />
                         <ComboBox fx:id="specializationConboBox" prefHeight="26.0" prefWidth="171.0" />
                      </children>
                   </HBox>
@@ -42,13 +42,13 @@
                <children>
                   <HBox alignment="CENTER" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label text="Data" />
+                        <Label styleClass="h3" text="Data" />
                         <DatePicker fx:id="datePicker" prefHeight="26.0" prefWidth="171.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label text="Godzina" />
+                        <Label styleClass="h3" text="Godzina" />
                         <ComboBox fx:id="hourComboBox" prefHeight="26.0" prefWidth="171.0" />
                      </children>
                   </HBox>
@@ -58,19 +58,19 @@
                <children>
                   <HBox alignment="CENTER" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="16.0" prefWidth="29.0" text="Imie" />
+                        <Label prefHeight="16.0" prefWidth="29.0" styleClass="h3" text="Imię" />
                         <TextField fx:id="namePatientTextField" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label text="Nazwisko" />
+                        <Label styleClass="h3" text="Nazwisko" />
                         <TextField fx:id="surnamePatientTextField" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#clearSearch" prefHeight="26.0" prefWidth="171.0" text="Wyczysc wyszukiwania" />
+                        <Button mnemonicParsing="false" onAction="#clearSearch" prefHeight="40.0" prefWidth="200.0" text="Wyczysc wyszukiwania" />
                      </children>
                   </HBox>
                </children>

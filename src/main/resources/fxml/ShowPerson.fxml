@@ -15,7 +15,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Imię" />
+                        <Label styleClass="h3" text="Imię" />
                         <TextField fx:id="nameTextField" editable="false" />
                      </children>
                      <HBox.margin>
@@ -24,7 +24,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Nazwisko" />
+                        <Label styleClass="h3" text="Nazwisko" />
                         <TextField fx:id="surnameTextField" editable="false" />
                      </children>
                      <HBox.margin>
@@ -43,7 +43,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Pesel" />
+                        <Label styleClass="h3" text="Pesel" />
                         <TextField fx:id="peselTextField" editable="false" />
                      </children>
                      <HBox.margin>
@@ -52,7 +52,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Telefon" />
+                        <Label styleClass="h3" text="Telefon" />
                         <TextField fx:id="phoneTextField" editable="false" />
                      </children>
                      <HBox.margin>
@@ -71,7 +71,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Mail" />
+                        <Label styleClass="h3" text="Mail" />
                         <TextField fx:id="mailTextField" editable="false" />
                      </children>
                      <HBox.margin>
@@ -95,7 +95,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="PWZ" />
+                        <Label styleClass="h3" text="PWZ" />
                         <TextField fx:id="pwzTextField" editable="false" />
                      </children>
                      <HBox.margin>
@@ -104,7 +104,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Specializacja" />
+                        <Label styleClass="h3" text="Specializacja" />
                         <TextField fx:id="specializationTextField" editable="false" />
                      </children>
                      <HBox.margin>
@@ -123,7 +123,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Ulica" />
+                        <Label styleClass="h3" text="Ulica" />
                         <TextField fx:id="adressTextField" editable="false" />
                      </children>
                      <HBox.margin>
@@ -132,7 +132,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Kod pocztowy" />
+                        <Label styleClass="h3" text="Kod pocztowy" />
                         <TextField fx:id="zipTextField" editable="false" prefHeight="26.0" prefWidth="86.0" />
                      </children>
                      <HBox.margin>
@@ -151,7 +151,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Miasto" />
+                        <Label styleClass="h3" text="Miasto" />
                         <TextField fx:id="cityTextField" editable="false" />
                      </children>
                      <HBox.margin>
@@ -160,7 +160,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="NFZ" />
+                        <Label styleClass="h3" text="NFZ" />
                         <TextField fx:id="nfzTextField" editable="false" />
                      </children>
                      <HBox.margin>
@@ -179,7 +179,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Waga" />
+                        <Label styleClass="h3" text="Waga" />
                         <TextField fx:id="weightTextField" editable="false" />
                      </children>
                      <HBox.margin>
@@ -188,7 +188,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Wysokość" />
+                        <Label styleClass="h3" text="Wysokość" />
                         <TextField fx:id="heightTextField" editable="false" />
                      </children>
                      <HBox.margin>

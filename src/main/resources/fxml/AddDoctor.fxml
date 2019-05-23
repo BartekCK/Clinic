@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -14,7 +15,7 @@
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Imię">
+                  <Label styleClass="h3" text="Imię">
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
@@ -30,7 +31,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Nazwisko">
+                  <Label styleClass="h3" text="Nazwisko">
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
@@ -53,7 +54,7 @@
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Pesel">
+                  <Label styleClass="h3" text="Pesel">
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
@@ -69,7 +70,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="PWZ">
+                  <Label styleClass="h3" text="PWZ">
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
@@ -92,7 +93,7 @@
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Mail">
+                  <Label styleClass="h3" text="Mail">
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
@@ -108,7 +109,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Numer telefonu">
+                  <Label styleClass="h3" text="Numer telefonu">
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
@@ -129,14 +130,14 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="278.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Specializacja">
+                  <Label styleClass="h3" text="Specializacja">
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox fx:id="specializationComboBox" prefWidth="150.0" />
+                  <ComboBox fx:id="specializationComboBox" prefHeight="25.0" prefWidth="140.0" />
                </children>
                <HBox.margin>
                   <Insets />
@@ -145,9 +146,13 @@
                   <Insets right="25.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER" prefHeight="55.0" prefWidth="221.0" spacing="20.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#commitDoctor" text="Zapisz" />
+                  <AnchorPane HBox.hgrow="SOMETIMES">
+                     <children>
+                        <Button fx:id="saveButton" layoutX="163.0" layoutY="1.0" mnemonicParsing="false" onAction="#commitDoctor" prefHeight="40.0" prefWidth="121.0" text="Zapisz" />
+                     </children>
+                  </AnchorPane>
                </children>
             </HBox>
          </children>

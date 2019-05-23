@@ -12,5 +12,6 @@ public class Path {
     public static final String SHOW_REGISTRATION_PATH = "/fxml/ShowRegistration.fxml";
     public static final String ADD_PATIENT_PATH = "/fxml/AddPatient.fxml";
     public static final String REGISTRATION_PATH = "/fxml/AddRegistration.fxml";
+    public static final String CSS_PATH = "/css/MainStyleSheet.css";
 
 }
