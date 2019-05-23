@@ -9,14 +9,10 @@ import static org.junit.Assert.*;
 
 public class MainDaoTest {
 
-    @Test(expected = NullPointerException.class)
-    public void creatOrUpdate() {
+    @Test(expected = ApplicationException.class)
+    public void creatOrUpdate() throws ApplicationException {
         DoctorDao doctorDao = new DoctorDao();
-        try {
-            doctorDao.creatOrUpdate(null);
-        } catch (ApplicationException e) {
-            e.printStackTrace();
-        }
+        doctorDao.creatOrUpdate(null);
     }
 
     @Test(expected = ApplicationException.class)
