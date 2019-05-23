@@ -7,7 +7,6 @@ plugins {
 group 'pl.zdrov'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 11
 
 compileJava.options.encoding = 'UTF-8'
 
@@ -23,10 +22,21 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.27.2'
     compile group: 'com.j256.ormlite', name: 'ormlite-jdbc', version: '5.1'
+
 }
+
 
 javafx {
     modules = ['javafx.controls','javafx.fxml']
-    version = '11.0.2'
+    version = '12'
 }
 mainClassName = 'pl.zdrov.Main'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'pl.zdrov.Launcher'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
