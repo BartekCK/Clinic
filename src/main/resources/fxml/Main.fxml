@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -76,34 +75,12 @@
         </MenuBar>
       <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
          <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="SOMETIMES">
-               <children>
-                  <ImageView fitHeight="220.0" fitWidth="220.0" layoutX="4.0" layoutY="244.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="4.0">
-                     <image>
-                        <Image url="@../images/left.png" />
-                     </image>
-                     <viewport>
-                        <Rectangle2D />
-                     </viewport>
-                  </ImageView>
-               </children>
-            </AnchorPane>
+            <AnchorPane id="leftAnchor" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="SOMETIMES" />
             <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
                   <fx:include fx:id="back" source="Backgroung.fxml" />
                </children></StackPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="SOMETIMES">
-               <children>
-                  <ImageView fitHeight="220.0" fitWidth="220.0" layoutY="244.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0777740478515625">
-                     <image>
-                        <Image url="@../images/right.png" />
-                     </image>
-                     <viewport>
-                        <Rectangle2D />
-                     </viewport>
-                  </ImageView>
-               </children>
-            </AnchorPane>
+            <AnchorPane id="rightAnchor" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="SOMETIMES" />
          </children>
       </HBox>
       <fx:include fx:id="down" source="Footer.fxml" HBox.hgrow="ALWAYS" />

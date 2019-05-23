@@ -174,3 +174,21 @@
     -fx-background-repeat: stretch;
 
 }
+
+
+#leftAnchor
+{
+    -fx-background-image: url("../images/left.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 200 200;
+    -fx-background-position: center center;
+
+}
+
+#rightAnchor
+{
+    -fx-background-image: url("../images/right.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 200 200;
+    -fx-background-position: center center;
+}
