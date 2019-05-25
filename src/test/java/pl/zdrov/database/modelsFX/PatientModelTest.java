@@ -2,6 +2,7 @@ package pl.zdrov.database.modelsFX;
 
 import org.junit.Before;
 import org.junit.Test;
+import pl.zdrov.database.DbConnector;
 import pl.zdrov.utilies.exceptions.ApplicationException;
 
 import static org.junit.Assert.*;
@@ -12,6 +13,7 @@ public class PatientModelTest {
     @Before
     public void first()
     {
+        DbConnector.initDatabase();
         patientModel = new PatientModel();
     }
 

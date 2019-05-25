@@ -1,6 +1,8 @@
 package pl.zdrov.controllers;
 
+import org.junit.Before;
 import org.junit.Test;
+import pl.zdrov.database.DbConnector;
 import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Specialization;
 import pl.zdrov.database.modelsFX.SpecializationModel;
@@ -8,6 +10,13 @@ import pl.zdrov.database.modelsFX.SpecializationModel;
 import static org.junit.Assert.*;
 
 public class AddDoctorControllerTest {
+
+
+    @Before
+    public void setUp() {
+        DbConnector.initDatabase();
+    }
+
 
     @Test
     public void setTextFields() {

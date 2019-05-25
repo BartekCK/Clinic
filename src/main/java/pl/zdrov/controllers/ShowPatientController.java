@@ -1,6 +1,7 @@
 package pl.zdrov.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -81,6 +82,7 @@ public class ShowPatientController {
     {
         patientModel = new PatientModel();
         patientModel.init();
+        patientTableView.setPlaceholder(new Label("Brak wyników"));
         patientTableView.setItems(patientModel.getPatientFxShowObservableList());
         nameTableView.setCellValueFactory(cellData-> cellData.getValue().nameProperty());
         surnameTableView.setCellValueFactory(cellData-> cellData.getValue().surNameProperty());

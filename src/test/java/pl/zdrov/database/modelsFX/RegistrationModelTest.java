@@ -2,6 +2,7 @@ package pl.zdrov.database.modelsFX;
 
 import org.junit.Before;
 import org.junit.Test;
+import pl.zdrov.database.DbConnector;
 import pl.zdrov.database.models.Doctor;
 import pl.zdrov.utilies.exceptions.ApplicationException;
 
@@ -16,6 +17,7 @@ public class RegistrationModelTest {
     @Before
     public void set()
     {
+        DbConnector.initDatabase();
         registrationModel = new RegistrationModel();
         registrationModel.init();
     }

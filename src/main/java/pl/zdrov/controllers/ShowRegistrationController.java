@@ -3,11 +3,7 @@ package pl.zdrov.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import pl.zdrov.database.models.Specialization;
 import pl.zdrov.database.modelsFX.RegistrationFx;
 import pl.zdrov.database.modelsFX.RegistrationModel;
@@ -130,6 +126,7 @@ public class ShowRegistrationController {
         hourComboBox.setItems(hourString);
         specializationConboBox.setItems(SpecializationModel.returnAllSpecialization());
 
+        tableView.setPlaceholder(new Label("Brak wyników"));
         tableView.setItems(registrationModel.getRegistrationFxShowObservableList());
         nameDoctorTableColumn.setCellValueFactory(cellData -> cellData.getValue().getDoctorFx().nameProperty());
         surnameDoctorTableColumn.setCellValueFactory(cellData -> cellData.getValue().getDoctorFx().surNameProperty());

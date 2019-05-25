@@ -4,6 +4,7 @@ import javafx.collections.ObservableList;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import pl.zdrov.database.DbConnector;
 import pl.zdrov.database.modelsFX.SpecializationModel;
 
 import static org.junit.Assert.*;
@@ -12,8 +13,11 @@ public class DoctorTest {
 
     private Doctor doctor;
 
+
+
     @Before
     public void setUp() {
+        DbConnector.initDatabase();
         doctor = new Doctor();
     }
 
