@@ -54,7 +54,7 @@
 {
     -fx-font-weight: bold;
     -fx-font-size: 13px;
-    -fx-font-style: Helvetica;
+    -fx-font-family: Helvetica;
     -fx-font-smoothing-type: lcd;
 }
 .h2
@@ -125,7 +125,7 @@
     -fx-control-inner-background: #5bb65b;
     -fx-background-color: #5bb65b;
     -fx-table-cell-border-color: white;
-    -fx-table-header-border-color: #white;
+    -fx-table-header-border-color: white;
     -fx-padding: 5;
 }
 
