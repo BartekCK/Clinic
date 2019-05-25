@@ -1,7 +1,9 @@
 package pl.zdrov.database.modelsFX;
 
 import javafx.beans.property.*;
-
+/**
+ * Klasa dla pacjenta ale pomaga ona wyświetlać dane w kontrolkach określnych w plikach fxml
+ */
 public class PatientFx {
 
 

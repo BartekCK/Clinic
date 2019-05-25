@@ -4,11 +4,9 @@ import pl.zdrov.database.models.Registration;
 import pl.zdrov.database.modelsFX.RegistrationFx;
 import pl.zdrov.utilies.Utils;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-
+/**
+ * Klasa opowiada za konwetrowanie obiektów między Registration a RegistrationFx
+ */
 public class ConvertRegistration {
 
     public static Registration convertToRegistration(RegistrationFx registrationFx)

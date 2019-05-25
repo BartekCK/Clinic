@@ -2,7 +2,9 @@ package pl.zdrov.utilies.converters;
 
 import pl.zdrov.database.models.Patient;
 import pl.zdrov.database.modelsFX.PatientFx;
-
+/**
+ * Klasa opowiada za konwetrowanie obiektów między Patient a PatientFx
+ */
 public class ConverterPatient {
     public static Patient convertToPatient(PatientFx patientFx)
     {

@@ -1,5 +1,8 @@
 package pl.zdrov;
 
+/**
+ * Klasa przechowująca wszystkie ścieżki do plików
+ */
 public class Path {
     public static final String ADD_DOCTOR_PATH = "/fxml/AddDoctor.fxml";
     public static final String ADD_WORK_HOURS_PATH = "/fxml/AddWorkHours.fxml";

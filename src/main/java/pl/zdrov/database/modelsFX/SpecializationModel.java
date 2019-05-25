@@ -5,16 +5,18 @@ import javafx.collections.ObservableList;
 import pl.zdrov.database.DbConnector;
 import pl.zdrov.database.dao.SpecializationDao;
 import pl.zdrov.database.models.Specialization;
-import pl.zdrov.utilies.converters.ConvertSpecialization;
 import pl.zdrov.utilies.exceptions.ApplicationException;
-
 import java.sql.SQLException;
-import java.util.List;
-
+/**
+ * Klasa zarządza akcjami na obiektach typu Specialization
+ */
 public class SpecializationModel {
 
     private static ObservableList<Specialization> temp = FXCollections.observableArrayList();
 
+    /**
+     * Zapisuje specializacje do bazy danych
+     */
     public static void setSpecialization() {
         try {
             SpecializationDao specializationDao = new SpecializationDao();
@@ -29,6 +31,10 @@ public class SpecializationModel {
         }
     }
 
+    /**
+     * Zwraca wszystkie specializacje
+     * @return wszystkie specializacje
+     */
     public static ObservableList returnAllSpecialization() {
         try {
             SpecializationDao specializationDao = new SpecializationDao();
@@ -42,6 +48,10 @@ public class SpecializationModel {
         return null;
     }
 
+    /**
+     * Sprawdza czy specializacje zostały zapisane do bazy danych
+     * @return true jeżeli baza jest pusta
+     */
     public static boolean isDataBaseSpecializationEmpty()
     {
         SpecializationDao specializationDao = new SpecializationDao();

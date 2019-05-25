@@ -2,7 +2,9 @@ package pl.zdrov.utilies.converters;
 
 import pl.zdrov.database.models.WorkHours;
 import pl.zdrov.database.modelsFX.WorkHoursFx;
-
+/**
+ * Klasa opowiada za konwetrowanie obiektów między WorkHours a WorkHoursFx
+ */
 public class ConverterWorkHours {
 
     public static WorkHours convertToWorkHours(WorkHoursFx workHoursFx){

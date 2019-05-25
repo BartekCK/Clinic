@@ -5,7 +5,9 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-
+/**
+ * Klasa dla lekarza ale pomaga ona wyświetlać dane w kontrolkach określnych w plikach fxml
+ */
 public class DoctorFx {
 
     private IntegerProperty id = new SimpleIntegerProperty();

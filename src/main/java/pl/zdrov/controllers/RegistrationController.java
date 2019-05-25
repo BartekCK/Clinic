@@ -1,10 +1,6 @@
 package pl.zdrov.controllers;
 
-
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Patient;
@@ -16,61 +12,119 @@ import pl.zdrov.utilies.Utils;
 import pl.zdrov.utilies.exceptions.ApplicationException;
 import java.time.LocalDate;
 
-
+/**
+ * Klasa kontroluje wykonywane akcje na pliku Registration.fxml
+ */
 public class RegistrationController {
 
+    /**
+     * Przechowuje referencje obiektu, który odpowiada za akcje wykonywane na obiektach typu Registration
+     */
     private RegistrationModel registrationModel;
 
+    /**
+     * Obiekt służacy do wyświetlania godzin pracy wybranego lekarza
+     */
     private WorkHoursFx workHoursFx;
 
+    /**
+     * Referencja w celu wyświetlenia tekstu
+     */
     @FXML
     private TextField doctorNameTextField;
 
+    /**
+     * Referencja w celu wyświetlenia tekstu
+     */
     @FXML
     private TextField doctorSurnameTextField;
 
+    /**
+     * Referencja w celu wyświetlenia tekstu
+     */
     @FXML
     private TextField doctorSpecializationTextField;
-
+    /**
+     * Wyświela godziny pracy
+     */
     @FXML
     private TableView<WorkHoursFx> workTableView;
 
+    /**
+     * Wyświela godziny pracy
+     */
     @FXML
     private TableColumn<WorkHoursFx, String> dayWorkTableView;
 
+    /**
+     * Wyświela godziny pracy
+     */
     @FXML
     private TableColumn<WorkHoursFx, String> fromWorkTableView;
 
+    /**
+     * Wyświela godziny pracy
+     */
     @FXML
     private TableColumn<WorkHoursFx, String> toWorkTableView;
 
+    /**
+     * Wybór dnia wuzyty
+     */
     @FXML
     private DatePicker datePicker;
 
+    /**
+     * Referencja w celu wyświetlenia tekstu
+     */
     @FXML
     private TextField patientNameTextField;
 
+    /**
+     * Referencja w celu wyświetlenia tekstu
+     */
     @FXML
     private TextField patientSurnameTextField;
 
+    /**
+     * Referencja w celu wyświetlenia tekstu
+     */
     @FXML
     private TextField patientPeselTextField;
 
+    /**
+     * Referencja w celu wyświetlenia tekstu
+     */
     @FXML
     private TextField chooseDayTextField;
 
+    /**
+     * Wyświela godziny pracy
+     */
     @FXML
     private TableView<WorkHoursFx> registrationTableView;
 
+    /**
+     * Wyświela godziny pracy
+     */
     @FXML
     private TableColumn<WorkHoursFx, String> idTableColumn;
 
+    /**
+     * Wyświela godziny pracy
+     */
     @FXML
     private TableColumn<WorkHoursFx, String> fromTableColumn;
 
+    /**
+     * Wyświela godziny pracy
+     */
     @FXML
     private TableColumn<WorkHoursFx, String> toTableColumn;
 
+    /**
+     * Metoda wykonująca się tuż po konstruktorze
+     */
     @FXML
     public void initialize()
     {
@@ -99,8 +153,13 @@ public class RegistrationController {
 
     }
 
+    /**
+     * Metoda wykonująca się po kliknięciu przycisku
+     *
+     * Służy do zapisu rejestracji
+     */
     @FXML
-    void commitRegistration(ActionEvent actionEvent) {
+    void commitRegistration() {
 
         try {
             if (registrationModel.getDoctor() == null || registrationModel.getPatient() == null)
@@ -123,6 +182,10 @@ public class RegistrationController {
 
     }
 
+    /**
+     * Ustala doktora
+     * @param doctor wybrany lekarz
+     */
     public void setDoctor(Doctor doctor)
     {
         registrationModel.setDoctor(doctor);
@@ -132,6 +195,10 @@ public class RegistrationController {
 
     }
 
+    /**
+     * Ustala pacjenta
+     * @param patient wybrany pacjent
+     */
     public void setPatient(Patient patient) {
         registrationModel.setPatient(patient);
         patientNameTextField.setText(registrationModel.getPatient().getName());
@@ -139,6 +206,10 @@ public class RegistrationController {
         patientPeselTextField.setText(registrationModel.getPatient().getPesel());
     }
 
+    /**
+     * Sprawdza wolne godziny do rejestracji pacjenta
+     * @param localDate data wybranej wizyty
+     */
     public void checkFreeDates(LocalDate localDate)
     {
         try

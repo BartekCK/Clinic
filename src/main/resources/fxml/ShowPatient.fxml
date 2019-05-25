@@ -34,7 +34,6 @@
       </HBox>
       <TableView fx:id="patientTableView" prefHeight="600.0" VBox.vgrow="ALWAYS">
         <columns>
-          <TableColumn fx:id="idTableView" prefWidth="75.0" text="id" />
           <TableColumn fx:id="nameTableView" prefWidth="75.0" text="Imię" />
             <TableColumn fx:id="surnameTableView" prefWidth="75.0" text="Nazwisko" />
             <TableColumn fx:id="mailTableView" prefWidth="75.0" text="Mail" />

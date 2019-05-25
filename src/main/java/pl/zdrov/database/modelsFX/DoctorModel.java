@@ -10,12 +10,13 @@ import pl.zdrov.database.models.Specialization;
 import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.converters.ConverterDoctor;
 import pl.zdrov.utilies.exceptions.ApplicationException;
-
-
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Klasa zarządza akcjami na obiektach typu Doctor
+ */
 public class DoctorModel {
 
     private ObservableList<DoctorFx> doctorFxShowObservableList = FXCollections.observableArrayList();
@@ -26,6 +27,11 @@ public class DoctorModel {
     private Doctor doctor;
 
 
+    /**
+     * Zapis lekarza do bazy danych
+     * @param doctor lekarz który ma zostać zapisany
+     * @throws ApplicationException w przypadku wystąpienia błędu
+     */
     public void saveDoctorInDataBase(Doctor doctor) throws ApplicationException {
         DoctorDao doctorDao = new DoctorDao();
 
@@ -33,7 +39,10 @@ public class DoctorModel {
         DbConnector.closeConnectionSource();
     }
 
-    public void pullDoctorFromDataBase()
+    /**
+     * Pobranie wszystkich lekarzy z bazy danych
+     */
+    private void pullDoctorFromDataBase()
     {
         try {
             DoctorDao doctorDao = new DoctorDao();
@@ -44,6 +53,10 @@ public class DoctorModel {
         }
         DbConnector.closeConnectionSource();
     }
+
+    /**
+     * Metoda inicjuje klasę wartoścami początkowymi
+     */
     public void init()
     {
         pullDoctorFromDataBase();
@@ -61,6 +74,11 @@ public class DoctorModel {
         return doctorFxShowObservableList;
     }
 
+    /**
+     * Wyszukiwanie lekarza za pomocą imienia
+     * @param compare ciąg znakow do wyszukania
+     * @return lisę uzyskanych wyników
+     */
     public  ObservableList<DoctorFx> nameSearch(String compare)
     {
         doctorFxShowObservableListSearch.clear();
@@ -74,6 +92,11 @@ public class DoctorModel {
         return doctorFxShowObservableListSearch;
     }
 
+    /**
+     * Wyszukiwanie lekarza za pomocą nazwiska
+     * @param compare ciąg znakow do wyszukania
+     * @return lisę uzyskanych wyników
+     */
     public  ObservableList<DoctorFx> surnameSearch(String compare)
     {
         doctorFxShowObservableListSearch.clear();
@@ -87,6 +110,11 @@ public class DoctorModel {
         return doctorFxShowObservableListSearch;
     }
 
+    /**
+     * Wyszukiwanie lekarza za pomocą nazwy specializacji
+     * @param specialization rodzaj specializacji
+     * @return lisę uzyskanych wyników
+     */
     public  ObservableList<DoctorFx> specializationSearch(Specialization specialization)
     {
         doctorFxShowObservableListSearch.clear();
@@ -100,7 +128,9 @@ public class DoctorModel {
         return doctorFxShowObservableListSearch;
     }
 
-
+    /**
+     * Usuwa wybranego lekarza z bazy danych
+     */
     public void deleteDoctorInDataBase()
     {
 
@@ -118,12 +148,6 @@ public class DoctorModel {
             e.printStackTrace();
         }
     }
-
-
-
-
-
-
 
 
     public DoctorFx getDoctorFx() {

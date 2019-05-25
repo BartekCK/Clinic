@@ -1,10 +1,7 @@
 package pl.zdrov.controllers;
 
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
-import pl.zdrov.Main;
 import pl.zdrov.Path;
 import pl.zdrov.database.models.Specialization;
 import pl.zdrov.database.modelsFX.DoctorFx;
@@ -16,27 +13,46 @@ import pl.zdrov.utilies.FxmlUtilies;
 import pl.zdrov.utilies.converters.ConverterDoctor;
 import pl.zdrov.utilies.exceptions.ApplicationException;
 
-import java.io.IOException;
 
-
+/**
+ * Klasa kontroluje wykonywane akcje na pliku ShowDoctor.fxml
+ */
 public class ShowDoctorController{
 
+    /**
+     * Przechowuje referencje obiektu, który odpowiada za akcje wykonywane na obiekcie doctor
+     */
     private DoctorModel doctorModel;
 
+    /**
+     * Referencja w celu pobrania tekstu
+     */
     @FXML
     private TextField nameTextField;
+    /**
+     * Referencja w celu pobrania tekstu
+     */
     @FXML
     private TextField surnameTextField;
+    /**
+     * Referencja w celu pobrania specializacji
+     */
     @FXML
     private ComboBox<Specialization> specializationComboBox;
-
+    /**
+     * Wyświetlenie wszystkich lekarzy
+     */
     @FXML
     private TableView<DoctorFx> tableView;
-    @FXML
-    private TableColumn<DoctorFx, Number> idTableView;
+    /**
+     * Wyświetlenie wszystkich lekarzy
+     */
     @FXML
     private TableColumn<DoctorFx,String> nameTableView,surnameTableView,mailTableView, phoneTableView,specializationTableView;
 
+    /**
+     * Metoda wykonująca się tuż po konstruktorze
+     */
     @FXML
     public void initialize()
     {
@@ -47,7 +63,6 @@ public class ShowDoctorController{
         tableView.setPlaceholder(new Label("Brak wyników"));
 
         tableView.setItems(doctorModel.getDoctorFxShowObservableList());
-        idTableView.setCellValueFactory(cellData-> cellData.getValue().idProperty());
         nameTableView.setCellValueFactory(cellData-> cellData.getValue().nameProperty());
         surnameTableView.setCellValueFactory(cellData-> cellData.getValue().surNameProperty());
         mailTableView.setCellValueFactory(cellData-> cellData.getValue().mailProperty());
@@ -74,7 +89,9 @@ public class ShowDoctorController{
 
     }
 
-
+    /**
+     * Metoda czyszcząca wyszukiwanie
+     */
     @FXML
     public void clearSearch() {
         nameTextField.clear();
@@ -83,7 +100,9 @@ public class ShowDoctorController{
         tableView.setItems(doctorModel.getDoctorFxShowObservableList());
 
     }
-
+    /**
+     * Metoda wykonująca się po kliknięcu prawym przyciskiem myszy
+     */
     @FXML
     public void registerPatient() {
         RegistrationController registrationController;
@@ -95,10 +114,11 @@ public class ShowDoctorController{
             registrationController = BackgroundController.getRegistrationController();
         }
         registrationController.setDoctor(ConverterDoctor.convertToDoctor(doctorModel.getDoctorFx()));
-
-
-
     }
+
+    /**
+     * Metoda wykonująca się po kliknięcu prawym przyciskiem myszy
+     */
     @FXML
     private void showDoctor() {
 
@@ -107,7 +127,9 @@ public class ShowDoctorController{
 
     }
 
-
+    /**
+     * Metoda wykonująca się po kliknięcu prawym przyciskiem myszy
+     */
     @FXML
     public void checkWorkHourWork(){
 
@@ -115,8 +137,11 @@ public class ShowDoctorController{
         addWorkHoursController.setVisibleHbox();
         addWorkHoursController.showWorkHours(ConverterDoctor.convertToDoctor(doctorModel.getDoctorFx()));
 
-
     }
+
+    /**
+     * Metoda wykonująca się po kliknięcu prawym przyciskiem myszy
+     */
     @FXML
     public void editDoctor() {
 
@@ -124,6 +149,10 @@ public class ShowDoctorController{
         addDoctorController.setTextFields(ConverterDoctor.convertToDoctor(doctorModel.getDoctorFx()));
 
     }
+
+    /**
+     * Metoda wykonująca się po kliknięcu prawym przyciskiem myszy
+     */
     @FXML
     public void deleteDoctor() {
         try
@@ -138,6 +167,10 @@ public class ShowDoctorController{
 
     }
 
+    /**
+     * Ustala aktualnego wybranego lekarza w celu wykonywania na nim akcji
+     * @param newValue sprawdza czy ma wyświetlić wszystkie dane
+     */
     private void setMainObservableList(String newValue) {
         if(newValue.isEmpty())
         {

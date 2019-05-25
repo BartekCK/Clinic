@@ -1,52 +1,115 @@
 package pl.zdrov.controllers;
 
-
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import pl.zdrov.database.models.Patient;
 import pl.zdrov.database.modelsFX.PatientModel;
 import pl.zdrov.utilies.DialogCatch;
-import pl.zdrov.utilies.exceptions.ApplicationException;
 import pl.zdrov.utilies.exceptions.CorrectDataCommit;
 
+/**
+ * Klasa kontroluje wykonywane akcje na pliku AddPatient.fxml
+ */
 public class AddPatientController {
 
+    /**
+     * Przechowuje referencje do dodawanego pacjenta
+     */
     private Patient patient;
-    private boolean isNewPatient;
+
+    /**
+     * Przechowuje referencje obiektu, który odpowiada za akcje wykonywane na obiekcie doctor
+     */
     private PatientModel patientModel;
+
+    /**
+     * Sprawdza czy dodawany jest nowy obiekt, ponieważ może być to ecdycja istniejącego już obiektu
+     */
+    private boolean isNewPatient;
+
+    /**
+     * Referencja do obiektu w celu pobrania tekstu
+     */
     @FXML
     private TextField nameTextField;
+
+    /**
+     * Referencja do obiektu w celu pobrania tekstu
+     */
     @FXML
     private TextField surnameTextField;
+
+    /**
+     * Referencja do obiektu w celu pobrania tekstu
+     */
     @FXML
     private TextField peselTextField;
     @FXML
     private TextField mailTextField;
+
+    /**
+     * Referencja do obiektu w celu pobrania tekstu
+     */
     @FXML
     private TextField phoneTextField;
+
+    /**
+     * Referencja do obiektu w celu pobrania tekstu
+     */
     @FXML
     private ComboBox<String> nfzComboBox;
+
+    /**
+     * Referencja do obiektu w celu pobrania tekstu
+     */
     @FXML
     private TextField cityTextField;
+
+    /**
+     * Referencja do obiektu w celu pobrania tekstu
+     */
     @FXML
     private TextField adressTextField;
+
+    /**
+     * Referencja do obiektu w celu pobrania tekstu
+     */
     @FXML
     private TextField zipCode1TextField;
+
+    /**
+     * Referencja do obiektu w celu pobrania tekstu
+     */
     @FXML
     private TextField zipCode2TextField;
+
+    /**
+     * Referencja do obiektu w celu pobrania tekstu
+     */
     @FXML
     private TextField weightTextField;
+
+    /**
+     * Referencja do obiektu w celu pobrania tekstu
+     */
     @FXML
     private TextField heightTextField;
+
+    /**
+     * Referencja do obiektu w celu pobrania tekstu
+     */
     @FXML
     private Button saveButton;
 
+    /**
+     * Lista przochowywująca stałe wartości
+     *
+     * Przechowuje oddziałt NFZ, które w Polsce są stałą wartością i zależą od województw
+     */
     private final ObservableList<String> nfzList = FXCollections.observableArrayList("01 - Dolnośląski Oddział Narodowego Funduszu Zdrowia we Wrocławiu",
             "02 - Kujawsko-Pomorski Oddział Narodowego Funduszu Zdrowia w Bydgoszczy",
             "03 - Lubelski Oddział Narodowego Funduszu Zdrowia w Lublinie",
@@ -64,6 +127,9 @@ public class AddPatientController {
             "15 - Wielkopolski Oddział Narodowego Funduszu Zdrowia w Poznaniu",
             "16 - Zachodniopomorski Oddział Narodowego Funduszu Zdrowia w Szczecinie");
 
+    /**
+     * Metoda wykonująca się tuż po konstruktorze
+     */
     @FXML
     private void initialize()
     {
@@ -73,6 +139,11 @@ public class AddPatientController {
         this.isNewPatient = true;
     }
 
+    /**
+     * Metoda wykonująca się po kliknięciu przycisku saveButton
+     *
+     * Służy do utworzenia nowego obiektu lub edycji instniejącego, typu Patient i dodania go do bazy danych
+     */
     @FXML
     private void commitPatient() {
 
@@ -104,18 +175,27 @@ public class AddPatientController {
 
 
     }
-
+    /**
+     * Metoda opdowiada za bindowanie przycisku i wykorzystana jest w metodzie initialize
+     */
     private void hoverButtonToCommit() {
         saveButton.disableProperty().bind(nameTextField.textProperty().isEmpty().or(surnameTextField.textProperty().isEmpty()).or(peselTextField.textProperty().isEmpty())
                 .or(cityTextField.textProperty().isEmpty()).or(mailTextField.textProperty().isEmpty()).or(phoneTextField.textProperty().isEmpty())
                 .or(adressTextField.textProperty().isEmpty()).or(zipCode1TextField.textProperty().isEmpty()).or(zipCode2TextField.textProperty().isEmpty()));
     }
 
+    /**
+     * Łączy ze sobą dwa ciągi znaków
+     * @return zwraca uzysakne String z pól odpowiadających za kod pocztowy
+     */
     private String connectZipCode()
     {
         return zipCode1TextField.getText()+"-"+zipCode2TextField.getText();
     }
-
+    /**
+     * Metoda podczas wykoywania akcji edycji odpowiada za uzupełenie TextField stosownym tekstem
+     * @param patient to referencja to edytowanego obiektu pobranego z bazy danych
+     */
     public void setTextFields(Patient patient) {
 
         nameTextField.setText(patient.getName());

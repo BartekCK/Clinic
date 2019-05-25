@@ -1,5 +1,8 @@
 package pl.zdrov;
 
+/**
+ * Klasa pomaga w utworzeniu jar-a
+ */
 public class Launcher {
 
     public static void main(String[] args) {

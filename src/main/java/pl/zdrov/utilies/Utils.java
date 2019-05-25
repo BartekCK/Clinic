@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
+/**
+ * Klasa odpowiada za konwertowanie typów dat
+ */
 public class Utils {
 
     public static Date convertToDate(LocalDate localDate){

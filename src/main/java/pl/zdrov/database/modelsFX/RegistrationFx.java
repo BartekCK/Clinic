@@ -2,10 +2,11 @@ package pl.zdrov.database.modelsFX;
 
 
 import javafx.beans.property.*;
-
 import java.time.LocalDate;
 
-
+/**
+ * Klasa dla rejestracji ale pomaga ona wyświetlać dane w kontrolkach określnych w plikach fxml
+ */
 public class RegistrationFx {
 
     private IntegerProperty id = new SimpleIntegerProperty();

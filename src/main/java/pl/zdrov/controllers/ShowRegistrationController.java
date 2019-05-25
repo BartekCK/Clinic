@@ -12,60 +12,115 @@ import pl.zdrov.database.models.Specialization;
 import pl.zdrov.database.modelsFX.RegistrationFx;
 import pl.zdrov.database.modelsFX.RegistrationModel;
 import pl.zdrov.database.modelsFX.SpecializationModel;
-
 import java.time.LocalDate;
-
+/**
+ * Klasa kontroluje wykonywane akcje na pliku ShowRegistration.fxml
+ */
 public class ShowRegistrationController {
 
+    /**
+     * Przechowuje referencje obiektu, który odpowiada za akcje wykonywane na obiekcie registration
+     */
     private RegistrationModel registrationModel;
 
+    /**
+     * Przechowuje wszystkie możliwe do uzyskania godziny
+     */
     private final ObservableList<String> hourString = FXCollections.observableArrayList("08:00","08:30","09:00","09:30","10:00","10:30","11:00","11:30","12:00",
             "12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00");
+    /**
+     * Referencja w celu pobrania tekstu
+     */
     @FXML
     private TextField nameDoctorTextField;
 
+    /**
+     * Referencja w celu pobrania tekstu
+     */
     @FXML
     private TextField surnameDoctorTextField;
 
+    /**
+     * Referencja w celu pobrania specializacji
+     */
     @FXML
     private ComboBox<Specialization> specializationConboBox;
 
+    /**
+     * Referencja w celu pobrania tekstu
+     */
     @FXML
     private ComboBox<String> hourComboBox;
 
+    /**
+     * Referencja w celu wyboru daty
+     */
     @FXML
     private DatePicker datePicker;
 
+    /**
+     * Referencja w celu pobrania specializacji
+     */
     @FXML
     private TextField namePatientTextField;
 
+    /**
+     * Referencja w celu pobrania specializacji
+     */
     @FXML
     private TextField surnamePatientTextField;
 
+    /**
+     * Wyświetlenie wszystkich rejestracji
+     */
     @FXML
     private TableView<RegistrationFx> tableView;
 
+    /**
+     * Wyświetlenie wszystkich rejestracji
+     */
     @FXML
     private TableColumn<RegistrationFx, String> nameDoctorTableColumn;
 
+    /**
+     * Wyświetlenie wszystkich rejestracji
+     */
     @FXML
     private TableColumn<RegistrationFx, String> surnameDoctorTableColumn;
 
+    /**
+     * Wyświetlenie wszystkich rejestracji
+     */
     @FXML
     private TableColumn<RegistrationFx, String> specializationTableColumn;
 
+    /**
+     * Wyświetlenie wszystkich rejestracji
+     */
     @FXML
     private TableColumn<RegistrationFx, LocalDate> dateTableColumn;
 
+    /**
+     * Wyświetlenie wszystkich rejestracji
+     */
     @FXML
     private TableColumn<RegistrationFx, String> hourTableColumn;
 
+    /**
+     * Wyświetlenie wszystkich rejestracji
+     */
     @FXML
     private TableColumn<RegistrationFx, String> namePatientTableColumn;
 
+    /**
+     * Wyświetlenie wszystkich rejestracji
+     */
     @FXML
     private TableColumn<RegistrationFx, String> surnamePatientTableColumn;
 
+    /**
+     * Metoda wykonująca się tuż po konstruktorze
+     */
     @FXML
     public void initialize()
     {
@@ -129,6 +184,9 @@ public class ShowRegistrationController {
 
     }
 
+    /**
+     * Metoda czyszcząca wyszukiwanie
+     */
     @FXML
     void clearSearch(){
         nameDoctorTextField.clear();
@@ -147,11 +205,18 @@ public class ShowRegistrationController {
         tableView.setItems(registrationModel.getRegistrationFxShowObservableList());
     }
 
+    /**
+     * Metoda wykonująca się po kliknięcu prawym przyciskiem myszy
+     */
     @FXML
     void deleteRegistration() {
         registrationModel.deleteRegistrationInDataBase();
     }
 
+    /**
+     * Ustala atualnie wybrana rejestracje w celu wykonywania na niej akcji
+     * @param newValue sprawdza czy ma wyświetlić wszystkie dane
+     */
     private void setMainObservableList(String newValue) {
         if(newValue.isEmpty())
         {

@@ -4,21 +4,35 @@ import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
-import pl.zdrov.database.models.exception.BaseModel;
+import pl.zdrov.database.models.expands.BaseModel;
 
+/**
+ * Klasa przedstawia ogólną postać specializacji
+ */
 @DatabaseTable(tableName = "SPECIALIZATION")
 public class Specialization implements BaseModel {
 
+    /**
+     * Wszystkie dostępne specializacje w przychodni
+     */
     private static final String [] spec = {"Alergologia (0731)","Angiologia (0732)","Diabetologia (0740)","Endokrynologia (0741)","Farmakologia kliniczna (0742)","Gastroenterologia (0743)","Hematologia (0745)",
             "Kardiologia dziecieca (0762)","Medycyna paliatywna (0750)","Medycyna sportowa (0751)","Nefrologia (0752)","Neurologia dziecieca (0763)","Reumatologia (0757)"
     };
 
+    /**
+     * Identyfikator generowany automatycznie
+     */
     @DatabaseField(generatedId = true)
     protected int id;
-
+    /**
+     * Nazwa specializacji
+     */
     @DatabaseField(columnName = "TITLE", canBeNull = false)
     protected String title;
 
+    /**
+     * Dostęp do lekarzy za pomocą specializacji
+     */
     @ForeignCollectionField(eager = true)
     private ForeignCollection<Doctor> doctors;
 

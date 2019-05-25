@@ -1,10 +1,12 @@
 package pl.zdrov.utilies.exceptions;
 
-import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Patient;
 
+/**
+ * Klasa sprawdza czy dane zostały wprowadzone prawidłowo
+ */
 public class CorrectDataCommit
 {
 

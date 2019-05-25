@@ -8,11 +8,12 @@ import pl.zdrov.database.models.Patient;
 import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.converters.ConverterPatient;
 import pl.zdrov.utilies.exceptions.ApplicationException;
-
-import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Klasa zarządza akcjami na obiektach typu Doctor
+ */
 public class PatientModel {
 
     private ObservableList<PatientFx> patientFxShowObservableList = FXCollections.observableArrayList();
@@ -21,6 +22,11 @@ public class PatientModel {
     private PatientFx patientFx;
     private Patient patient;
 
+    /**
+     * Zapis pacjenta do bazy danych
+     * @param patient pacjent kotry ma zostac zapisany
+     * @throws ApplicationException w przypadku wystąpienia błędu
+     */
     public void savePatientInDataBase(Patient patient) throws ApplicationException {
         PatientDao patientDao = new PatientDao();
 
@@ -28,7 +34,10 @@ public class PatientModel {
         DbConnector.closeConnectionSource();
     }
 
-    public void pullPatientFromDataBase()
+    /**
+     * Pobranie wszystkich pacjentów z bazy danych
+     */
+    private void pullPatientFromDataBase()
     {
         try {
             PatientDao patientDao = new PatientDao();
@@ -39,6 +48,10 @@ public class PatientModel {
         }
         DbConnector.closeConnectionSource();
     }
+
+    /**
+     * Inicjowanie pracy
+     */
     public void init()
     {
         pullPatientFromDataBase();
@@ -51,7 +64,11 @@ public class PatientModel {
 
     }
 
-
+    /**
+     * Wyszukiwanie pacjenta za pomocą imienia
+     * @param compare ciąg znakow do wyszukania
+     * @return lisę uzyskanych wyników
+     */
     public  ObservableList<PatientFx> nameSearch(String compare)
     {
         patientFxShowObservableListSearch.clear();
@@ -65,6 +82,11 @@ public class PatientModel {
         return patientFxShowObservableListSearch;
     }
 
+    /**
+     * Wyszukiwanie pacjenta za pomocą nazwiska
+     * @param compare ciąg znakow do wyszukania
+     * @return lisę uzyskanych wyników
+     */
     public  ObservableList<PatientFx> surnameSearch(String compare)
     {
         patientFxShowObservableListSearch.clear();
@@ -78,6 +100,11 @@ public class PatientModel {
         return patientFxShowObservableListSearch;
     }
 
+    /**
+     * Wyszukiwanie pacjenta za pomocą peselu
+     * @param compare ciąg znakow do wyszukania
+     * @return lisę uzyskanych wyników
+     */
     public  ObservableList<PatientFx> peselSearch(String compare)
     {
         patientFxShowObservableListSearch.clear();
@@ -92,7 +119,9 @@ public class PatientModel {
     }
 
 
-
+    /**
+     * Usuwa wybranego pacjenta z bazy danych
+     */
     public void deletePatientInDataBase()
     {
 
@@ -106,8 +135,6 @@ public class PatientModel {
             DialogCatch.errorCommitDoctor(e.getMessage());
         }
     }
-
-
 
 
     public ObservableList<PatientFx> getPatientFxShowObservableList() {

@@ -1,13 +1,13 @@
 package pl.zdrov.database.modelsFX;
 
-
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-
-
+/**
+ * Klasa dla specializacji lekarza ale pomaga ona wyświetlać dane w kontrolkach określnych w plikach fxml
+ */
 public class SpecializationFx {
 
 

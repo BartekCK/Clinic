@@ -2,7 +2,6 @@ package pl.zdrov.database.modelsFX;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import pl.zdrov.controllers.BackgroundController;
 import pl.zdrov.database.DbConnector;
 import pl.zdrov.database.dao.WorkHoursDao;
 import pl.zdrov.database.models.Doctor;
@@ -10,7 +9,6 @@ import pl.zdrov.database.models.WorkHours;
 import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.converters.ConverterWorkHours;
 import pl.zdrov.utilies.exceptions.ApplicationException;
-
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
@@ -25,7 +23,9 @@ public class WorkHoursModel {
     private Doctor doctor;
 
 
-
+    /**
+     * Zapisuje godziny pracy lekarza do bazy danych
+     */
     public void saveWorkHoursInDataBase() {
 
         WorkHoursDao workHoursDao = new WorkHoursDao();
@@ -52,6 +52,7 @@ public class WorkHoursModel {
         DbConnector.closeConnectionSource();
     }
 
+
     public ObservableList<WorkHoursFx> getWorkHoursFxList() {
         return workHoursFxList;
     }
@@ -69,7 +70,11 @@ public class WorkHoursModel {
         workHoursFxList.remove(workHoursFx);
     }
 
-    public void pullWorkHoursFromDataBase(Doctor doctor)
+    /**
+     * Pobiera godziny pracy
+     * @param doctor wskazany lekarz dla pobrania godzin pracy
+     */
+    private void pullWorkHoursFromDataBase(Doctor doctor)
     {
         this.workHoursList.clear();
         this.workHoursFxList.clear();
@@ -83,6 +88,11 @@ public class WorkHoursModel {
         }
         DbConnector.closeConnectionSource();
     }
+
+    /**
+     * Inicjajcja pracy z obiektami tej klasy
+     * @param doctor lekarz do ktorego godziny pracy przynależą
+     */
     public void init(Doctor doctor)
     {
         this.doctor = doctor;

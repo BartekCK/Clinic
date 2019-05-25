@@ -7,7 +7,7 @@ import pl.zdrov.database.dao.RegistrationDao;
 import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Patient;
 import pl.zdrov.database.models.Registration;
-import pl.zdrov.database.models.exception.BaseModel;
+import pl.zdrov.database.models.expands.BaseModel;
 import pl.zdrov.utilies.DialogCatch;
 import pl.zdrov.utilies.Utils;
 import pl.zdrov.utilies.converters.ConvertRegistration;

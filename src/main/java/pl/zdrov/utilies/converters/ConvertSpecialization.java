@@ -2,7 +2,9 @@ package pl.zdrov.utilies.converters;
 
 import pl.zdrov.database.models.Specialization;
 import pl.zdrov.database.modelsFX.SpecializationFx;
-
+/**
+ * Klasa opowiada za konwetrowanie obiektów między Specialization a SpecializationFx
+ */
 public class ConvertSpecialization {
 
 

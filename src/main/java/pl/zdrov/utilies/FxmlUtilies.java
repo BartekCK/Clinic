@@ -9,6 +9,9 @@ import pl.zdrov.database.models.Doctor;
 
 import java.io.IOException;
 
+/**
+ * Klasa odpowiada za połączenie Javy z plikami fxml
+ */
 public class FxmlUtilies {
 
 

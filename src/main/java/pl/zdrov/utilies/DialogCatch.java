@@ -2,8 +2,10 @@ package pl.zdrov.utilies;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import org.w3c.dom.Text;
 
+/**
+ * Klasa odpowiada za wyświetlanie małych okien informacyjnych dotyczących działania programu.
+ */
 public class DialogCatch {
 
     public static void errorCommitDoctor(String error)

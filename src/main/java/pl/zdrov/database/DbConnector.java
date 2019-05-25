@@ -11,6 +11,9 @@ import pl.zdrov.database.modelsFX.SpecializationModel;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Połączenie z bazą danych
+ */
 public class DbConnector {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DbConnector.class);
@@ -20,6 +23,9 @@ public class DbConnector {
 
     private static ConnectionSource connectionSource;
 
+    /**
+     * Zbior najważniejszych metod w jednej
+     */
     public static void initDatabase(){
         createConnectionSource();
         //dropTable();
@@ -28,6 +34,9 @@ public class DbConnector {
         closeConnectionSource();
     }
 
+    /**
+     * Tworzenie nowego połączenia
+     */
     private static void createConnectionSource(){
         try {
             connectionSource = new JdbcConnectionSource(JDBC_DRIVER_HD);
@@ -36,6 +45,10 @@ public class DbConnector {
         }
     }
 
+    /**
+     * Geter od połączenia
+     * @return aktywne połączenie
+     */
     public static ConnectionSource getConnectionSource(){
         if(connectionSource == null){
             createConnectionSource();
@@ -43,6 +56,9 @@ public class DbConnector {
         return connectionSource;
     }
 
+    /**
+     * Zamyka aktywne połączenie z bazą
+     */
     public static void closeConnectionSource(){
         if(connectionSource!=null) try {
             connectionSource.close();
@@ -51,6 +67,9 @@ public class DbConnector {
         }
     }
 
+    /**
+     * Tworzy tabele jeżeli nie istnieją
+     */
     private static void createTable(){
         try {
             TableUtils.createTableIfNotExists(connectionSource, Doctor.class);
@@ -63,6 +82,9 @@ public class DbConnector {
         }
     }
 
+    /**
+     * Usuwa tabele
+     */
     private static void dropTable(){
         try {
             TableUtils.dropTable(connectionSource, Doctor.class,true);
@@ -75,6 +97,9 @@ public class DbConnector {
         }
     }
 
+    /**
+     * Ładuje program danymi początkowymi
+     */
     private static void loadData()
     {
         if(SpecializationModel.isDataBaseSpecializationEmpty())

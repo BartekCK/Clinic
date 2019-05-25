@@ -7,48 +7,35 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import pl.zdrov.database.models.Doctor;
 import pl.zdrov.database.models.Patient;
-import pl.zdrov.database.models.exception.BaseModel;
+import pl.zdrov.database.models.expands.BaseModel;
 
+/**
+ * Klasa kontroluje wykonywane akcje na pliku ShowPerson.fxml
+ */
 public class ShowPersonController {
+
+    /**
+     * Referencja w celu wyświetlenia tekstu
+     */
     @FXML
-    private TextField nameTextField;
-    @FXML
-    private TextField surnameTextField;
-    @FXML
-    private TextField peselTextField;
-    @FXML
-    private TextField phoneTextField;
-    @FXML
-    private TextField mailTextField;
-    @FXML
-    private TextField pwzTextField;
-    @FXML
-    private TextField specializationTextField;
-    @FXML
-    private TextField adressTextField;
-    @FXML
-    private TextField zipTextField;
-    @FXML
-    private TextField cityTextField;
-    @FXML
-    private TextField nfzTextField;
-    @FXML
-    private TextField weightTextField;
-    @FXML
-    private TextField heightTextField;
+    private TextField nameTextField, surnameTextField, peselTextField,phoneTextField,mailTextField,pwzTextField, specializationTextField,
+            adressTextField,zipTextField, cityTextField,nfzTextField, weightTextField, heightTextField;
+    /**
+     * Ustala aktywne zdjęcie
+     */
     @FXML
     private ImageView image;
+    /**
+     * Jest to Scena, na której wykonywane są operacje
+     */
     @FXML
-    private HBox doctorHBox;
-    @FXML
-    private HBox patientHBox1;
-    @FXML
-    private HBox patientHBox2;
-    @FXML
-    private HBox patientHBox3;
+    private HBox doctorHBox,patientHBox1, patientHBox2, patientHBox3;
 
 
-
+    /**
+     * Ustawia zdjęcie w zależności czy to lekarz czy pacjent
+     * @param baseModel to lekarz lub pacjent
+     */
     public void setImage(BaseModel baseModel)
     {
         if (baseModel instanceof Patient)
